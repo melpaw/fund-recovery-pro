@@ -125,12 +125,12 @@
   text-transform: uppercase;
   color: var(--gold);
   font-weight: 500;
-}
-@utility gold-rule::before {
-  content: "";
-  width: 2.5rem;
-  height: 1px;
-  background: var(--gold);
+  &::before {
+    content: "";
+    width: 2.5rem;
+    height: 1px;
+    background: var(--gold);
+  }
 }
 
 @utility btn-gold {

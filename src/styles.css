@@ -149,11 +149,11 @@
   transition: all 0.3s ease;
   border: 1px solid var(--gold);
   box-shadow: var(--shadow-gold);
-}
-@utility btn-gold:hover {
-  background: var(--gold-soft);
-  border-color: var(--gold-soft);
-  transform: translateY(-1px);
+  &:hover {
+    background: var(--gold-soft);
+    border-color: var(--gold-soft);
+    transform: translateY(-1px);
+  }
 }
 
 @utility btn-outline-gold {
@@ -171,10 +171,10 @@
   text-transform: uppercase;
   border: 1px solid color-mix(in oklab, var(--parchment) 30%, transparent);
   transition: all 0.3s ease;
-}
-@utility btn-outline-gold:hover {
-  border-color: var(--gold);
-  color: var(--gold);
+  &:hover {
+    border-color: var(--gold);
+    color: var(--gold);
+  }
 }
 
 @utility card-navy {

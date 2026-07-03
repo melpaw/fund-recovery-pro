@@ -33,6 +33,7 @@ const NAV = [
   { label: "Atuação", href: "#atuacao" },
   { label: "Método", href: "#metodo" },
   { label: "Resultados", href: "#resultados" },
+  { label: "Presença", href: "#presenca" },
   { label: "Depoimentos", href: "#depoimentos" },
   { label: "Contato", href: "#contato" },
 ];

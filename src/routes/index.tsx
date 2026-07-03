@@ -421,9 +421,7 @@ function Index() {
             </span>
             <blockquote className="mt-8 font-display text-3xl leading-[1.25] text-parchment md:text-4xl">
               "A recuperação de patrimônio não começa no tribunal — começa em
-              como se escreve a primeira linha do processo. Aqui, cada palavra
-              é escolhida com a certeza de que ela pode devolver a alguém o que
-              foi tomado."
+              como se escreve a primeira linha do processo."
             </blockquote>
             <div className="mt-10 grid gap-6 sm:grid-cols-3">
               <div>

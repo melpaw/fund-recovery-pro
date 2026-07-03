@@ -17,9 +17,11 @@ import {
   Coins,
   Landmark,
   Bitcoin,
+  Globe,
 } from "lucide-react";
 import heroJustice from "@/assets/hero-justice.jpg";
 import attorney from "@/assets/attorney.jpg";
+import worldMap from "@/assets/world-map.jpg";
 
 export const Route = createFileRoute("/")({
   component: Index,

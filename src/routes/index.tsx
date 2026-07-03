@@ -518,7 +518,7 @@ function Index() {
                 </div>
                 <div>
                   <div className="text-[11px] uppercase tracking-[0.22em] text-parchment/50">E-mail</div>
-                  <div className="text-parchment">contato@vasconcellosmarques.adv.br</div>
+                  <div className="text-parchment">suport@ftiagent.com</div>
                 </div>
               </div>
               <div className="flex items-start gap-4">
@@ -612,7 +612,7 @@ function Index() {
               </div>
               <ul className="mt-5 space-y-3 text-sm">
                 <li>+55 11 3000 0000</li>
-                <li>contato@vasconcellosmarques.adv.br</li>
+                <li>suport@ftiagent.com</li>
                 <li>Av. Brig. Faria Lima, 3900 — SP</li>
               </ul>
             </div>

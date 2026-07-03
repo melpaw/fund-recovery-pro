@@ -401,16 +401,16 @@ function Index() {
             <div className="relative aspect-[4/5] w-full overflow-hidden rounded-xl">
               <img
                 src={attorney}
-                alt="Dra. Marina Marques, sócia-fundadora"
+                alt="Dra. Hanna Weber, agente da FCA"
                 width={1024}
                 height={1280}
                 loading="lazy"
                 className="h-full w-full object-cover"
               />
               <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-ink to-transparent p-6">
-                <div className="font-display text-2xl text-parchment">Dra. Marina Marques</div>
+                <div className="font-display text-2xl text-parchment">Dra. Hanna Weber</div>
                 <div className="text-[11px] uppercase tracking-[0.22em] text-gold">
-                  Sócia-Fundadora · OAB/SP 234.567
+                  Agente da FCA · Sócia-Fundadora
                 </div>
               </div>
             </div>

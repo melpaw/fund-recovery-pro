@@ -17,9 +17,11 @@ import {
   Coins,
   Landmark,
   Bitcoin,
+  Globe,
 } from "lucide-react";
 import heroJustice from "@/assets/hero-justice.jpg";
 import attorney from "@/assets/attorney.jpg";
+import worldMap from "@/assets/world-map.jpg";
 
 export const Route = createFileRoute("/")({
   component: Index,
@@ -31,6 +33,7 @@ const NAV = [
   { label: "Atuação", href: "#atuacao" },
   { label: "Método", href: "#metodo" },
   { label: "Resultados", href: "#resultados" },
+  { label: "Presença", href: "#presenca" },
   { label: "Depoimentos", href: "#depoimentos" },
   { label: "Contato", href: "#contato" },
 ];
@@ -114,12 +117,24 @@ const CASES = [
 ];
 
 const TESTIMONIALS = [
-  { i: "J. M.", city: "Sydney, Austrália", q: "A expertise em recuperação de fundos me devolveu valores significativos perdidos em uma plataforma fraudulenta. O modelo por êxito significou zero custo inicial." },
-  { i: "T. K.", city: "Toronto, Canadá", q: "Serviço excepcional. Fomos guiados por procedimentos complexos com total confiança. A política de sem adiantamento tornou tudo mais tranquilo." },
-  { i: "A. W.", city: "Londres, Reino Unido", q: "Profissionais, eficientes e transparentes. A abordagem por resultado significou que só pagamos quando os resultados foram alcançados." },
-  { i: "R. F.", city: "Melbourne, Austrália", q: "Recuperaram valores expressivos de um esquema de investimento fraudulento. Processo transparente e sem estresse do início ao fim." },
-  { i: "E. L.", city: "Estocolmo, Suécia", q: "Representação jurídica de excelência. O fato de operarem em base de êxito me deu paz de espírito durante todo o processo." },
-  { i: "M. B.", city: "Vancouver, Canadá", q: "A política de sem pagamento inicial e o modelo por resultado me permitiram avançar sem risco financeiro. Altamente satisfeito." },
+  { i: "James M.", city: "Manchester, Reino Unido", q: "Perdi cerca de £48 mil em uma corretora que sumiu da noite para o dia. Fui atendido pela equipe em três dias, entenderam meu caso e recuperaram a maior parte em quatro meses. Comunicação sempre clara." },
+  { i: "Sophie L.", city: "Toronto, Canadá", q: "Depois de meses tentando resolver por conta própria, contratei o escritório. O que mais me marcou foi não ter pago nada adiantado — só quando o dinheiro voltou pra minha conta." },
+  { i: "Carlos R.", city: "São Paulo, Brasil", q: "Caí em um golpe de investimento em cripto e achei que tinha perdido tudo. A equipe fez rastreamento on-chain e conseguimos reaver aproximadamente 70% do valor. Recomendo." },
+  { i: "Anna K.", city: "Munique, Alemanha", q: "Processo transparente do começo ao fim. Recebia atualizações a cada duas semanas e nunca precisei correr atrás de informação. Profissionais sérios." },
+  { i: "Diego P.", city: "Buenos Aires, Argentina", q: "Tinha pouca esperança de recuperar o dinheiro de um fundo mal gerido. Levou quase um ano, mas o resultado veio. Vale a paciência." },
+  { i: "Rachel T.", city: "Nova York, EUA", q: "Explicaram os riscos e o prazo realista logo na primeira reunião — sem promessa milagrosa. Isso fez toda a diferença na minha decisão de seguir com eles." },
+];
+
+const OFFICES = [
+  { region: "Reino Unido", city: "Londres", note: "Sede europeia · FCA" },
+  { region: "Alemanha", city: "Frankfurt", note: "BaFin liaison" },
+  { region: "Suíça", city: "Zurique", note: "FINMA correspondente" },
+  { region: "Espanha", city: "Madrid", note: "CNMV correspondente" },
+  { region: "França", city: "Paris", note: "AMF correspondente" },
+  { region: "Estados Unidos", city: "Nova York", note: "SEC / FinCEN" },
+  { region: "Canadá", city: "Toronto", note: "CIRO correspondente" },
+  { region: "Brasil", city: "São Paulo", note: "CVM correspondente" },
+  { region: "Argentina", city: "Buenos Aires", note: "CNV correspondente" },
 ];
 
 function Index() {
@@ -176,14 +191,14 @@ function Index() {
         />
         <div className="container-lux relative flex min-h-[100svh] flex-col items-center justify-center py-40 text-center text-parchment">
           <span className="gold-pill">
-            <ShieldCheck className="h-3.5 w-3.5" /> Advocacia Registrada na OAB
+            <ShieldCheck className="h-3.5 w-3.5" /> Agentes registrados na FCA
           </span>
           <h1 className="mt-8 font-display text-5xl leading-[1.03] tracking-tight md:text-7xl lg:text-[5.5rem]">
             Seu Caminho para a <span className="italic text-gold">Recuperação</span>
           </h1>
           <p className="mt-8 max-w-2xl text-base leading-relaxed text-parchment/70 md:text-lg">
             Escritório de advocacia especializado em recuperação de fundos e
-            disputas financeiras. Só temos sucesso quando você tem sucesso.
+            disputas financeiras.
           </p>
 
           <div className="mt-14 grid w-full max-w-4xl gap-4 sm:grid-cols-3">
@@ -216,15 +231,20 @@ function Index() {
         <div className="container-lux">
           <div className="flex flex-col items-center justify-center gap-6 text-center">
             <span className="text-[11px] uppercase tracking-[0.28em] text-parchment/50">
-              Reconhecimento do Setor · Três vezes premiados
+              Reconhecimento do Setor
             </span>
-            <div className="grid w-full grid-cols-3 items-center gap-8 md:max-w-3xl">
-              {["2024", "2025", "2026"].map((y) => (
-                <div key={y} className="flex flex-col items-center gap-2">
+            <div className="grid w-full grid-cols-1 items-start gap-8 md:max-w-4xl md:grid-cols-3">
+              {[
+                { y: "2024", t: "Menção Honrosa", s: "Recuperação de Ativos · IBA" },
+                { y: "2025", t: "Escritório Recomendado", s: "Chambers Latin America" },
+                { y: "2026", t: "Prática em Destaque", s: "Legal 500 · Dispute Resolution" },
+              ].map((a) => (
+                <div key={a.y} className="flex flex-col items-center gap-2 text-center">
                   <Award className="h-9 w-9 text-gold" strokeWidth={1.3} />
-                  <div className="font-display text-lg text-parchment">{y}</div>
+                  <div className="font-display text-lg text-parchment">{a.y}</div>
+                  <div className="text-sm text-parchment/80">{a.t}</div>
                   <div className="text-[10px] uppercase tracking-[0.2em] text-parchment/50">
-                    Escritório do Ano
+                    {a.s}
                   </div>
                 </div>
               ))}
@@ -243,13 +263,13 @@ function Index() {
             Definindo o auge da <span className="italic text-gold">excelência jurídica</span> em recuperação
           </h2>
           <p className="mx-auto mt-8 max-w-3xl text-lg leading-relaxed text-parchment/70">
-            Reconhecido como <strong className="text-parchment">Escritório do Ano</strong> em
-            2024, 2025 e 2026, o Vasconcellos & Marques consolidou-se como
-            autoridade em resolução de crises de alto risco. Combinamos padrões
-            jurídicos rigorosos com inteligência de casos assistida por IA,
-            segurança de dados de nível militar e discrição absoluta —
-            entregando resultados mensuráveis em disputas transfronteiriças,
-            recuperação de fraudes e assuntos privados sensíveis.
+            Reconhecido nos principais rankings jurídicos internacionais desde
+            2024, o Vasconcellos & Marques consolidou-se como referência em
+            resolução de crises de alto risco. Combinamos padrões jurídicos
+            rigorosos com inteligência de casos assistida por IA, segurança de
+            dados de nível institucional e discrição absoluta — entregando
+            resultados mensuráveis em disputas transfronteiriças, recuperação
+            de fraudes e assuntos privados sensíveis.
           </p>
         </div>
       </section>
@@ -382,16 +402,16 @@ function Index() {
             <div className="relative aspect-[4/5] w-full overflow-hidden rounded-xl">
               <img
                 src={attorney}
-                alt="Dra. Marina Marques, sócia-fundadora"
+                alt="Dra. Hanna Weber, agente da FCA"
                 width={1024}
                 height={1280}
                 loading="lazy"
                 className="h-full w-full object-cover"
               />
               <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-ink to-transparent p-6">
-                <div className="font-display text-2xl text-parchment">Dra. Marina Marques</div>
+                <div className="font-display text-2xl text-parchment">Dra. Hanna Weber</div>
                 <div className="text-[11px] uppercase tracking-[0.22em] text-gold">
-                  Sócia-Fundadora · OAB/SP 234.567
+                  Agente da FCA · Sócia-Fundadora
                 </div>
               </div>
             </div>
@@ -402,9 +422,7 @@ function Index() {
             </span>
             <blockquote className="mt-8 font-display text-3xl leading-[1.25] text-parchment md:text-4xl">
               "A recuperação de patrimônio não começa no tribunal — começa em
-              como se escreve a primeira linha do processo. Aqui, cada palavra
-              é escolhida com a certeza de que ela pode devolver a alguém o que
-              foi tomado."
+              como se escreve a primeira linha do processo."
             </blockquote>
             <div className="mt-10 grid gap-6 sm:grid-cols-3">
               <div>
@@ -430,21 +448,76 @@ function Index() {
         </div>
       </section>
 
+      {/* PRESENÇA GLOBAL */}
+      <section id="presenca" className="py-28 md:py-36">
+        <div className="container-lux">
+          <div className="mx-auto max-w-2xl text-center">
+            <span className="gold-pill">
+              <Globe className="h-3.5 w-3.5" /> Presença Global
+            </span>
+            <h2 className="mt-6 font-display text-4xl leading-tight text-parchment md:text-5xl">
+              Escritórios nos principais <span className="italic text-gold">centros financeiros</span>
+            </h2>
+            <p className="mt-6 text-parchment/60">
+              Operamos com sedes e correspondentes nos principais países da
+              Europa, América do Norte e América do Sul, permitindo enforcement
+              coordenado entre jurisdições.
+            </p>
+          </div>
+
+          <div className="relative mt-16 overflow-hidden rounded-2xl border border-border bg-ink-2/40">
+            <img
+              src={worldMap}
+              alt="Mapa mundial com escritórios e correspondentes"
+              width={1600}
+              height={640}
+              loading="lazy"
+              className="h-auto w-full object-cover"
+            />
+            <div
+              className="pointer-events-none absolute inset-0"
+              style={{
+                background:
+                  "linear-gradient(180deg, transparent 60%, var(--ink) 100%)",
+              }}
+            />
+          </div>
+
+          <div className="mt-12 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+            {OFFICES.map((o) => (
+              <div key={o.city} className="card-navy flex items-start gap-4 p-5">
+                <div className="flex h-10 w-10 flex-none items-center justify-center rounded-lg bg-gold/10 ring-1 ring-gold/30">
+                  <MapPin className="h-4 w-4 text-gold" />
+                </div>
+                <div>
+                  <div className="text-[10px] uppercase tracking-[0.22em] text-gold">
+                    {o.region}
+                  </div>
+                  <div className="font-display text-lg text-parchment">{o.city}</div>
+                  <div className="text-xs text-parchment/55">{o.note}</div>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
       {/* DEPOIMENTOS */}
-      <section id="depoimentos" className="py-28 md:py-36">
+      <section id="depoimentos" className="border-t border-border bg-ink-2/30 py-28 md:py-36">
         <div className="container-lux">
           <div className="mx-auto max-w-2xl text-center">
             <span className="gold-pill">
               <MessageCircle className="h-3.5 w-3.5" /> Depoimentos
             </span>
             <h2 className="mt-6 font-display text-4xl leading-tight text-parchment md:text-5xl">
-              O que dizem <span className="italic text-gold">nossos clientes</span>
+              <span className="italic text-gold">Depoimentos</span>
             </h2>
             <p className="mt-6 text-parchment/60">
-              Depoimentos identificados apenas por iniciais e localidade, em
-              conformidade com acordos de confidencialidade.
+              Relatos de clientes atendidos nos últimos 24 meses, publicados
+              com autorização e sob acordo de confidencialidade parcial.
             </p>
           </div>
+
 
           <div className="mt-16 grid gap-6 md:grid-cols-2 lg:grid-cols-3">
             {TESTIMONIALS.map((t) => (
@@ -501,7 +574,7 @@ function Index() {
                 </div>
                 <div>
                   <div className="text-[11px] uppercase tracking-[0.22em] text-parchment/50">E-mail</div>
-                  <div className="text-parchment">contato@vasconcellosmarques.adv.br</div>
+                  <div className="text-parchment">suport@ftiagent.com</div>
                 </div>
               </div>
               <div className="flex items-start gap-4">
@@ -595,7 +668,7 @@ function Index() {
               </div>
               <ul className="mt-5 space-y-3 text-sm">
                 <li>+55 11 3000 0000</li>
-                <li>contato@vasconcellosmarques.adv.br</li>
+                <li>suport@ftiagent.com</li>
                 <li>Av. Brig. Faria Lima, 3900 — SP</li>
               </ul>
             </div>

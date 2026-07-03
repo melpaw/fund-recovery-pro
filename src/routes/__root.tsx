@@ -92,6 +92,12 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
+      { name: "twitter:title", content: "FTI — Recuperação de Fundos e Ativos" },
+      { name: "description", content: "Agentes especializados em recuperação de fundos, ativos financeiros e créditos. Estratégia internacional de alta performance para investidores e empresas." },
+      { property: "og:description", content: "Agentes especializados em recuperação de fundos, ativos financeiros e créditos. Estratégia internacional de alta performance para investidores e empresas." },
+      { name: "twitter:description", content: "Agentes especializados em recuperação de fundos, ativos financeiros e créditos. Estratégia internacional de alta performance para investidores e empresas." },
+      { property: "og:image", content: "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/f6077743-3799-4e3b-8d64-b77a30cf4e43/id-preview-90664058--09e32f92-d056-41e3-8d6b-a8b976c06b15.lovable.app-1783111375784.png" },
+      { name: "twitter:image", content: "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/f6077743-3799-4e3b-8d64-b77a30cf4e43/id-preview-90664058--09e32f92-d056-41e3-8d6b-a8b976c06b15.lovable.app-1783111375784.png" },
     ],
     links: [
       { rel: "stylesheet", href: appCss },

@@ -230,15 +230,20 @@ function Index() {
         <div className="container-lux">
           <div className="flex flex-col items-center justify-center gap-6 text-center">
             <span className="text-[11px] uppercase tracking-[0.28em] text-parchment/50">
-              Reconhecimento do Setor · Três vezes premiados
+              Reconhecimento do Setor
             </span>
-            <div className="grid w-full grid-cols-3 items-center gap-8 md:max-w-3xl">
-              {["2024", "2025", "2026"].map((y) => (
-                <div key={y} className="flex flex-col items-center gap-2">
+            <div className="grid w-full grid-cols-1 items-start gap-8 md:max-w-4xl md:grid-cols-3">
+              {[
+                { y: "2024", t: "Menção Honrosa", s: "Recuperação de Ativos · IBA" },
+                { y: "2025", t: "Escritório Recomendado", s: "Chambers Latin America" },
+                { y: "2026", t: "Prática em Destaque", s: "Legal 500 · Dispute Resolution" },
+              ].map((a) => (
+                <div key={a.y} className="flex flex-col items-center gap-2 text-center">
                   <Award className="h-9 w-9 text-gold" strokeWidth={1.3} />
-                  <div className="font-display text-lg text-parchment">{y}</div>
+                  <div className="font-display text-lg text-parchment">{a.y}</div>
+                  <div className="text-sm text-parchment/80">{a.t}</div>
                   <div className="text-[10px] uppercase tracking-[0.2em] text-parchment/50">
-                    Escritório do Ano
+                    {a.s}
                   </div>
                 </div>
               ))}

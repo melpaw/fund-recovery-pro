@@ -116,12 +116,24 @@ const CASES = [
 ];
 
 const TESTIMONIALS = [
-  { i: "J. M.", city: "Sydney, Austrália", q: "A expertise em recuperação de fundos me devolveu valores significativos perdidos em uma plataforma fraudulenta. O modelo por êxito significou zero custo inicial." },
-  { i: "T. K.", city: "Toronto, Canadá", q: "Serviço excepcional. Fomos guiados por procedimentos complexos com total confiança. A política de sem adiantamento tornou tudo mais tranquilo." },
-  { i: "A. W.", city: "Londres, Reino Unido", q: "Profissionais, eficientes e transparentes. A abordagem por resultado significou que só pagamos quando os resultados foram alcançados." },
-  { i: "R. F.", city: "Melbourne, Austrália", q: "Recuperaram valores expressivos de um esquema de investimento fraudulento. Processo transparente e sem estresse do início ao fim." },
-  { i: "E. L.", city: "Estocolmo, Suécia", q: "Representação jurídica de excelência. O fato de operarem em base de êxito me deu paz de espírito durante todo o processo." },
-  { i: "M. B.", city: "Vancouver, Canadá", q: "A política de sem pagamento inicial e o modelo por resultado me permitiram avançar sem risco financeiro. Altamente satisfeito." },
+  { i: "James M.", city: "Manchester, Reino Unido", q: "Perdi cerca de £48 mil em uma corretora que sumiu da noite para o dia. Fui atendido pela equipe em três dias, entenderam meu caso e recuperaram a maior parte em quatro meses. Comunicação sempre clara." },
+  { i: "Sophie L.", city: "Toronto, Canadá", q: "Depois de meses tentando resolver por conta própria, contratei o escritório. O que mais me marcou foi não ter pago nada adiantado — só quando o dinheiro voltou pra minha conta." },
+  { i: "Carlos R.", city: "São Paulo, Brasil", q: "Caí em um golpe de investimento em cripto e achei que tinha perdido tudo. A equipe fez rastreamento on-chain e conseguimos reaver aproximadamente 70% do valor. Recomendo." },
+  { i: "Anna K.", city: "Munique, Alemanha", q: "Processo transparente do começo ao fim. Recebia atualizações a cada duas semanas e nunca precisei correr atrás de informação. Profissionais sérios." },
+  { i: "Diego P.", city: "Buenos Aires, Argentina", q: "Tinha pouca esperança de recuperar o dinheiro de um fundo mal gerido. Levou quase um ano, mas o resultado veio. Vale a paciência." },
+  { i: "Rachel T.", city: "Nova York, EUA", q: "Explicaram os riscos e o prazo realista logo na primeira reunião — sem promessa milagrosa. Isso fez toda a diferença na minha decisão de seguir com eles." },
+];
+
+const OFFICES = [
+  { region: "Reino Unido", city: "Londres", note: "Sede europeia · FCA" },
+  { region: "Alemanha", city: "Frankfurt", note: "BaFin liaison" },
+  { region: "Suíça", city: "Zurique", note: "FINMA correspondente" },
+  { region: "Espanha", city: "Madrid", note: "CNMV correspondente" },
+  { region: "França", city: "Paris", note: "AMF correspondente" },
+  { region: "Estados Unidos", city: "Nova York", note: "SEC / FinCEN" },
+  { region: "Canadá", city: "Toronto", note: "CIRO correspondente" },
+  { region: "Brasil", city: "São Paulo", note: "CVM correspondente" },
+  { region: "Argentina", city: "Buenos Aires", note: "CNV correspondente" },
 ];
 
 function Index() {

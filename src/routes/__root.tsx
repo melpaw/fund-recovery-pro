@@ -77,14 +77,14 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { title: "Vasconcellos & Marques — Recuperação de Fundos e Ativos" },
+      { title: "FTI — Recuperação de Fundos e Ativos" },
       {
         name: "description",
         content:
-          "Escritório de advocacia especializado em recuperação de fundos, ativos financeiros e créditos. Estratégia jurídica de alta performance para investidores e empresas.",
+          "Agentes especializados em recuperação de fundos, ativos financeiros e créditos. Estratégia internacional de alta performance para investidores e empresas.",
       },
-      { name: "author", content: "Vasconcellos & Marques Advogados" },
-      { property: "og:title", content: "Vasconcellos & Marques — Recuperação de Fundos" },
+      { name: "author", content: "FTI Recovery" },
+      { property: "og:title", content: "FTI — Recuperação de Fundos e Ativos" },
       {
         property: "og:description",
         content:

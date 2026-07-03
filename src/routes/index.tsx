@@ -41,7 +41,7 @@ const NAV = [
 const HERO_BADGES = [
   { t: "Sem Êxito, Sem Honorários", s: "Pagamento apenas em caso de sucesso" },
   { t: "Zero Custo Inicial", s: "Nenhum valor adiantado" },
-  { t: "OAB Federal", s: "Registro nacional ativo" },
+  { t: "Registro na FCA", s: "Autoridade de conduta financeira (UK)" },
 ];
 
 const SERVICES = [
@@ -68,8 +68,8 @@ const SERVICES = [
 const WHY = [
   {
     icon: ShieldCheck,
-    title: "Registro na OAB",
-    text: "Escritório com advogados devidamente inscritos, em conformidade rigorosa com padrões éticos e legais.",
+    title: "Registro na FCA",
+    text: "Agentes registrados na Financial Conduct Authority, em conformidade rigorosa com os padrões de conduta do setor.",
   },
   {
     icon: Handshake,
@@ -148,11 +148,11 @@ function Index() {
               <Scale className="h-5 w-5 text-gold" strokeWidth={1.5} />
             </div>
             <div className="leading-tight">
-              <div className="font-display text-lg tracking-wide">
-                Vasconcellos <span className="text-gold">&</span> Marques
+              <div className="font-display text-lg tracking-[0.2em]">
+                FT<span className="text-gold">I</span>
               </div>
               <div className="text-[9px] uppercase tracking-[0.28em] text-parchment/50">
-                Advogados Associados
+                Fund Recovery Agents
               </div>
             </div>
           </a>
@@ -263,8 +263,8 @@ function Index() {
             Definindo o auge da <span className="italic text-gold">excelência jurídica</span> em recuperação
           </h2>
           <p className="mx-auto mt-8 max-w-3xl text-lg leading-relaxed text-parchment/70">
-            Reconhecido nos principais rankings jurídicos internacionais desde
-            2024, o Vasconcellos & Marques consolidou-se como referência em
+            Reconhecida nos principais rankings jurídicos internacionais desde
+            2024, a FTI consolidou-se como referência em
             resolução de crises de alto risco. Combinamos padrões jurídicos
             rigorosos com inteligência de casos assistida por IA, segurança de
             dados de nível institucional e discrição absoluta — entregando
@@ -561,31 +561,11 @@ function Index() {
             <div className="mt-10 space-y-6 text-sm">
               <div className="flex items-start gap-4">
                 <div className="flex h-10 w-10 flex-none items-center justify-center rounded-lg bg-gold/10 ring-1 ring-gold/30">
-                  <Phone className="h-4 w-4 text-gold" />
-                </div>
-                <div>
-                  <div className="text-[11px] uppercase tracking-[0.22em] text-parchment/50">Telefone</div>
-                  <div className="text-parchment">+55 11 3000 0000</div>
-                </div>
-              </div>
-              <div className="flex items-start gap-4">
-                <div className="flex h-10 w-10 flex-none items-center justify-center rounded-lg bg-gold/10 ring-1 ring-gold/30">
                   <Mail className="h-4 w-4 text-gold" />
                 </div>
                 <div>
                   <div className="text-[11px] uppercase tracking-[0.22em] text-parchment/50">E-mail</div>
                   <div className="text-parchment">suport@ftiagent.com</div>
-                </div>
-              </div>
-              <div className="flex items-start gap-4">
-                <div className="flex h-10 w-10 flex-none items-center justify-center rounded-lg bg-gold/10 ring-1 ring-gold/30">
-                  <MapPin className="h-4 w-4 text-gold" />
-                </div>
-                <div>
-                  <div className="text-[11px] uppercase tracking-[0.22em] text-parchment/50">Endereço</div>
-                  <div className="text-parchment">
-                    Av. Brigadeiro Faria Lima, 3900 — 12º andar, São Paulo
-                  </div>
                 </div>
               </div>
             </div>
@@ -594,7 +574,7 @@ function Index() {
               <ShieldCheck className="h-5 w-5 flex-none text-gold" />
               <p className="text-xs leading-relaxed text-parchment/70">
                 <strong className="text-parchment">Sem pagamento inicial</strong> — trabalhamos
-                em modelo por êxito. Sigilo profissional garantido pelo art. 34, VII da OAB.
+                em modelo por êxito. Sigilo e confidencialidade garantidos em conformidade com a FCA.
               </p>
             </div>
           </div>
@@ -609,8 +589,7 @@ function Index() {
             <div className="card-navy space-y-6 p-8 md:p-10">
               <Field label="Nome completo" name="nome" />
               <Field label="E-mail" name="email" type="email" />
-              <Field label="Telefone" name="tel" />
-              <Field label="Valor estimado envolvido" name="valor" placeholder="R$" />
+              <Field label="Valor estimado envolvido" name="valor" placeholder="Valor aproximado" />
               <div>
                 <label className="text-[11px] uppercase tracking-[0.22em] text-parchment/60">
                   Descrição do caso
@@ -639,13 +618,14 @@ function Index() {
                 <div className="flex h-10 w-10 items-center justify-center rounded-full border border-gold/50">
                   <Scale className="h-5 w-5 text-gold" strokeWidth={1.5} />
                 </div>
-                <span className="font-display text-lg">
-                  Vasconcellos <span className="text-gold">&</span> Marques
+                <span className="font-display text-lg tracking-[0.2em]">
+                  FT<span className="text-gold">I</span>
                 </span>
               </div>
               <p className="mt-5 max-w-xs text-sm">
-                Advocacia especializada em recuperação de fundos, ativos e
-                créditos. São Paulo · Rio de Janeiro · Lisboa.
+                Fund Recovery Agents. Especialistas em rastreamento e
+                recuperação de fundos, ativos e créditos em disputas
+                transfronteiriças.
               </p>
             </div>
             <div className="md:col-span-3">
@@ -667,16 +647,21 @@ function Index() {
                 Contato
               </div>
               <ul className="mt-5 space-y-3 text-sm">
-                <li>+55 11 3000 0000</li>
                 <li>suport@ftiagent.com</li>
-                <li>Av. Brig. Faria Lima, 3900 — SP</li>
               </ul>
+              <div className="mt-6 text-[11px] uppercase tracking-[0.22em] text-parchment/40">
+                Presença
+              </div>
+              <p className="mt-3 text-xs text-parchment/50">
+                Londres · Frankfurt · Zurique · Madrid · Paris · Nova York ·
+                Toronto · São Paulo · Buenos Aires
+              </p>
             </div>
           </div>
           <div className="mt-14 flex flex-col items-start justify-between gap-4 border-t border-border pt-8 text-xs md:flex-row md:items-center">
-            <span>© {new Date().getFullYear()} Vasconcellos & Marques Advogados. OAB/SP 12.345.</span>
+            <span>© {new Date().getFullYear()} FTI Recovery. Todos os direitos reservados.</span>
             <span className="text-parchment/40">
-              Em conformidade com o Provimento 205/2021 da OAB.
+              Autorizado e regulado pela Financial Conduct Authority (FCA).
             </span>
           </div>
         </div>

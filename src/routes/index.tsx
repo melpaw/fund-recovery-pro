@@ -447,21 +447,76 @@ function Index() {
         </div>
       </section>
 
+      {/* PRESENÇA GLOBAL */}
+      <section id="presenca" className="py-28 md:py-36">
+        <div className="container-lux">
+          <div className="mx-auto max-w-2xl text-center">
+            <span className="gold-pill">
+              <Globe className="h-3.5 w-3.5" /> Presença Global
+            </span>
+            <h2 className="mt-6 font-display text-4xl leading-tight text-parchment md:text-5xl">
+              Escritórios nos principais <span className="italic text-gold">centros financeiros</span>
+            </h2>
+            <p className="mt-6 text-parchment/60">
+              Operamos com sedes e correspondentes nos principais países da
+              Europa, América do Norte e América do Sul, permitindo enforcement
+              coordenado entre jurisdições.
+            </p>
+          </div>
+
+          <div className="relative mt-16 overflow-hidden rounded-2xl border border-border bg-ink-2/40">
+            <img
+              src={worldMap}
+              alt="Mapa mundial com escritórios e correspondentes"
+              width={1600}
+              height={640}
+              loading="lazy"
+              className="h-auto w-full object-cover"
+            />
+            <div
+              className="pointer-events-none absolute inset-0"
+              style={{
+                background:
+                  "linear-gradient(180deg, transparent 60%, var(--ink) 100%)",
+              }}
+            />
+          </div>
+
+          <div className="mt-12 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+            {OFFICES.map((o) => (
+              <div key={o.city} className="card-navy flex items-start gap-4 p-5">
+                <div className="flex h-10 w-10 flex-none items-center justify-center rounded-lg bg-gold/10 ring-1 ring-gold/30">
+                  <MapPin className="h-4 w-4 text-gold" />
+                </div>
+                <div>
+                  <div className="text-[10px] uppercase tracking-[0.22em] text-gold">
+                    {o.region}
+                  </div>
+                  <div className="font-display text-lg text-parchment">{o.city}</div>
+                  <div className="text-xs text-parchment/55">{o.note}</div>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
       {/* DEPOIMENTOS */}
-      <section id="depoimentos" className="py-28 md:py-36">
+      <section id="depoimentos" className="border-t border-border bg-ink-2/30 py-28 md:py-36">
         <div className="container-lux">
           <div className="mx-auto max-w-2xl text-center">
             <span className="gold-pill">
               <MessageCircle className="h-3.5 w-3.5" /> Depoimentos
             </span>
             <h2 className="mt-6 font-display text-4xl leading-tight text-parchment md:text-5xl">
-              O que dizem <span className="italic text-gold">nossos clientes</span>
+              <span className="italic text-gold">Depoimentos</span>
             </h2>
             <p className="mt-6 text-parchment/60">
-              Depoimentos identificados apenas por iniciais e localidade, em
-              conformidade com acordos de confidencialidade.
+              Relatos de clientes atendidos nos últimos 24 meses, publicados
+              com autorização e sob acordo de confidencialidade parcial.
             </p>
           </div>
+
 
           <div className="mt-16 grid gap-6 md:grid-cols-2 lg:grid-cols-3">
             {TESTIMONIALS.map((t) => (

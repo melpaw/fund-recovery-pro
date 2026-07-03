@@ -262,13 +262,13 @@ function Index() {
             Definindo o auge da <span className="italic text-gold">excelência jurídica</span> em recuperação
           </h2>
           <p className="mx-auto mt-8 max-w-3xl text-lg leading-relaxed text-parchment/70">
-            Reconhecido como <strong className="text-parchment">Escritório do Ano</strong> em
-            2024, 2025 e 2026, o Vasconcellos & Marques consolidou-se como
-            autoridade em resolução de crises de alto risco. Combinamos padrões
-            jurídicos rigorosos com inteligência de casos assistida por IA,
-            segurança de dados de nível militar e discrição absoluta —
-            entregando resultados mensuráveis em disputas transfronteiriças,
-            recuperação de fraudes e assuntos privados sensíveis.
+            Reconhecido nos principais rankings jurídicos internacionais desde
+            2024, o Vasconcellos & Marques consolidou-se como referência em
+            resolução de crises de alto risco. Combinamos padrões jurídicos
+            rigorosos com inteligência de casos assistida por IA, segurança de
+            dados de nível institucional e discrição absoluta — entregando
+            resultados mensuráveis em disputas transfronteiriças, recuperação
+            de fraudes e assuntos privados sensíveis.
           </p>
         </div>
       </section>

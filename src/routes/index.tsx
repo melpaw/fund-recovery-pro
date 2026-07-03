@@ -190,14 +190,14 @@ function Index() {
         />
         <div className="container-lux relative flex min-h-[100svh] flex-col items-center justify-center py-40 text-center text-parchment">
           <span className="gold-pill">
-            <ShieldCheck className="h-3.5 w-3.5" /> Advocacia Registrada na OAB
+            <ShieldCheck className="h-3.5 w-3.5" /> Agentes registrados na FCA
           </span>
           <h1 className="mt-8 font-display text-5xl leading-[1.03] tracking-tight md:text-7xl lg:text-[5.5rem]">
             Seu Caminho para a <span className="italic text-gold">Recuperação</span>
           </h1>
           <p className="mt-8 max-w-2xl text-base leading-relaxed text-parchment/70 md:text-lg">
             Escritório de advocacia especializado em recuperação de fundos e
-            disputas financeiras. Só temos sucesso quando você tem sucesso.
+            disputas financeiras.
           </p>
 
           <div className="mt-14 grid w-full max-w-4xl gap-4 sm:grid-cols-3">

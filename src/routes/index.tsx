@@ -1,4 +1,5 @@
 import { createFileRoute } from "@tanstack/react-router";
+import { useState } from "react";
 import {
   ArrowRight,
   ShieldCheck,
@@ -18,126 +19,77 @@ import {
   Landmark,
   Bitcoin,
   Globe,
+  Languages,
 } from "lucide-react";
 import heroJustice from "@/assets/hero-justice.jpg";
 import attorney from "@/assets/attorney.jpg";
 import worldMap from "@/assets/world-map.jpg";
+import { useI18n, LANGS, type Lang } from "@/lib/i18n";
 
 export const Route = createFileRoute("/")({
   component: Index,
 });
 
-const NAV = [
-  { label: "Início", href: "#top" },
-  { label: "Escritório", href: "#escritorio" },
-  { label: "Atuação", href: "#atuacao" },
-  { label: "Método", href: "#metodo" },
-  { label: "Resultados", href: "#resultados" },
-  { label: "Presença", href: "#presenca" },
-  { label: "Depoimentos", href: "#depoimentos" },
-  { label: "Contato", href: "#contato" },
-];
+const SERVICE_ICONS = [Bitcoin, Landmark, Coins];
+const WHY_ICONS = [ShieldCheck, Handshake, Trophy];
+const METHOD_ICONS = [Search, ClipboardList, Scale, Handshake];
 
-const HERO_BADGES = [
-  { t: "Sem Êxito, Sem Honorários", s: "Pagamento apenas em caso de sucesso" },
-  { t: "Zero Custo Inicial", s: "Nenhum valor adiantado" },
-  { t: "Registro na FCA", s: "Autoridade de conduta financeira (UK)" },
-];
-
-const SERVICES = [
-  {
-    icon: Bitcoin,
-    tag: "Fraude Digital",
-    title: "Recuperação de Fraudes na Internet",
-    text: "Rastreamento e recuperação de valores perdidos em plataformas fraudulentas, transferências não autorizadas, golpes de investimento e criptoativos. Atuamos com medidas cautelares e cooperação internacional.",
-  },
-  {
-    icon: Landmark,
-    tag: "Disputas Financeiras",
-    title: "Disputas & Execução Bancária",
-    text: "Bloqueios indevidos, cobranças abusivas, fraudes de investimento e execução de direitos financeiros. Estratégia completa da negociação ao litígio, com enforcement transfronteiriço.",
-  },
-  {
-    icon: Coins,
-    tag: "Fundos & Ativos",
-    title: "Recuperação de Fundos de Investimento",
-    text: "Dedicados à recuperação para vítimas de esquemas fraudulentos e má gestão. Localização de ativos, negociação de acordos e ação coordenada para devolver seu patrimônio.",
-  },
-];
-
-const WHY = [
-  {
-    icon: ShieldCheck,
-    title: "Registro na FCA",
-    text: "Agentes registrados na Financial Conduct Authority, em conformidade rigorosa com os padrões de conduta do setor.",
-  },
-  {
-    icon: Handshake,
-    title: "Sem Pagamento Inicial",
-    text: "Nossa política é não cobrar valores adiantados. Trabalhamos exclusivamente por êxito.",
-  },
-  {
-    icon: Trophy,
-    title: "Modelo por Resultado",
-    text: "Seu sucesso é o nosso sucesso. Sem taxas escondidas, sem custo inicial, transparência absoluta.",
-  },
-];
-
-const METHOD = [
-  {
-    n: "1",
-    icon: Search,
-    t: "Análise Inicial",
-    d: "Avaliação confidencial do caso, análise de evidências e viabilidade jurídica em 24 a 48 horas.",
-  },
-  {
-    n: "2",
-    icon: ClipboardList,
-    t: "Plano de Ação",
-    d: "Estratégia de recuperação, ordens de preservação e medidas legais imediatas para proteger seus interesses.",
-  },
-  {
-    n: "3",
-    icon: Scale,
-    t: "Recuperação",
-    d: "Negociação, litígio ou enforcement coordenado entre jurisdições para reaver seus recursos.",
-  },
-  {
-    n: "4",
-    icon: Handshake,
-    t: "Liquidação",
-    d: "Encerramento da recuperação, transferência dos ativos e documentação completa da resolução.",
-  },
-];
-
-const CASES = [
-  { v: "R$ 214M", t: "Fundo multimercado", d: "Ação coletiva para 2.400 cotistas com gestão fraudulenta." },
-  { v: "US$ 38M", t: "Litígio cross-border", d: "Reversão de bloqueio internacional e repatriação Brasil/EUA." },
-  { v: "92%", t: "Fraude cripto", d: "Rastreio on-chain e recuperação em fraude de exchange." },
-];
-
-const TESTIMONIALS = [
-  { i: "James M.", city: "Manchester, Reino Unido", q: "Perdi cerca de £48 mil em uma corretora que sumiu da noite para o dia. Fui atendido pela equipe em três dias, entenderam meu caso e recuperaram a maior parte em quatro meses. Comunicação sempre clara." },
-  { i: "Sophie L.", city: "Toronto, Canadá", q: "Depois de meses tentando resolver por conta própria, contratei o escritório. O que mais me marcou foi não ter pago nada adiantado — só quando o dinheiro voltou pra minha conta." },
-  { i: "Carlos R.", city: "São Paulo, Brasil", q: "Caí em um golpe de investimento em cripto e achei que tinha perdido tudo. A equipe fez rastreamento on-chain e conseguimos reaver aproximadamente 70% do valor. Recomendo." },
-  { i: "Anna K.", city: "Munique, Alemanha", q: "Processo transparente do começo ao fim. Recebia atualizações a cada duas semanas e nunca precisei correr atrás de informação. Profissionais sérios." },
-  { i: "Diego P.", city: "Buenos Aires, Argentina", q: "Tinha pouca esperança de recuperar o dinheiro de um fundo mal gerido. Levou quase um ano, mas o resultado veio. Vale a paciência." },
-  { i: "Rachel T.", city: "Nova York, EUA", q: "Explicaram os riscos e o prazo realista logo na primeira reunião — sem promessa milagrosa. Isso fez toda a diferença na minha decisão de seguir com eles." },
-];
-
-const OFFICES = [
-  { region: "Reino Unido", city: "Londres", note: "Sede europeia · FCA" },
-  { region: "Alemanha", city: "Frankfurt", note: "BaFin liaison" },
-  { region: "Suíça", city: "Zurique", note: "FINMA correspondente" },
-  { region: "Espanha", city: "Madrid", note: "CNMV correspondente" },
-  { region: "França", city: "Paris", note: "AMF correspondente" },
-  { region: "Estados Unidos", city: "Nova York", note: "SEC / FinCEN" },
-  { region: "Canadá", city: "Toronto", note: "CIRO correspondente" },
-  { region: "Brasil", city: "São Paulo", note: "CVM correspondente" },
-  { region: "Argentina", city: "Buenos Aires", note: "CNV correspondente" },
-];
+function LanguageSwitcher() {
+  const { lang, setLang } = useI18n();
+  const [open, setOpen] = useState(false);
+  const current = LANGS.find((l) => l.code === lang) ?? LANGS[0];
+  return (
+    <div className="relative">
+      <button
+        type="button"
+        onClick={() => setOpen((v) => !v)}
+        onBlur={() => setTimeout(() => setOpen(false), 150)}
+        className="inline-flex items-center gap-2 rounded-full border border-gold/40 bg-ink-2/60 px-3 py-1.5 text-[11px] uppercase tracking-[0.18em] text-parchment/80 transition-colors hover:text-gold"
+        aria-label="Select language"
+      >
+        <Languages className="h-3.5 w-3.5 text-gold" />
+        <span>{current.flag}</span>
+        <span>{current.label}</span>
+      </button>
+      {open && (
+        <div className="absolute right-0 mt-2 w-40 overflow-hidden rounded-lg border border-border bg-ink-2 shadow-lg z-50">
+          {LANGS.map((l) => (
+            <button
+              key={l.code}
+              type="button"
+              onMouseDown={(e) => {
+                e.preventDefault();
+                setLang(l.code as Lang);
+                setOpen(false);
+              }}
+              className={`flex w-full items-center gap-3 px-3 py-2 text-left text-xs transition-colors hover:bg-gold/10 ${
+                l.code === lang ? "text-gold" : "text-parchment/80"
+              }`}
+            >
+              <span className="text-base">{l.flag}</span>
+              <span className="uppercase tracking-[0.18em]">{l.label}</span>
+            </button>
+          ))}
+        </div>
+      )}
+    </div>
+  );
+}
 
 function Index() {
+  const { t } = useI18n();
+
+  const NAV = [
+    { label: t.nav.inicio, href: "#top" },
+    { label: t.nav.escritorio, href: "#escritorio" },
+    { label: t.nav.atuacao, href: "#atuacao" },
+    { label: t.nav.metodo, href: "#metodo" },
+    { label: t.nav.resultados, href: "#resultados" },
+    { label: t.nav.presenca, href: "#presenca" },
+    { label: t.nav.depoimentos, href: "#depoimentos" },
+    { label: t.nav.contato, href: "#contato" },
+  ];
+
   return (
     <div id="top" className="min-h-screen bg-background text-foreground">
       {/* NAV */}
@@ -152,7 +104,7 @@ function Index() {
                 FT<span className="text-gold">I</span>
               </div>
               <div className="text-[9px] uppercase tracking-[0.28em] text-parchment/50">
-                Fund Recovery Agents
+                {t.brand.tagline}
               </div>
             </div>
           </a>
@@ -167,9 +119,12 @@ function Index() {
               </a>
             ))}
           </nav>
-          <a href="#contato" className="hidden md:inline-flex btn-gold !py-3 !px-5">
-            <Phone className="h-3.5 w-3.5" /> Solicitar Consulta
-          </a>
+          <div className="flex items-center gap-3">
+            <LanguageSwitcher />
+            <a href="#contato" className="hidden md:inline-flex btn-gold !py-3 !px-5">
+              <Phone className="h-3.5 w-3.5" /> {t.cta.solicitar}
+            </a>
+          </div>
         </div>
       </header>
 
@@ -177,7 +132,7 @@ function Index() {
       <section className="relative min-h-[100svh] overflow-hidden bg-ink">
         <img
           src={heroJustice}
-          alt="Estátua da Justiça"
+          alt="Justice"
           width={1600}
           height={1200}
           className="absolute inset-0 h-full w-full object-cover opacity-40"
@@ -191,18 +146,17 @@ function Index() {
         />
         <div className="container-lux relative flex min-h-[100svh] flex-col items-center justify-center py-40 text-center text-parchment">
           <span className="gold-pill">
-            <ShieldCheck className="h-3.5 w-3.5" /> Agentes registrados na FCA
+            <ShieldCheck className="h-3.5 w-3.5" /> {t.hero.badge}
           </span>
           <h1 className="mt-8 font-display text-5xl leading-[1.03] tracking-tight md:text-7xl lg:text-[5.5rem]">
-            Seu Caminho para a <span className="italic text-gold">Recuperação</span>
+            {t.hero.titleA} <span className="italic text-gold">{t.hero.titleAccent}</span>
           </h1>
           <p className="mt-8 max-w-2xl text-base leading-relaxed text-parchment/70 md:text-lg">
-            Escritório de advocacia especializado em recuperação de fundos e
-            disputas financeiras.
+            {t.hero.subtitle}
           </p>
 
           <div className="mt-14 grid w-full max-w-4xl gap-4 sm:grid-cols-3">
-            {HERO_BADGES.map((b) => (
+            {t.hero.badges.map((b) => (
               <div key={b.t} className="card-navy flex items-center gap-4 p-5 text-left">
                 <div className="flex h-9 w-9 flex-none items-center justify-center rounded-full bg-[color:var(--success)]">
                   <Check className="h-4 w-4 text-ink" strokeWidth={3} />
@@ -217,10 +171,10 @@ function Index() {
 
           <div className="mt-12 flex flex-wrap items-center justify-center gap-4">
             <a href="#contato" className="btn-gold">
-              <Phone className="h-4 w-4" /> Solicitar Consulta
+              <Phone className="h-4 w-4" /> {t.cta.solicitar}
             </a>
             <a href="#resultados" className="btn-outline-gold">
-              <FileText className="h-4 w-4" /> Casos em Andamento
+              <FileText className="h-4 w-4" /> {t.cta.casos}
             </a>
           </div>
         </div>
@@ -231,14 +185,10 @@ function Index() {
         <div className="container-lux">
           <div className="flex flex-col items-center justify-center gap-6 text-center">
             <span className="text-[11px] uppercase tracking-[0.28em] text-parchment/50">
-              Reconhecimento do Setor
+              {t.awards.label}
             </span>
             <div className="grid w-full grid-cols-1 items-start gap-8 md:max-w-4xl md:grid-cols-3">
-              {[
-                { y: "2024", t: "Menção Honrosa", s: "Recuperação de Ativos · IBA" },
-                { y: "2025", t: "Escritório Recomendado", s: "Chambers Latin America" },
-                { y: "2026", t: "Prática em Destaque", s: "Legal 500 · Dispute Resolution" },
-              ].map((a) => (
+              {t.awards.items.map((a) => (
                 <div key={a.y} className="flex flex-col items-center gap-2 text-center">
                   <Award className="h-9 w-9 text-gold" strokeWidth={1.3} />
                   <div className="font-display text-lg text-parchment">{a.y}</div>
@@ -257,19 +207,13 @@ function Index() {
       <section id="escritorio" className="py-28 md:py-36">
         <div className="container-lux text-center">
           <span className="gold-pill">
-            <Trophy className="h-3.5 w-3.5" /> Excelência Jurídica
+            <Trophy className="h-3.5 w-3.5" /> {t.escritorio.pill}
           </span>
           <h2 className="mx-auto mt-6 max-w-4xl font-display text-4xl leading-tight text-parchment md:text-6xl">
-            Definindo o auge da <span className="italic text-gold">excelência jurídica</span> em recuperação
+            {t.escritorio.titleA} <span className="italic text-gold">{t.escritorio.titleAccent}</span> {t.escritorio.titleB}
           </h2>
           <p className="mx-auto mt-8 max-w-3xl text-lg leading-relaxed text-parchment/70">
-            Reconhecida nos principais rankings jurídicos internacionais desde
-            2024, a FTI consolidou-se como referência em
-            resolução de crises de alto risco. Combinamos padrões jurídicos
-            rigorosos com inteligência de casos assistida por IA, segurança de
-            dados de nível institucional e discrição absoluta — entregando
-            resultados mensuráveis em disputas transfronteiriças, recuperação
-            de fraudes e assuntos privados sensíveis.
+            {t.escritorio.body}
           </p>
         </div>
       </section>
@@ -279,37 +223,37 @@ function Index() {
         <div className="container-lux">
           <div className="mx-auto max-w-2xl text-center">
             <span className="gold-pill">
-              <Scale className="h-3.5 w-3.5" /> Áreas de Atuação
+              <Scale className="h-3.5 w-3.5" /> {t.atuacao.pill}
             </span>
             <h2 className="mt-6 font-display text-4xl leading-tight text-parchment md:text-5xl">
-              Nossas <span className="italic text-gold">áreas especializadas</span>
+              {t.atuacao.titleA} <span className="italic text-gold">{t.atuacao.titleAccent}</span>
             </h2>
-            <p className="mt-6 text-parchment/70">
-              Representação jurídica especializada em recuperação financeira e
-              resolução de disputas para clientes em todo o Brasil e no exterior.
-            </p>
+            <p className="mt-6 text-parchment/70">{t.atuacao.subtitle}</p>
           </div>
 
           <div className="mt-16 grid gap-6 md:grid-cols-3">
-            {SERVICES.map((s) => (
-              <article key={s.title} className="card-navy group flex flex-col p-8 transition-all hover:border-gold/40 hover:-translate-y-1">
-                <div className="flex h-14 w-14 items-center justify-center rounded-lg bg-gold/10 ring-1 ring-gold/30">
-                  <s.icon className="h-7 w-7 text-gold" strokeWidth={1.4} />
-                </div>
-                <div className="mt-6 text-[10px] uppercase tracking-[0.22em] text-gold">
-                  {s.tag}
-                </div>
-                <h3 className="mt-2 font-display text-2xl leading-tight text-parchment">
-                  {s.title}
-                </h3>
-                <p className="mt-4 flex-1 text-sm leading-relaxed text-parchment/65">
-                  {s.text}
-                </p>
-                <a href="#contato" className="mt-8 inline-flex items-center gap-2 text-[11px] uppercase tracking-[0.22em] text-gold transition-transform group-hover:translate-x-1">
-                  Saiba mais <ArrowRight className="h-3.5 w-3.5" />
-                </a>
-              </article>
-            ))}
+            {t.atuacao.services.map((s, i) => {
+              const Icon = SERVICE_ICONS[i];
+              return (
+                <article key={s.title} className="card-navy group flex flex-col p-8 transition-all hover:border-gold/40 hover:-translate-y-1">
+                  <div className="flex h-14 w-14 items-center justify-center rounded-lg bg-gold/10 ring-1 ring-gold/30">
+                    <Icon className="h-7 w-7 text-gold" strokeWidth={1.4} />
+                  </div>
+                  <div className="mt-6 text-[10px] uppercase tracking-[0.22em] text-gold">
+                    {s.tag}
+                  </div>
+                  <h3 className="mt-2 font-display text-2xl leading-tight text-parchment">
+                    {s.title}
+                  </h3>
+                  <p className="mt-4 flex-1 text-sm leading-relaxed text-parchment/65">
+                    {s.text}
+                  </p>
+                  <a href="#contato" className="mt-8 inline-flex items-center gap-2 text-[11px] uppercase tracking-[0.22em] text-gold transition-transform group-hover:translate-x-1">
+                    {t.cta.saibaMais} <ArrowRight className="h-3.5 w-3.5" />
+                  </a>
+                </article>
+              );
+            })}
           </div>
         </div>
       </section>
@@ -319,23 +263,26 @@ function Index() {
         <div className="container-lux">
           <div className="mx-auto max-w-2xl text-center">
             <span className="gold-pill">
-              <ShieldCheck className="h-3.5 w-3.5" /> Por Que Nos Escolher
+              <ShieldCheck className="h-3.5 w-3.5" /> {t.why.pill}
             </span>
             <h2 className="mt-6 font-display text-4xl leading-tight text-parchment md:text-5xl">
-              Expertise de confiança, abordagem <span className="italic text-gold">centrada no cliente</span>
+              {t.why.titleA} <span className="italic text-gold">{t.why.titleAccent}</span> {t.why.titleB}
             </h2>
           </div>
 
           <div className="mt-16 grid gap-6 md:grid-cols-3">
-            {WHY.map((w) => (
-              <div key={w.title} className="card-navy p-8 text-center">
-                <div className="mx-auto flex h-16 w-16 items-center justify-center rounded-full bg-gold/10 ring-1 ring-gold/30">
-                  <w.icon className="h-8 w-8 text-gold" strokeWidth={1.3} />
+            {t.why.items.map((w, i) => {
+              const Icon = WHY_ICONS[i];
+              return (
+                <div key={w.title} className="card-navy p-8 text-center">
+                  <div className="mx-auto flex h-16 w-16 items-center justify-center rounded-full bg-gold/10 ring-1 ring-gold/30">
+                    <Icon className="h-8 w-8 text-gold" strokeWidth={1.3} />
+                  </div>
+                  <h3 className="mt-6 font-display text-2xl text-parchment">{w.title}</h3>
+                  <p className="mt-3 text-sm leading-relaxed text-parchment/65">{w.text}</p>
                 </div>
-                <h3 className="mt-6 font-display text-2xl text-parchment">{w.title}</h3>
-                <p className="mt-3 text-sm leading-relaxed text-parchment/65">{w.text}</p>
-              </div>
-            ))}
+              );
+            })}
           </div>
         </div>
       </section>
@@ -345,26 +292,29 @@ function Index() {
         <div className="container-lux">
           <div className="mx-auto max-w-2xl text-center">
             <span className="gold-pill">
-              <ClipboardList className="h-3.5 w-3.5" /> Como Trabalhamos
+              <ClipboardList className="h-3.5 w-3.5" /> {t.metodo.pill}
             </span>
             <h2 className="mt-6 font-display text-4xl leading-tight text-parchment md:text-5xl">
-              Uma abordagem <span className="italic text-gold">clara e estruturada</span> para recuperar seus fundos
+              {t.metodo.titleA} <span className="italic text-gold">{t.metodo.titleAccent}</span> {t.metodo.titleB}
             </h2>
           </div>
 
           <div className="mt-16 grid gap-6 md:grid-cols-2 lg:grid-cols-4">
-            {METHOD.map((m) => (
-              <div key={m.n} className="card-navy relative p-8">
-                <div className="flex items-center gap-4">
-                  <div className="flex h-12 w-12 items-center justify-center rounded-full bg-gold text-ink font-display text-xl">
-                    {m.n}
+            {t.metodo.items.map((m, i) => {
+              const Icon = METHOD_ICONS[i];
+              return (
+                <div key={m.t} className="card-navy relative p-8">
+                  <div className="flex items-center gap-4">
+                    <div className="flex h-12 w-12 items-center justify-center rounded-full bg-gold text-ink font-display text-xl">
+                      {i + 1}
+                    </div>
+                    <Icon className="h-6 w-6 text-gold/70" strokeWidth={1.4} />
                   </div>
-                  <m.icon className="h-6 w-6 text-gold/70" strokeWidth={1.4} />
+                  <h3 className="mt-6 font-display text-2xl text-parchment">{m.t}</h3>
+                  <p className="mt-3 text-sm leading-relaxed text-parchment/65">{m.d}</p>
                 </div>
-                <h3 className="mt-6 font-display text-2xl text-parchment">{m.t}</h3>
-                <p className="mt-3 text-sm leading-relaxed text-parchment/65">{m.d}</p>
-              </div>
-            ))}
+              );
+            })}
           </div>
         </div>
       </section>
@@ -374,15 +324,15 @@ function Index() {
         <div className="container-lux">
           <div className="mx-auto max-w-2xl text-center">
             <span className="gold-pill">
-              <Trophy className="h-3.5 w-3.5" /> Casos Emblemáticos
+              <Trophy className="h-3.5 w-3.5" /> {t.resultados.pill}
             </span>
             <h2 className="mt-6 font-display text-4xl leading-tight text-parchment md:text-5xl">
-              Resultados que se medem em <span className="italic text-gold">cifras e precedentes</span>
+              {t.resultados.titleA} <span className="italic text-gold">{t.resultados.titleAccent}</span>
             </h2>
           </div>
 
           <div className="mt-16 grid gap-6 md:grid-cols-3">
-            {CASES.map((c) => (
+            {t.resultados.cases.map((c) => (
               <div key={c.t} className="card-navy p-10 text-center">
                 <div className="font-display text-5xl text-gold md:text-6xl">{c.v}</div>
                 <div className="mt-3 text-[11px] uppercase tracking-[0.22em] text-parchment/60">
@@ -402,45 +352,44 @@ function Index() {
             <div className="relative aspect-[4/5] w-full overflow-hidden rounded-xl">
               <img
                 src={attorney}
-                alt="Dra. Hanna Weber, agente da FCA"
+                alt={t.socia.name}
                 width={1024}
                 height={1280}
                 loading="lazy"
                 className="h-full w-full object-cover"
               />
               <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-ink to-transparent p-6">
-                <div className="font-display text-2xl text-parchment">Dra. Hanna Weber</div>
+                <div className="font-display text-2xl text-parchment">{t.socia.name}</div>
                 <div className="text-[11px] uppercase tracking-[0.22em] text-gold">
-                  Agente da FCA · Sócia-Fundadora
+                  {t.socia.role}
                 </div>
               </div>
             </div>
           </div>
           <div className="md:col-span-7 md:pt-6">
             <span className="gold-pill">
-              <Scale className="h-3.5 w-3.5" /> Palavra da Sócia
+              <Scale className="h-3.5 w-3.5" /> {t.socia.pill}
             </span>
             <blockquote className="mt-8 font-display text-3xl leading-[1.25] text-parchment md:text-4xl">
-              "A recuperação de patrimônio não começa no tribunal — começa em
-              como se escreve a primeira linha do processo."
+              {t.socia.quote}
             </blockquote>
             <div className="mt-10 grid gap-6 sm:grid-cols-3">
               <div>
                 <div className="font-display text-3xl text-gold">LL.M.</div>
                 <div className="text-xs uppercase tracking-[0.18em] text-parchment/60">
-                  Columbia Law
+                  {t.socia.llLabel}
                 </div>
               </div>
               <div>
-                <div className="font-display text-3xl text-gold">22 anos</div>
+                <div className="font-display text-3xl text-gold">{t.socia.yearsValue}</div>
                 <div className="text-xs uppercase tracking-[0.18em] text-parchment/60">
-                  em contencioso
+                  {t.socia.yearsLabel}
                 </div>
               </div>
               <div>
                 <div className="font-display text-3xl text-gold">Chambers</div>
                 <div className="text-xs uppercase tracking-[0.18em] text-parchment/60">
-                  Band 1 · Dispute Resolution
+                  {t.socia.chambersLabel}
                 </div>
               </div>
             </div>
@@ -453,22 +402,18 @@ function Index() {
         <div className="container-lux">
           <div className="mx-auto max-w-2xl text-center">
             <span className="gold-pill">
-              <Globe className="h-3.5 w-3.5" /> Presença Global
+              <Globe className="h-3.5 w-3.5" /> {t.presenca.pill}
             </span>
             <h2 className="mt-6 font-display text-4xl leading-tight text-parchment md:text-5xl">
-              Escritórios nos principais <span className="italic text-gold">centros financeiros</span>
+              {t.presenca.titleA} <span className="italic text-gold">{t.presenca.titleAccent}</span>
             </h2>
-            <p className="mt-6 text-parchment/60">
-              Operamos com sedes e correspondentes nos principais países da
-              Europa, América do Norte e América do Sul, permitindo enforcement
-              coordenado entre jurisdições.
-            </p>
+            <p className="mt-6 text-parchment/60">{t.presenca.subtitle}</p>
           </div>
 
           <div className="relative mt-16 overflow-hidden rounded-2xl border border-border bg-ink-2/40">
             <img
               src={worldMap}
-              alt="Mapa mundial com escritórios e correspondentes"
+              alt={t.presenca.mapAlt}
               width={1600}
               height={640}
               loading="lazy"
@@ -484,7 +429,7 @@ function Index() {
           </div>
 
           <div className="mt-12 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-            {OFFICES.map((o) => (
+            {t.presenca.offices.map((o) => (
               <div key={o.city} className="card-navy flex items-start gap-4 p-5">
                 <div className="flex h-10 w-10 flex-none items-center justify-center rounded-lg bg-gold/10 ring-1 ring-gold/30">
                   <MapPin className="h-4 w-4 text-gold" />
@@ -507,31 +452,27 @@ function Index() {
         <div className="container-lux">
           <div className="mx-auto max-w-2xl text-center">
             <span className="gold-pill">
-              <MessageCircle className="h-3.5 w-3.5" /> Depoimentos
+              <MessageCircle className="h-3.5 w-3.5" /> {t.depoimentos.pill}
             </span>
             <h2 className="mt-6 font-display text-4xl leading-tight text-parchment md:text-5xl">
-              <span className="italic text-gold">Depoimentos</span>
+              <span className="italic text-gold">{t.depoimentos.title}</span>
             </h2>
-            <p className="mt-6 text-parchment/60">
-              Relatos de clientes atendidos nos últimos 24 meses, publicados
-              com autorização e sob acordo de confidencialidade parcial.
-            </p>
+            <p className="mt-6 text-parchment/60">{t.depoimentos.subtitle}</p>
           </div>
 
-
           <div className="mt-16 grid gap-6 md:grid-cols-2 lg:grid-cols-3">
-            {TESTIMONIALS.map((t) => (
-              <figure key={t.i + t.city} className="card-navy flex flex-col p-8">
+            {t.depoimentos.items.map((tt) => (
+              <figure key={tt.i + tt.city} className="card-navy flex flex-col p-8">
                 <blockquote className="flex-1 text-sm leading-relaxed text-parchment/80">
-                  "{t.q}"
+                  "{tt.q}"
                 </blockquote>
                 <figcaption className="mt-6 flex items-center gap-4 border-t border-border pt-6">
                   <div className="flex h-11 w-11 items-center justify-center rounded-full bg-gold/15 font-display text-sm text-gold ring-1 ring-gold/30">
-                    {t.i.replace(/[^A-Z]/g, "")}
+                    {tt.i.replace(/[^A-Z]/g, "")}
                   </div>
                   <div>
-                    <div className="text-sm font-semibold text-parchment">{t.i}</div>
-                    <div className="text-xs text-parchment/50">{t.city}</div>
+                    <div className="text-sm font-semibold text-parchment">{tt.i}</div>
+                    <div className="text-xs text-parchment/50">{tt.city}</div>
                   </div>
                 </figcaption>
               </figure>
@@ -548,15 +489,12 @@ function Index() {
         <div className="container-lux grid gap-16 md:grid-cols-12">
           <div className="md:col-span-6">
             <span className="gold-pill">
-              <Phone className="h-3.5 w-3.5" /> Consulta Reservada
+              <Phone className="h-3.5 w-3.5" /> {t.contato.pill}
             </span>
             <h2 className="mt-6 font-display text-4xl leading-tight text-parchment md:text-6xl">
-              Inicie sua <span className="italic text-gold">consulta</span>
+              {t.contato.titleA} <span className="italic text-gold">{t.contato.titleAccent}</span>
             </h2>
-            <p className="mt-6 max-w-md text-parchment/70">
-              Avaliação confidencial do caso disponível em até 24 horas. Nenhum
-              documento sensível é exigido na análise inicial.
-            </p>
+            <p className="mt-6 max-w-md text-parchment/70">{t.contato.subtitle}</p>
 
             <div className="mt-10 space-y-6 text-sm">
               <div className="flex items-start gap-4">
@@ -564,7 +502,7 @@ function Index() {
                   <Mail className="h-4 w-4 text-gold" />
                 </div>
                 <div>
-                  <div className="text-[11px] uppercase tracking-[0.22em] text-parchment/50">E-mail</div>
+                  <div className="text-[11px] uppercase tracking-[0.22em] text-parchment/50">{t.contato.emailLabel}</div>
                   <div className="text-parchment">suport@ftiagent.com</div>
                 </div>
               </div>
@@ -573,8 +511,7 @@ function Index() {
             <div className="mt-10 flex items-center gap-3 rounded-lg border border-gold/30 bg-gold/5 p-4">
               <ShieldCheck className="h-5 w-5 flex-none text-gold" />
               <p className="text-xs leading-relaxed text-parchment/70">
-                <strong className="text-parchment">Sem pagamento inicial</strong> — trabalhamos
-                em modelo por êxito. Sigilo e confidencialidade garantidos em conformidade com a FCA.
+                <strong className="text-parchment">{t.contato.disclaimerStrong}</strong> {t.contato.disclaimerText}
               </p>
             </div>
           </div>
@@ -583,26 +520,26 @@ function Index() {
             className="md:col-span-6"
             onSubmit={(e) => {
               e.preventDefault();
-              alert("Recebemos sua mensagem. Retornaremos em até 24 horas.");
+              alert(t.contato.success);
             }}
           >
             <div className="card-navy space-y-6 p-8 md:p-10">
-              <Field label="Nome completo" name="nome" />
-              <Field label="E-mail" name="email" type="email" />
-              <Field label="Valor estimado envolvido" name="valor" placeholder="Valor aproximado" />
+              <Field label={t.contato.fNome} name="nome" />
+              <Field label={t.contato.fEmail} name="email" type="email" />
+              <Field label={t.contato.fValor} name="valor" placeholder={t.contato.fValorPh} />
               <div>
                 <label className="text-[11px] uppercase tracking-[0.22em] text-parchment/60">
-                  Descrição do caso
+                  {t.contato.fDesc}
                 </label>
                 <textarea
                   name="mensagem"
                   rows={4}
                   className="mt-2 w-full rounded-md border border-border bg-ink/40 px-3 py-2 text-parchment placeholder:text-parchment/30 focus:border-gold focus:outline-none"
-                  placeholder="Compartilhe, sob sigilo, o essencial do seu caso."
+                  placeholder={t.contato.fDescPh}
                 />
               </div>
               <button type="submit" className="btn-gold w-full">
-                Enviar Solicitação <ArrowRight className="h-4 w-4" />
+                {t.cta.enviar} <ArrowRight className="h-4 w-4" />
               </button>
             </div>
           </form>
@@ -622,15 +559,11 @@ function Index() {
                   FT<span className="text-gold">I</span>
                 </span>
               </div>
-              <p className="mt-5 max-w-xs text-sm">
-                Fund Recovery Agents. Especialistas em rastreamento e
-                recuperação de fundos, ativos e créditos em disputas
-                transfronteiriças.
-              </p>
+              <p className="mt-5 max-w-xs text-sm">{t.footer.about}</p>
             </div>
             <div className="md:col-span-3">
               <div className="text-[11px] uppercase tracking-[0.22em] text-parchment/40">
-                Navegação
+                {t.footer.navLabel}
               </div>
               <ul className="mt-5 space-y-3 text-sm">
                 {NAV.slice(1).map((n) => (
@@ -644,25 +577,20 @@ function Index() {
             </div>
             <div className="md:col-span-4">
               <div className="text-[11px] uppercase tracking-[0.22em] text-parchment/40">
-                Contato
+                {t.footer.contatoLabel}
               </div>
               <ul className="mt-5 space-y-3 text-sm">
                 <li>suport@ftiagent.com</li>
               </ul>
               <div className="mt-6 text-[11px] uppercase tracking-[0.22em] text-parchment/40">
-                Presença
+                {t.footer.presencaLabel}
               </div>
-              <p className="mt-3 text-xs text-parchment/50">
-                Londres · Frankfurt · Zurique · Madrid · Paris · Nova York ·
-                Toronto · São Paulo · Buenos Aires
-              </p>
+              <p className="mt-3 text-xs text-parchment/50">{t.footer.cities}</p>
             </div>
           </div>
           <div className="mt-14 flex flex-col items-start justify-between gap-4 border-t border-border pt-8 text-xs md:flex-row md:items-center">
-            <span>© {new Date().getFullYear()} FTI Recovery. Todos os direitos reservados.</span>
-            <span className="text-parchment/40">
-              Autorizado e regulado pela Financial Conduct Authority (FCA).
-            </span>
+            <span>© {new Date().getFullYear()} FTI Recovery. {t.footer.copyright}</span>
+            <span className="text-parchment/40">{t.footer.regulated}</span>
           </div>
         </div>
       </footer>
@@ -672,7 +600,7 @@ function Index() {
         href="#contato"
         className="fixed bottom-6 right-6 z-40 inline-flex items-center gap-2 rounded-full bg-gold px-5 py-3 text-xs font-semibold uppercase tracking-[0.16em] text-ink shadow-[0_20px_50px_-15px_rgba(0,0,0,0.5)] transition-transform hover:-translate-y-0.5"
       >
-        <MessageCircle className="h-4 w-4" /> Consulta Gratuita
+        <MessageCircle className="h-4 w-4" /> {t.cta.consultaGratuita}
       </a>
     </div>
   );

@@ -661,13 +661,16 @@ function Index() {
         </div>
       </footer>
 
-      {/* FLOATING CTA */}
+      {/* FLOATING CTA — ícone no mobile, botão completo no desktop */}
       <a
         href="#contato"
-        className="fixed bottom-6 right-6 z-40 inline-flex items-center gap-2 rounded-full bg-gold px-5 py-3 text-xs font-semibold uppercase tracking-[0.16em] text-ink shadow-[0_20px_50px_-15px_rgba(0,0,0,0.5)] transition-transform hover:-translate-y-0.5"
+        aria-label={t.cta.consultaGratuita}
+        className="fixed bottom-5 right-5 z-40 inline-flex items-center justify-center gap-2 rounded-full bg-gold text-ink shadow-[0_20px_50px_-15px_rgba(0,0,0,0.6)] transition-transform hover:-translate-y-0.5 h-14 w-14 md:h-auto md:w-auto md:px-5 md:py-3"
       >
-        <MessageCircle className="h-4 w-4" /> {t.cta.consultaGratuita}
+        <MessageCircle className="h-5 w-5 md:h-4 md:w-4" />
+        <span className="hidden md:inline text-xs font-semibold uppercase tracking-[0.16em]">{t.cta.consultaGratuita}</span>
       </a>
+
     </div>
   );
 }

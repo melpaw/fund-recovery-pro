@@ -3,6 +3,15 @@ main = "./dist/server/server.js"
 compatibility_date = "2024-11-06"
 compatibility_flags = ["nodejs_compat"]
 
+# Deploy to the custom domain ftiagent.com (apex + www).
+# The domain must be added as a zone in your Cloudflare account.
+# With custom_domain = true, Cloudflare automatically creates the DNS
+# records that point the domain at this Worker.
+routes = [
+  { pattern = "ftiagent.com", custom_domain = true },
+  { pattern = "www.ftiagent.com", custom_domain = true }
+]
+
 # TanStack Start emits a Worker-compatible server bundle at
 # `dist/server/server.js` (exports `{ fetch }`) and static client assets at
 # `dist/client/`. We deploy as a Cloudflare Worker with the Assets binding:

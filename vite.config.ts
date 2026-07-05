@@ -18,19 +18,7 @@ export default defineConfig({
     tsConfigPaths({ projects: ["./tsconfig.json"] }),
     tailwindcss(),
     tanstackStart({
-      server: {
-        entry: "./src/server.ts",
-        // Pick the Nitro preset from the CI env. Cloudflare Pages sets
-        // CF_PAGES=1, Netlify sets NETLIFY=true, Vercel sets VERCEL=1.
-        // Locally / on Lovable we fall back to the default node-server preset.
-        preset: process.env.CF_PAGES
-          ? "cloudflare-pages"
-          : process.env.NETLIFY
-          ? "netlify"
-          : process.env.VERCEL
-          ? "vercel"
-          : "node-server",
-      },
+      server: { entry: "./src/server.ts" },
     }),
     viteReact(),
   ],

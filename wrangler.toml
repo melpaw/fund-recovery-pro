@@ -34,7 +34,7 @@ not_found_handling = "none"
 [[d1_databases]]
 binding = "DB"
 database_name = "fti-contacts"
-database_id = "REPLACE_WITH_YOUR_D1_DATABASE_ID"
+database_id = "02b74617-4123-41d1-a44b-30b439e07e6b"
 migrations_dir = "migrations"
 
 [observability]

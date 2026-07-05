@@ -352,19 +352,19 @@ function Index() {
             </h2>
           </div>
 
-          <div className="mt-6 grid gap-3 sm:mt-16 sm:gap-6 md:grid-cols-2 lg:grid-cols-4">
+          <div className="mt-6 grid grid-cols-2 gap-2 sm:mt-16 sm:gap-6 lg:grid-cols-4">
             {t.metodo.items.map((m, i) => {
               const Icon = METHOD_ICONS[i];
               return (
-                <div key={m.t} className="card-navy relative p-5 sm:p-8">
-                  <div className="flex items-center gap-4">
-                    <div className="flex h-12 w-12 items-center justify-center rounded-full bg-gold text-ink font-display text-xl">
+                <div key={m.t} className="card-navy relative p-3 sm:p-8">
+                  <div className="flex items-center gap-2 sm:gap-4">
+                    <div className="flex h-8 w-8 items-center justify-center rounded-full bg-gold text-ink font-display text-sm sm:h-12 sm:w-12 sm:text-xl">
                       {i + 1}
                     </div>
-                    <Icon className="h-6 w-6 text-gold/70" strokeWidth={1.4} />
+                    <Icon className="h-4 w-4 text-gold/70 sm:h-6 sm:w-6" strokeWidth={1.4} />
                   </div>
-                  <h3 className="mt-6 font-display text-xl text-parchment sm:text-2xl">{m.t}</h3>
-                  <p className="mt-3 text-sm leading-relaxed text-parchment/65">{m.d}</p>
+                  <h3 className="mt-2 font-display text-[13px] leading-tight text-parchment sm:mt-6 sm:text-2xl">{m.t}</h3>
+                  <p className="mt-1.5 hidden text-sm leading-relaxed text-parchment/65 sm:mt-3 sm:block">{m.d}</p>
                 </div>
               );
             })}

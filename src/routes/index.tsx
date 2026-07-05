@@ -243,7 +243,7 @@ function Index() {
 
 
       {/* AWARDS BAR */}
-      <section className="border-y border-border bg-ink-2/40 py-8">
+      <section className="border-y border-border bg-ink-2/40 py-6 md:py-8">
         <div className="container-lux">
           <div className="flex flex-col items-center justify-center gap-6 text-center">
             <span className="text-[11px] uppercase tracking-[0.28em] text-parchment/50">
@@ -266,45 +266,45 @@ function Index() {
       </section>
 
       {/* ESCRITÓRIO */}
-      <section id="escritorio" className="py-12 md:py-32">
+      <section id="escritorio" className="py-8 md:py-32">
         <div className="container-lux text-center">
           <span className="gold-pill">
             <Trophy className="h-3.5 w-3.5" /> {t.escritorio.pill}
           </span>
-          <h2 className="mx-auto mt-6 max-w-4xl font-display text-3xl leading-tight text-parchment sm:text-4xl md:text-6xl">
+          <h2 className="mx-auto mt-6 max-w-4xl font-display text-2xl leading-tight text-parchment sm:text-4xl md:text-6xl">
             {t.escritorio.titleA} <span className="italic text-gold">{t.escritorio.titleAccent}</span> {t.escritorio.titleB}
           </h2>
-          <p className="mx-auto mt-8 max-w-3xl text-lg leading-relaxed text-parchment/70">
+          <p className="mx-auto mt-4 max-w-3xl text-base sm:mt-8 sm:text-lg leading-relaxed text-parchment/70">
             {t.escritorio.body}
           </p>
         </div>
       </section>
 
       {/* ATUAÇÃO */}
-      <section id="atuacao" className="border-y border-border bg-ink-2/30 py-12 md:py-32">
+      <section id="atuacao" className="border-y border-border bg-ink-2/30 py-8 md:py-32">
         <div className="container-lux">
           <div className="mx-auto max-w-2xl text-center">
             <span className="gold-pill">
               <Scale className="h-3.5 w-3.5" /> {t.atuacao.pill}
             </span>
-            <h2 className="mt-6 font-display text-3xl leading-tight text-parchment sm:text-4xl md:text-5xl">
+            <h2 className="mt-6 font-display text-2xl leading-tight text-parchment sm:text-4xl md:text-5xl">
               {t.atuacao.titleA} <span className="italic text-gold">{t.atuacao.titleAccent}</span>
             </h2>
-            <p className="mt-6 text-parchment/70">{t.atuacao.subtitle}</p>
+            <p className="mt-4 text-sm text-parchment/70 sm:mt-6 sm:text-base">{t.atuacao.subtitle}</p>
           </div>
 
-          <div className="mt-8 grid gap-4 sm:mt-16 sm:gap-6 md:grid-cols-3">
+          <div className="mt-6 grid gap-3 sm:mt-16 sm:gap-6 md:grid-cols-3">
             {t.atuacao.services.map((s, i) => {
               const Icon = SERVICE_ICONS[i];
               return (
-                <article key={s.title} className="card-navy group flex flex-col p-6 sm:p-8 transition-all hover:border-gold/40 hover:-translate-y-1">
+                <article key={s.title} className="card-navy group flex flex-col p-5 sm:p-8 transition-all hover:border-gold/40 hover:-translate-y-1">
                   <div className="flex h-14 w-14 items-center justify-center rounded-lg bg-gold/10 ring-1 ring-gold/30">
                     <Icon className="h-7 w-7 text-gold" strokeWidth={1.4} />
                   </div>
                   <div className="mt-6 text-[10px] uppercase tracking-[0.22em] text-gold">
                     {s.tag}
                   </div>
-                  <h3 className="mt-2 font-display text-2xl leading-tight text-parchment">
+                  <h3 className="mt-2 font-display text-xl leading-tight text-parchment sm:text-2xl">
                     {s.title}
                   </h3>
                   <p className="mt-4 flex-1 text-sm leading-relaxed text-parchment/65">
@@ -321,26 +321,26 @@ function Index() {
       </section>
 
       {/* WHY US */}
-      <section className="py-12 md:py-32">
+      <section className="py-8 md:py-32">
         <div className="container-lux">
           <div className="mx-auto max-w-2xl text-center">
             <span className="gold-pill">
               <ShieldCheck className="h-3.5 w-3.5" /> {t.why.pill}
             </span>
-            <h2 className="mt-6 font-display text-3xl leading-tight text-parchment sm:text-4xl md:text-5xl">
+            <h2 className="mt-6 font-display text-2xl leading-tight text-parchment sm:text-4xl md:text-5xl">
               {t.why.titleA} <span className="italic text-gold">{t.why.titleAccent}</span> {t.why.titleB}
             </h2>
           </div>
 
-          <div className="mt-8 grid gap-4 sm:mt-16 sm:gap-6 md:grid-cols-3">
+          <div className="mt-6 grid gap-3 sm:mt-16 sm:gap-6 md:grid-cols-3">
             {t.why.items.map((w, i) => {
               const Icon = WHY_ICONS[i];
               return (
-                <div key={w.title} className="card-navy p-6 text-center sm:p-8">
+                <div key={w.title} className="card-navy p-5 text-center sm:p-8">
                   <div className="mx-auto flex h-16 w-16 items-center justify-center rounded-full bg-gold/10 ring-1 ring-gold/30">
                     <Icon className="h-8 w-8 text-gold" strokeWidth={1.3} />
                   </div>
-                  <h3 className="mt-6 font-display text-2xl text-parchment">{w.title}</h3>
+                  <h3 className="mt-6 font-display text-xl text-parchment sm:text-2xl">{w.title}</h3>
                   <p className="mt-3 text-sm leading-relaxed text-parchment/65">{w.text}</p>
                 </div>
               );
@@ -350,29 +350,29 @@ function Index() {
       </section>
 
       {/* MÉTODO */}
-      <section id="metodo" className="border-y border-border bg-ink-2/30 py-12 md:py-32">
+      <section id="metodo" className="border-y border-border bg-ink-2/30 py-8 md:py-32">
         <div className="container-lux">
           <div className="mx-auto max-w-2xl text-center">
             <span className="gold-pill">
               <ClipboardList className="h-3.5 w-3.5" /> {t.metodo.pill}
             </span>
-            <h2 className="mt-6 font-display text-3xl leading-tight text-parchment sm:text-4xl md:text-5xl">
+            <h2 className="mt-6 font-display text-2xl leading-tight text-parchment sm:text-4xl md:text-5xl">
               {t.metodo.titleA} <span className="italic text-gold">{t.metodo.titleAccent}</span> {t.metodo.titleB}
             </h2>
           </div>
 
-          <div className="mt-8 grid gap-4 sm:mt-16 sm:gap-6 md:grid-cols-2 lg:grid-cols-4">
+          <div className="mt-6 grid gap-3 sm:mt-16 sm:gap-6 md:grid-cols-2 lg:grid-cols-4">
             {t.metodo.items.map((m, i) => {
               const Icon = METHOD_ICONS[i];
               return (
-                <div key={m.t} className="card-navy relative p-6 sm:p-8">
+                <div key={m.t} className="card-navy relative p-5 sm:p-8">
                   <div className="flex items-center gap-4">
                     <div className="flex h-12 w-12 items-center justify-center rounded-full bg-gold text-ink font-display text-xl">
                       {i + 1}
                     </div>
                     <Icon className="h-6 w-6 text-gold/70" strokeWidth={1.4} />
                   </div>
-                  <h3 className="mt-6 font-display text-2xl text-parchment">{m.t}</h3>
+                  <h3 className="mt-6 font-display text-xl text-parchment sm:text-2xl">{m.t}</h3>
                   <p className="mt-3 text-sm leading-relaxed text-parchment/65">{m.d}</p>
                 </div>
               );
@@ -382,20 +382,20 @@ function Index() {
       </section>
 
       {/* RESULTADOS */}
-      <section id="resultados" className="py-12 md:py-32">
+      <section id="resultados" className="py-8 md:py-32">
         <div className="container-lux">
           <div className="mx-auto max-w-2xl text-center">
             <span className="gold-pill">
               <Trophy className="h-3.5 w-3.5" /> {t.resultados.pill}
             </span>
-            <h2 className="mt-6 font-display text-3xl leading-tight text-parchment sm:text-4xl md:text-5xl">
+            <h2 className="mt-6 font-display text-2xl leading-tight text-parchment sm:text-4xl md:text-5xl">
               {t.resultados.titleA} <span className="italic text-gold">{t.resultados.titleAccent}</span>
             </h2>
           </div>
 
-          <div className="mt-8 grid gap-4 sm:mt-16 sm:gap-6 md:grid-cols-3">
+          <div className="mt-6 grid gap-3 sm:mt-16 sm:gap-6 md:grid-cols-3">
             {t.resultados.cases.map((c) => (
-              <div key={c.t} className="card-navy p-6 text-center sm:p-10">
+              <div key={c.t} className="card-navy p-5 text-center sm:p-10">
                 <div className="font-display text-5xl text-gold md:text-6xl">{c.v}</div>
                 <div className="mt-3 text-[11px] uppercase tracking-[0.22em] text-parchment/60">
                   {c.t}
@@ -408,7 +408,7 @@ function Index() {
       </section>
 
       {/* SÓCIA */}
-      <section className="border-y border-border bg-ink-2/30 py-12 md:py-32">
+      <section className="border-y border-border bg-ink-2/30 py-8 md:py-32">
         <div className="container-lux grid gap-10 md:grid-cols-12 md:gap-16">
           <div className="md:col-span-5">
             <div className="relative aspect-[4/5] w-full overflow-hidden rounded-xl">
@@ -421,7 +421,7 @@ function Index() {
                 className="h-full w-full object-cover"
               />
               <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-ink to-transparent p-6">
-                <div className="font-display text-2xl text-parchment">{t.socia.name}</div>
+                <div className="font-display text-xl text-parchment sm:text-2xl">{t.socia.name}</div>
                 <div className="text-[11px] uppercase tracking-[0.22em] text-gold">
                   {t.socia.role}
                 </div>
@@ -460,16 +460,16 @@ function Index() {
       </section>
 
       {/* PRESENÇA GLOBAL */}
-      <section id="presenca" className="py-12 md:py-32">
+      <section id="presenca" className="py-8 md:py-32">
         <div className="container-lux">
           <div className="mx-auto max-w-2xl text-center">
             <span className="gold-pill">
               <Globe className="h-3.5 w-3.5" /> {t.presenca.pill}
             </span>
-            <h2 className="mt-6 font-display text-3xl leading-tight text-parchment sm:text-4xl md:text-5xl">
+            <h2 className="mt-6 font-display text-2xl leading-tight text-parchment sm:text-4xl md:text-5xl">
               {t.presenca.titleA} <span className="italic text-gold">{t.presenca.titleAccent}</span>
             </h2>
-            <p className="mt-6 text-parchment/60">{t.presenca.subtitle}</p>
+            <p className="mt-4 text-sm text-parchment/60 sm:mt-6 sm:text-base">{t.presenca.subtitle}</p>
           </div>
 
           <div className="relative mt-16 overflow-hidden rounded-2xl border border-border bg-ink-2/40">
@@ -515,21 +515,21 @@ function Index() {
       </section>
 
       {/* DEPOIMENTOS */}
-      <section id="depoimentos" className="border-t border-border bg-ink-2/30 py-12 md:py-32">
+      <section id="depoimentos" className="border-t border-border bg-ink-2/30 py-8 md:py-32">
         <div className="container-lux">
           <div className="mx-auto max-w-2xl text-center">
             <span className="gold-pill">
               <MessageCircle className="h-3.5 w-3.5" /> {t.depoimentos.pill}
             </span>
-            <h2 className="mt-6 font-display text-3xl leading-tight text-parchment sm:text-4xl md:text-5xl">
+            <h2 className="mt-6 font-display text-2xl leading-tight text-parchment sm:text-4xl md:text-5xl">
               <span className="italic text-gold">{t.depoimentos.title}</span>
             </h2>
-            <p className="mt-6 text-parchment/60">{t.depoimentos.subtitle}</p>
+            <p className="mt-4 text-sm text-parchment/60 sm:mt-6 sm:text-base">{t.depoimentos.subtitle}</p>
           </div>
 
-          <div className="mt-8 grid gap-4 sm:mt-16 sm:gap-6 md:grid-cols-2 lg:grid-cols-3">
+          <div className="mt-6 grid gap-3 sm:mt-16 sm:gap-6 md:grid-cols-2 lg:grid-cols-3">
             {t.depoimentos.items.map((tt) => (
-              <figure key={tt.i + tt.city} className="card-navy flex flex-col p-6 sm:p-8">
+              <figure key={tt.i + tt.city} className="card-navy flex flex-col p-5 sm:p-8">
                 <blockquote className="flex-1 text-sm leading-relaxed text-parchment/80">
                   "{tt.q}"
                 </blockquote>
@@ -551,14 +551,14 @@ function Index() {
       {/* CONTATO */}
       <section
         id="contato"
-        className="relative overflow-hidden border-y border-border bg-ink-2/40 py-12 md:py-32"
+        className="relative overflow-hidden border-y border-border bg-ink-2/40 py-8 md:py-32"
       >
         <div className="container-lux grid gap-10 md:grid-cols-12">
           <div className="md:col-span-6">
             <span className="gold-pill">
               <Phone className="h-3.5 w-3.5" /> {t.contato.pill}
             </span>
-            <h2 className="mt-6 font-display text-3xl leading-tight text-parchment sm:text-4xl md:text-6xl">
+            <h2 className="mt-6 font-display text-2xl leading-tight text-parchment sm:text-4xl md:text-6xl">
               {t.contato.titleA} <span className="italic text-gold">{t.contato.titleAccent}</span>
             </h2>
             <p className="mt-6 max-w-md text-parchment/70">{t.contato.subtitle}</p>
@@ -626,7 +626,7 @@ function Index() {
             }}
           >
 
-            <div className="card-navy space-y-5 p-6 sm:p-8 md:p-10">
+            <div className="card-navy space-y-5 p-5 sm:p-8 md:p-10">
               <Field label={t.contato.fNome} name="full_name" />
               <Field label={t.contato.fEmail} name="email" type="email" />
               <div className="grid gap-5 sm:grid-cols-2">

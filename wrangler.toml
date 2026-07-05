@@ -1,10 +1,21 @@
 name = "fti-recovery"
+main = "./dist/server/server.js"
 compatibility_date = "2024-11-06"
 compatibility_flags = ["nodejs_compat"]
 
-# For Cloudflare Pages via GitHub:
-#   Build command:   npm run build
-#   Build output:    dist/client
-# Nitro auto-detects Cloudflare Pages (CF_PAGES=1) and writes the Worker
-# to dist/client/_worker.js during `npm run build`.
-main = "./dist/server/index.mjs"
+# TanStack Start emits a Worker-compatible server bundle at
+# `dist/server/server.js` (exports `{ fetch }`) and static client assets at
+# `dist/client/`. We deploy as a Cloudflare Worker with the Assets binding:
+# static files are served directly by the edge, and unmatched requests fall
+# through to the Worker for SSR.
+#
+# CI/CD:
+#   Build command:  npm run build
+#   Deploy command: npx wrangler deploy
+[assets]
+directory = "./dist/client"
+binding = "ASSETS"
+not_found_handling = "none"
+
+[observability]
+enabled = true

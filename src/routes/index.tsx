@@ -111,14 +111,14 @@ function Index() {
             </div>
             <div className="min-w-0 leading-tight">
               <div className="font-display text-lg tracking-[0.2em]">
-                FT<span className="text-gold">I</span>
+                FTI
               </div>
               <div className="truncate text-[9px] uppercase tracking-[0.28em] text-parchment/50">
                 {t.brand.tagline}
               </div>
             </div>
           </a>
-          <nav className="hidden items-center gap-8 lg:flex">
+          <nav className="hidden items-center gap-6 xl:flex">
             {NAV.slice(0, 6).map((n) => (
               <a
                 key={n.href}
@@ -129,11 +129,11 @@ function Index() {
               </a>
             ))}
           </nav>
-          <div className="flex shrink-0 items-center gap-2 sm:gap-3 lg:gap-5 lg:ml-8">
+          <div className="flex shrink-0 items-center gap-2 sm:gap-3 xl:gap-5 xl:ml-8">
             <LanguageSwitcher />
             <a
               href="#contato"
-              className="hidden md:inline-flex items-center justify-center gap-2 rounded-md border border-gold bg-gold px-6 py-3 text-[11px] font-semibold uppercase tracking-[0.16em] text-ink shadow-gold transition-colors hover:bg-gold-soft"
+              className="hidden xl:inline-flex items-center justify-center gap-2 rounded-md border border-gold bg-gold px-6 py-3 text-[11px] font-semibold uppercase tracking-[0.16em] text-ink shadow-gold transition-colors hover:bg-gold-soft"
             >
               <Phone className="h-3.5 w-3.5" />
               <span>{t.cta.solicitar}</span>
@@ -141,7 +141,7 @@ function Index() {
             <button
               type="button"
               onClick={() => setMobileOpen(true)}
-              className="inline-flex h-10 w-10 items-center justify-center rounded-full border border-gold/40 bg-ink-2/60 text-gold lg:hidden"
+              className="inline-flex h-10 w-10 items-center justify-center rounded-full border border-gold/40 bg-ink-2/60 text-gold xl:hidden"
               aria-label="Open menu"
             >
               <Menu className="h-5 w-5" />
@@ -152,15 +152,13 @@ function Index() {
 
       {/* MOBILE MENU */}
       {mobileOpen && (
-        <div className="fixed inset-0 z-50 flex flex-col bg-ink/98 backdrop-blur lg:hidden">
+        <div className="fixed inset-0 z-50 flex flex-col bg-ink/98 backdrop-blur xl:hidden">
           <div className="container-lux flex items-center justify-between py-4">
             <div className="flex items-center gap-3 text-parchment">
               <div className="flex h-10 w-10 items-center justify-center rounded-full border border-gold/50 bg-ink-2/60">
                 <Scale className="h-5 w-5 text-gold" strokeWidth={1.5} />
               </div>
-              <span className="font-display text-lg tracking-[0.2em]">
-                FT<span className="text-gold">I</span>
-              </span>
+              <span className="font-display text-lg tracking-[0.2em]">FTI</span>
             </div>
             <button
               type="button"
@@ -574,7 +572,7 @@ function Index() {
                 </div>
                 <div>
                   <div className="text-[11px] uppercase tracking-[0.22em] text-parchment/50">{t.contato.emailLabel}</div>
-                  <div className="text-parchment">suport@ftiagent.com</div>
+                  <div className="text-parchment">support@ftiagent.com</div>
                 </div>
               </div>
             </div>
@@ -627,7 +625,7 @@ function Index() {
                   <Scale className="h-5 w-5 text-gold" strokeWidth={1.5} />
                 </div>
                 <span className="font-display text-lg tracking-[0.2em]">
-                  FT<span className="text-gold">I</span>
+                  FTI
                 </span>
               </div>
               <p className="mt-5 max-w-xs text-sm">{t.footer.about}</p>
@@ -651,7 +649,7 @@ function Index() {
                 {t.footer.contatoLabel}
               </div>
               <ul className="mt-5 space-y-3 text-sm">
-                <li>suport@ftiagent.com</li>
+                <li>support@ftiagent.com</li>
               </ul>
               <div className="mt-6 text-[11px] uppercase tracking-[0.22em] text-parchment/40">
                 {t.footer.presencaLabel}

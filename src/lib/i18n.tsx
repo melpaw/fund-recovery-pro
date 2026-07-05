@@ -3,7 +3,7 @@ import { createContext, useContext, useEffect, useMemo, useState, type ReactNode
 export type Lang = "pt" | "en" | "de" | "fr" | "es" | "it";
 
 export const LANGS: { code: Lang; label: string; flag: string }[] = [
-  { code: "en", label: "EN", flag: "🇬🇧" },
+  { code: "en", label: "EN", flag: "UK" },
   { code: "de", label: "DE", flag: "🇩🇪" },
   { code: "pt", label: "PT", flag: "🇧🇷" },
   { code: "es", label: "ES", flag: "🇪🇸" },
@@ -131,7 +131,7 @@ const pt: Dict = {
   footer: {
     about: "Fund Recovery Agents. Especialistas em rastreamento e recuperação de fundos, ativos e créditos em disputas transfronteiriças.",
     navLabel: "Navegação", contatoLabel: "Contato", presencaLabel: "Presença",
-    cities: "Londres · Frankfurt · Zurique · Madrid · Paris · Nova York · Toronto · São Paulo · Buenos Aires",
+    cities: "Londres · Viena · Zurique · Madrid · Paris · Toronto · São Paulo · Buenos Aires",
     copyright: "Todos os direitos reservados.", regulated: "Autorizado e regulado pela Financial Conduct Authority (FCA).",
   },
 };
@@ -226,7 +226,7 @@ const en: Dict = {
   footer: {
     about: "Fund Recovery Agents. Specialists in tracing and recovering funds, assets and credits in cross-border disputes.",
     navLabel: "Navigation", contatoLabel: "Contact", presencaLabel: "Presence",
-    cities: "London · Frankfurt · Zurich · Madrid · Paris · New York · Toronto · São Paulo · Buenos Aires",
+    cities: "London · Vienna · Zurich · Madrid · Paris · Toronto · São Paulo · Buenos Aires",
     copyright: "All rights reserved.", regulated: "Authorised and regulated by the Financial Conduct Authority (FCA).",
   },
 };
@@ -321,7 +321,7 @@ const de: Dict = {
   footer: {
     about: "Fund Recovery Agents. Spezialisten für die Nachverfolgung und Rückgewinnung von Geldern, Vermögen und Forderungen in grenzüberschreitenden Streitigkeiten.",
     navLabel: "Navigation", contatoLabel: "Kontakt", presencaLabel: "Präsenz",
-    cities: "London · Frankfurt · Zürich · Madrid · Paris · New York · Toronto · São Paulo · Buenos Aires",
+    cities: "London · Wien · Zürich · Madrid · Paris · Toronto · São Paulo · Buenos Aires",
     copyright: "Alle Rechte vorbehalten.", regulated: "Zugelassen und reguliert durch die Financial Conduct Authority (FCA).",
   },
 };
@@ -416,7 +416,7 @@ const fr: Dict = {
   footer: {
     about: "Fund Recovery Agents. Spécialistes du traçage et de la récupération de fonds, actifs et créances dans les litiges transfrontaliers.",
     navLabel: "Navigation", contatoLabel: "Contact", presencaLabel: "Présence",
-    cities: "Londres · Francfort · Zurich · Madrid · Paris · New York · Toronto · São Paulo · Buenos Aires",
+    cities: "Londres · Vienne · Zurich · Madrid · Paris · Toronto · São Paulo · Buenos Aires",
     copyright: "Tous droits réservés.", regulated: "Autorisé et réglementé par la Financial Conduct Authority (FCA).",
   },
 };
@@ -511,7 +511,7 @@ const es: Dict = {
   footer: {
     about: "Fund Recovery Agents. Especialistas en rastreo y recuperación de fondos, activos y créditos en disputas transfronterizas.",
     navLabel: "Navegación", contatoLabel: "Contacto", presencaLabel: "Presencia",
-    cities: "Londres · Fráncfort · Zúrich · Madrid · París · Nueva York · Toronto · São Paulo · Buenos Aires",
+    cities: "Londres · Viena · Zúrich · Madrid · París · Toronto · São Paulo · Buenos Aires",
     copyright: "Todos los derechos reservados.", regulated: "Autorizado y regulado por la Financial Conduct Authority (FCA).",
   },
 };
@@ -606,7 +606,7 @@ const it: Dict = {
   footer: {
     about: "Fund Recovery Agents. Specialisti nel tracciamento e recupero di fondi, attivi e crediti nelle controversie transfrontaliere.",
     navLabel: "Navigazione", contatoLabel: "Contatti", presencaLabel: "Presenza",
-    cities: "Londra · Francoforte · Zurigo · Madrid · Parigi · New York · Toronto · San Paolo · Buenos Aires",
+    cities: "Londra · Vienna · Zurigo · Madrid · Parigi · Toronto · San Paolo · Buenos Aires",
     copyright: "Tutti i diritti riservati.", regulated: "Autorizzato e regolato dalla Financial Conduct Authority (FCA).",
   },
 };

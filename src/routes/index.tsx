@@ -189,7 +189,7 @@ function Index() {
       )}
 
       {/* HERO */}
-      <section className="relative min-h-[100svh] overflow-hidden bg-ink">
+      <section className="relative min-h-[85svh] overflow-hidden bg-ink md:min-h-[100svh]">
         <img
           src={heroJustice}
           alt="Justice"
@@ -204,32 +204,32 @@ function Index() {
               "radial-gradient(ellipse at center, oklch(0.19 0.04 258 / 0.4) 0%, oklch(0.19 0.04 258 / 0.85) 55%, var(--ink) 100%)",
           }}
         />
-        <div className="container-lux relative flex min-h-[100svh] flex-col items-center justify-center py-16 text-center text-parchment md:py-40">
+        <div className="container-lux relative flex min-h-[85svh] flex-col items-center justify-center py-20 text-center text-parchment md:min-h-[100svh] md:py-40">
           <span className="gold-pill">
             <ShieldCheck className="h-3.5 w-3.5" /> {t.hero.badge}
           </span>
-          <h1 className="mt-6 font-display text-[2.25rem] leading-[1.05] tracking-tight sm:text-5xl md:mt-8 md:text-7xl lg:text-[5.5rem]">
+          <h1 className="mt-4 font-display text-[1.85rem] leading-[1.05] tracking-tight sm:text-5xl md:mt-8 md:text-7xl lg:text-[5.5rem]">
             {t.hero.titleA} <span className="italic text-gold">{t.hero.titleAccent}</span>
           </h1>
-          <p className="mt-6 max-w-2xl text-sm leading-relaxed text-parchment/70 sm:text-base md:mt-8 md:text-lg">
+          <p className="mt-4 max-w-2xl text-[13px] leading-relaxed text-parchment/70 sm:text-base md:mt-8 md:text-lg">
             {t.hero.subtitle}
           </p>
 
-          <div className="mt-6 grid w-full max-w-4xl gap-3 sm:mt-14 sm:grid-cols-3 sm:gap-4">
+          <div className="mt-5 grid w-full max-w-4xl gap-2 sm:mt-14 sm:grid-cols-3 sm:gap-4">
             {t.hero.badges.map((b) => (
-              <div key={b.t} className="card-navy flex items-center gap-3 p-4 text-left sm:gap-4 sm:p-5">
-                <div className="flex h-9 w-9 flex-none items-center justify-center rounded-full bg-[color:var(--success)]">
+              <div key={b.t} className="card-navy flex items-center gap-3 p-3 text-left sm:gap-4 sm:p-5">
+                <div className="flex h-8 w-8 flex-none items-center justify-center rounded-full bg-[color:var(--success)] sm:h-9 sm:w-9">
                   <Check className="h-4 w-4 text-ink" strokeWidth={3} />
                 </div>
                 <div className="min-w-0">
-                  <div className="text-sm font-semibold text-parchment">{b.t}</div>
-                  <div className="text-xs text-parchment/60">{b.s}</div>
+                  <div className="text-[13px] font-semibold text-parchment sm:text-sm">{b.t}</div>
+                  <div className="text-[11px] text-parchment/60 sm:text-xs">{b.s}</div>
                 </div>
               </div>
             ))}
           </div>
 
-          <div className="mt-10 flex w-full flex-col items-stretch justify-center gap-3 sm:mt-12 sm:w-auto sm:flex-row sm:flex-wrap sm:items-center sm:gap-4">
+          <div className="mt-6 flex w-full flex-col items-stretch justify-center gap-2.5 sm:mt-12 sm:w-auto sm:flex-row sm:flex-wrap sm:items-center sm:gap-4">
             <a href="#contato" className="btn-gold justify-center">
               <Phone className="h-4 w-4" /> {t.cta.solicitar}
             </a>
@@ -239,6 +239,7 @@ function Index() {
           </div>
         </div>
       </section>
+
 
 
       {/* AWARDS BAR */}

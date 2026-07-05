@@ -600,10 +600,23 @@ function Index() {
               try {
                 const res = await fetch("/api/contact", {
                   method: "POST",
-                  headers: { "Content-Type": "application/json" },
+                  headers: {
+                    "Content-Type": "application/json",
+                    Accept: "application/json",
+                  },
                   body: JSON.stringify(payload),
                 });
-                if (!res.ok) throw new Error(await res.text());
+                const ctype = res.headers.get("content-type") ?? "";
+                if (!ctype.includes("application/json")) {
+                  const text = await res.text();
+                  throw new Error(
+                    `Servidor não respondeu em JSON (status ${res.status}). Verifique se a rota /api/contact foi publicada. Início da resposta: ${text.slice(0, 120)}`,
+                  );
+                }
+                const data = (await res.json()) as { ok?: boolean; error?: string };
+                if (!res.ok || !data.ok) {
+                  throw new Error(data.error ?? `HTTP ${res.status}`);
+                }
                 alert(t.contato.success);
                 form.reset();
               } catch (err) {
@@ -611,6 +624,7 @@ function Index() {
               }
             }}
           >
+
             <div className="card-navy space-y-5 p-6 sm:p-8 md:p-10">
               <Field label={t.contato.fNome} name="full_name" />
               <Field label={t.contato.fEmail} name="email" type="email" />

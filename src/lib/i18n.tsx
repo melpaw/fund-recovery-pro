@@ -29,7 +29,7 @@ type Dict = {
   metodo: { pill: string; titleA: string; titleAccent: string; titleB: string; items: { t: string; d: string }[] };
   resultados: { pill: string; titleA: string; titleAccent: string; cases: { v: string; t: string; d: string }[] };
   socia: { pill: string; quote: string; llLabel: string; yearsValue: string; yearsLabel: string; chambersLabel: string; role: string; name: string };
-  presenca: { pill: string; titleA: string; titleAccent: string; subtitle: string; offices: { region: string; city: string; note: string }[]; mapAlt: string };
+  presenca: { pill: string; titleA: string; titleAccent: string; subtitle: string; officesLabel: string; offices: { region: string; city: string; note: string }[]; mapAlt: string };
   depoimentos: { pill: string; title: string; subtitle: string; items: { i: string; city: string; q: string }[] };
   contato: {
     pill: string; titleA: string; titleAccent: string; subtitle: string;
@@ -103,16 +103,11 @@ const pt: Dict = {
     pill: "Presença Global", titleA: "Escritórios nos principais", titleAccent: "centros financeiros",
     subtitle: "Operamos com sedes e correspondentes nos principais países da Europa, América do Norte e América do Sul, permitindo enforcement coordenado entre jurisdições.",
     mapAlt: "Mapa mundial com escritórios e correspondentes",
+    officesLabel: "Principais Sedes",
     offices: [
       { region: "Reino Unido", city: "Londres", note: "Sede europeia · FCA" },
-      { region: "Alemanha", city: "Frankfurt", note: "BaFin liaison" },
-      { region: "Suíça", city: "Zurique", note: "FINMA correspondente" },
-      { region: "Espanha", city: "Madrid", note: "CNMV correspondente" },
-      { region: "França", city: "Paris", note: "AMF correspondente" },
-      { region: "Estados Unidos", city: "Nova York", note: "SEC / FinCEN" },
-      { region: "Canadá", city: "Toronto", note: "CIRO correspondente" },
-      { region: "Brasil", city: "São Paulo", note: "CVM correspondente" },
-      { region: "Argentina", city: "Buenos Aires", note: "CNV correspondente" },
+      { region: "Áustria", city: "Viena", note: "Sede central" },
+      { region: "Canadá", city: "Toronto", note: "Sede das Américas" },
     ],
   },
   depoimentos: {
@@ -203,16 +198,11 @@ const en: Dict = {
     pill: "Global Presence", titleA: "Offices in the world's leading", titleAccent: "financial centres",
     subtitle: "We operate with offices and correspondents in the leading countries of Europe, North America and South America, enabling coordinated cross-jurisdiction enforcement.",
     mapAlt: "World map with offices and correspondents",
+    officesLabel: "Main Offices",
     offices: [
       { region: "United Kingdom", city: "London", note: "European HQ · FCA" },
-      { region: "Germany", city: "Frankfurt", note: "BaFin liaison" },
-      { region: "Switzerland", city: "Zurich", note: "FINMA correspondent" },
-      { region: "Spain", city: "Madrid", note: "CNMV correspondent" },
-      { region: "France", city: "Paris", note: "AMF correspondent" },
-      { region: "United States", city: "New York", note: "SEC / FinCEN" },
-      { region: "Canada", city: "Toronto", note: "CIRO correspondent" },
-      { region: "Brazil", city: "São Paulo", note: "CVM correspondent" },
-      { region: "Argentina", city: "Buenos Aires", note: "CNV correspondent" },
+      { region: "Austria", city: "Vienna", note: "Head office" },
+      { region: "Canada", city: "Toronto", note: "Americas HQ" },
     ],
   },
   depoimentos: {
@@ -303,16 +293,11 @@ const de: Dict = {
     pill: "Globale Präsenz", titleA: "Büros in den führenden", titleAccent: "Finanzzentren",
     subtitle: "Wir arbeiten mit Büros und Korrespondenten in den führenden Ländern Europas, Nordamerikas und Südamerikas und ermöglichen koordinierte grenzüberschreitende Vollstreckung.",
     mapAlt: "Weltkarte mit Büros und Korrespondenten",
+    officesLabel: "Hauptsitze",
     offices: [
       { region: "Vereinigtes Königreich", city: "London", note: "Europazentrale · FCA" },
-      { region: "Deutschland", city: "Frankfurt", note: "BaFin-Verbindung" },
-      { region: "Schweiz", city: "Zürich", note: "FINMA-Korrespondent" },
-      { region: "Spanien", city: "Madrid", note: "CNMV-Korrespondent" },
-      { region: "Frankreich", city: "Paris", note: "AMF-Korrespondent" },
-      { region: "Vereinigte Staaten", city: "New York", note: "SEC / FinCEN" },
-      { region: "Kanada", city: "Toronto", note: "CIRO-Korrespondent" },
-      { region: "Brasilien", city: "São Paulo", note: "CVM-Korrespondent" },
-      { region: "Argentinien", city: "Buenos Aires", note: "CNV-Korrespondent" },
+      { region: "Österreich", city: "Wien", note: "Hauptsitz" },
+      { region: "Kanada", city: "Toronto", note: "Amerika-Sitz" },
     ],
   },
   depoimentos: {
@@ -403,16 +388,11 @@ const fr: Dict = {
     pill: "Présence mondiale", titleA: "Bureaux dans les principaux", titleAccent: "centres financiers",
     subtitle: "Nous opérons avec des bureaux et correspondants dans les principaux pays d'Europe, d'Amérique du Nord et d'Amérique du Sud, permettant une exécution coordonnée entre juridictions.",
     mapAlt: "Carte du monde avec bureaux et correspondants",
+    officesLabel: "Principaux Bureaux",
     offices: [
       { region: "Royaume-Uni", city: "Londres", note: "Siège européen · FCA" },
-      { region: "Allemagne", city: "Francfort", note: "Liaison BaFin" },
-      { region: "Suisse", city: "Zurich", note: "Correspondant FINMA" },
-      { region: "Espagne", city: "Madrid", note: "Correspondant CNMV" },
-      { region: "France", city: "Paris", note: "Correspondant AMF" },
-      { region: "États-Unis", city: "New York", note: "SEC / FinCEN" },
-      { region: "Canada", city: "Toronto", note: "Correspondant CIRO" },
-      { region: "Brésil", city: "São Paulo", note: "Correspondant CVM" },
-      { region: "Argentine", city: "Buenos Aires", note: "Correspondant CNV" },
+      { region: "Autriche", city: "Vienne", note: "Siège central" },
+      { region: "Canada", city: "Toronto", note: "Siège des Amériques" },
     ],
   },
   depoimentos: {
@@ -503,16 +483,11 @@ const es: Dict = {
     pill: "Presencia global", titleA: "Oficinas en los principales", titleAccent: "centros financieros",
     subtitle: "Operamos con oficinas y corresponsales en los principales países de Europa, América del Norte y América del Sur, permitiendo ejecución coordinada entre jurisdicciones.",
     mapAlt: "Mapa mundial con oficinas y corresponsales",
+    officesLabel: "Oficinas Principales",
     offices: [
       { region: "Reino Unido", city: "Londres", note: "Sede europea · FCA" },
-      { region: "Alemania", city: "Fráncfort", note: "Enlace BaFin" },
-      { region: "Suiza", city: "Zúrich", note: "Corresponsal FINMA" },
-      { region: "España", city: "Madrid", note: "Corresponsal CNMV" },
-      { region: "Francia", city: "París", note: "Corresponsal AMF" },
-      { region: "Estados Unidos", city: "Nueva York", note: "SEC / FinCEN" },
-      { region: "Canadá", city: "Toronto", note: "Corresponsal CIRO" },
-      { region: "Brasil", city: "São Paulo", note: "Corresponsal CVM" },
-      { region: "Argentina", city: "Buenos Aires", note: "Corresponsal CNV" },
+      { region: "Austria", city: "Viena", note: "Sede central" },
+      { region: "Canadá", city: "Toronto", note: "Sede de las Américas" },
     ],
   },
   depoimentos: {
@@ -603,16 +578,11 @@ const it: Dict = {
     pill: "Presenza globale", titleA: "Uffici nei principali", titleAccent: "centri finanziari",
     subtitle: "Operiamo con uffici e corrispondenti nei principali paesi di Europa, Nord America e Sud America, per un'esecuzione coordinata tra giurisdizioni.",
     mapAlt: "Mappa del mondo con uffici e corrispondenti",
+    officesLabel: "Sedi Principali",
     offices: [
       { region: "Regno Unito", city: "Londra", note: "Sede europea · FCA" },
-      { region: "Germania", city: "Francoforte", note: "Contatto BaFin" },
-      { region: "Svizzera", city: "Zurigo", note: "Corrispondente FINMA" },
-      { region: "Spagna", city: "Madrid", note: "Corrispondente CNMV" },
-      { region: "Francia", city: "Parigi", note: "Corrispondente AMF" },
-      { region: "Stati Uniti", city: "New York", note: "SEC / FinCEN" },
-      { region: "Canada", city: "Toronto", note: "Corrispondente CIRO" },
-      { region: "Brasile", city: "San Paolo", note: "Corrispondente CVM" },
-      { region: "Argentina", city: "Buenos Aires", note: "Corrispondente CNV" },
+      { region: "Austria", city: "Vienna", note: "Sede centrale" },
+      { region: "Canada", city: "Toronto", note: "Sede delle Americhe" },
     ],
   },
   depoimentos: {

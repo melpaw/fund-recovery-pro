@@ -494,7 +494,12 @@ function Index() {
             />
           </div>
 
-          <div className="mt-10 grid gap-4 sm:mt-12 sm:grid-cols-2 lg:grid-cols-3">
+          <div className="mt-10 text-center sm:mt-12">
+            <h3 className="font-display text-xl uppercase tracking-[0.18em] text-gold sm:text-2xl">
+              {t.presenca.officesLabel}
+            </h3>
+          </div>
+          <div className="mt-6 grid gap-4 sm:mt-8 sm:grid-cols-3">
             {t.presenca.offices.map((o) => (
               <div key={o.city} className="card-navy flex items-start gap-4 p-5">
                 <div className="flex h-10 w-10 flex-none items-center justify-center rounded-lg bg-gold/10 ring-1 ring-gold/30">

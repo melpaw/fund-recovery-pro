@@ -736,3 +736,52 @@ function Field({
     </div>
   );
 }
+
+function ExpandableCard({
+  Icon,
+  tag,
+  title,
+  text,
+  moreLabel,
+}: {
+  Icon: typeof Bitcoin;
+  tag: string;
+  title: string;
+  text: string;
+  moreLabel: string;
+}) {
+  const [open, setOpen] = useState(false);
+  return (
+    <article className="card-navy group flex flex-col p-3 transition-all hover:border-gold/40 hover:-translate-y-1 sm:p-8">
+      <div className="flex h-9 w-9 items-center justify-center rounded-lg bg-gold/10 ring-1 ring-gold/30 sm:h-14 sm:w-14">
+        <Icon className="h-4 w-4 text-gold sm:h-7 sm:w-7" strokeWidth={1.4} />
+      </div>
+      <div className="mt-2 text-[9px] uppercase tracking-[0.18em] text-gold sm:mt-6 sm:text-[10px] sm:tracking-[0.22em]">
+        {tag}
+      </div>
+      <h3 className="mt-1 font-display text-[13px] leading-tight text-parchment sm:mt-2 sm:text-2xl">
+        {title}
+      </h3>
+      <p
+        className={`mt-2 flex-1 text-[12px] leading-relaxed text-parchment/65 sm:mt-4 sm:text-sm sm:block ${
+          open ? "block" : "hidden"
+        }`}
+      >
+        {text}
+      </p>
+      <button
+        type="button"
+        onClick={() => setOpen((v) => !v)}
+        className="mt-3 inline-flex items-center gap-1 text-[10px] uppercase tracking-[0.18em] text-gold transition-transform group-hover:translate-x-1 sm:hidden"
+      >
+        {moreLabel} <ArrowRight className="h-3 w-3" />
+      </button>
+      <a
+        href="#contato"
+        className="mt-8 hidden items-center gap-2 text-[11px] uppercase tracking-[0.22em] text-gold transition-transform group-hover:translate-x-1 sm:inline-flex"
+      >
+        {moreLabel} <ArrowRight className="h-3.5 w-3.5" />
+      </a>
+    </article>
+  );
+}

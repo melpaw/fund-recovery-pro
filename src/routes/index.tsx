@@ -119,10 +119,14 @@ function Index() {
               </a>
             ))}
           </nav>
-          <div className="flex items-center gap-3">
+          <div className="flex items-center gap-4 lg:gap-5 lg:ml-8">
             <LanguageSwitcher />
-            <a href="#contato" className="hidden md:inline-flex btn-gold !py-3 !px-5">
-              <Phone className="h-3.5 w-3.5" /> {t.cta.solicitar}
+            <a
+              href="#contato"
+              className="hidden md:inline-flex items-center justify-center gap-2 rounded-md border border-gold bg-gold px-6 py-3 text-[11px] font-semibold uppercase tracking-[0.16em] text-ink shadow-gold transition-colors hover:bg-gold-soft"
+            >
+              <Phone className="h-3.5 w-3.5" />
+              <span>{t.cta.solicitar}</span>
             </a>
           </div>
         </div>

@@ -204,7 +204,7 @@ function Index() {
               "radial-gradient(ellipse at center, oklch(0.19 0.04 258 / 0.4) 0%, oklch(0.19 0.04 258 / 0.85) 55%, var(--ink) 100%)",
           }}
         />
-        <div className="container-lux relative flex min-h-[100svh] flex-col items-center justify-center py-28 text-center text-parchment md:py-40">
+        <div className="container-lux relative flex min-h-[100svh] flex-col items-center justify-center py-16 text-center text-parchment md:py-40">
           <span className="gold-pill">
             <ShieldCheck className="h-3.5 w-3.5" /> {t.hero.badge}
           </span>
@@ -215,7 +215,7 @@ function Index() {
             {t.hero.subtitle}
           </p>
 
-          <div className="mt-10 grid w-full max-w-4xl gap-3 sm:mt-14 sm:grid-cols-3 sm:gap-4">
+          <div className="mt-6 grid w-full max-w-4xl gap-3 sm:mt-14 sm:grid-cols-3 sm:gap-4">
             {t.hero.badges.map((b) => (
               <div key={b.t} className="card-navy flex items-center gap-3 p-4 text-left sm:gap-4 sm:p-5">
                 <div className="flex h-9 w-9 flex-none items-center justify-center rounded-full bg-[color:var(--success)]">
@@ -292,7 +292,7 @@ function Index() {
             <p className="mt-6 text-parchment/70">{t.atuacao.subtitle}</p>
           </div>
 
-          <div className="mt-10 grid gap-5 sm:mt-16 sm:gap-6 md:grid-cols-3">
+          <div className="mt-8 grid gap-4 sm:mt-16 sm:gap-6 md:grid-cols-3">
             {t.atuacao.services.map((s, i) => {
               const Icon = SERVICE_ICONS[i];
               return (
@@ -331,7 +331,7 @@ function Index() {
             </h2>
           </div>
 
-          <div className="mt-10 grid gap-5 sm:mt-16 sm:gap-6 md:grid-cols-3">
+          <div className="mt-8 grid gap-4 sm:mt-16 sm:gap-6 md:grid-cols-3">
             {t.why.items.map((w, i) => {
               const Icon = WHY_ICONS[i];
               return (
@@ -360,7 +360,7 @@ function Index() {
             </h2>
           </div>
 
-          <div className="mt-10 grid gap-5 sm:mt-16 sm:gap-6 md:grid-cols-2 lg:grid-cols-4">
+          <div className="mt-8 grid gap-4 sm:mt-16 sm:gap-6 md:grid-cols-2 lg:grid-cols-4">
             {t.metodo.items.map((m, i) => {
               const Icon = METHOD_ICONS[i];
               return (
@@ -392,7 +392,7 @@ function Index() {
             </h2>
           </div>
 
-          <div className="mt-10 grid gap-5 sm:mt-16 sm:gap-6 md:grid-cols-3">
+          <div className="mt-8 grid gap-4 sm:mt-16 sm:gap-6 md:grid-cols-3">
             {t.resultados.cases.map((c) => (
               <div key={c.t} className="card-navy p-6 text-center sm:p-10">
                 <div className="font-display text-5xl text-gold md:text-6xl">{c.v}</div>
@@ -526,7 +526,7 @@ function Index() {
             <p className="mt-6 text-parchment/60">{t.depoimentos.subtitle}</p>
           </div>
 
-          <div className="mt-10 grid gap-5 sm:mt-16 sm:gap-6 md:grid-cols-2 lg:grid-cols-3">
+          <div className="mt-8 grid gap-4 sm:mt-16 sm:gap-6 md:grid-cols-2 lg:grid-cols-3">
             {t.depoimentos.items.map((tt) => (
               <figure key={tt.i + tt.city} className="card-navy flex flex-col p-6 sm:p-8">
                 <blockquote className="flex-1 text-sm leading-relaxed text-parchment/80">
@@ -613,7 +613,7 @@ function Index() {
       </section>
 
       {/* FOOTER */}
-      <footer className="bg-ink pt-16 pb-10 text-parchment/60">
+      <footer className="bg-ink pt-10 pb-8 md:pt-16 md:pb-10 text-parchment/60">
         <div className="container-lux">
           <div className="grid gap-12 md:grid-cols-12">
             <div className="md:col-span-5">

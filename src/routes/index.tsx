@@ -149,7 +149,7 @@ function Index() {
 
       {/* MOBILE MENU */}
       {mobileOpen && (
-        <div className="fixed inset-0 z-50 flex flex-col bg-ink/98 backdrop-blur xl:hidden">
+        <div className="fixed inset-0 z-50 flex flex-col bg-ink/98 backdrop-blur lg:hidden">
           <div className="container-lux flex items-center justify-between py-4">
             <div className="flex items-center gap-3 text-parchment">
               <div className="flex h-10 w-10 items-center justify-center rounded-full border border-gold/50 bg-ink-2/60">
@@ -242,7 +242,7 @@ function Index() {
 
 
       {/* AWARDS BAR */}
-      <section className="border-y border-border bg-ink-2/40 py-10">
+      <section className="border-y border-border bg-ink-2/40 py-8">
         <div className="container-lux">
           <div className="flex flex-col items-center justify-center gap-6 text-center">
             <span className="text-[11px] uppercase tracking-[0.28em] text-parchment/50">
@@ -265,7 +265,7 @@ function Index() {
       </section>
 
       {/* ESCRITÓRIO */}
-      <section id="escritorio" className="py-16 md:py-32">
+      <section id="escritorio" className="py-12 md:py-32">
         <div className="container-lux text-center">
           <span className="gold-pill">
             <Trophy className="h-3.5 w-3.5" /> {t.escritorio.pill}
@@ -280,7 +280,7 @@ function Index() {
       </section>
 
       {/* ATUAÇÃO */}
-      <section id="atuacao" className="border-y border-border bg-ink-2/30 py-16 md:py-32">
+      <section id="atuacao" className="border-y border-border bg-ink-2/30 py-12 md:py-32">
         <div className="container-lux">
           <div className="mx-auto max-w-2xl text-center">
             <span className="gold-pill">
@@ -320,7 +320,7 @@ function Index() {
       </section>
 
       {/* WHY US */}
-      <section className="py-16 md:py-32">
+      <section className="py-12 md:py-32">
         <div className="container-lux">
           <div className="mx-auto max-w-2xl text-center">
             <span className="gold-pill">
@@ -349,7 +349,7 @@ function Index() {
       </section>
 
       {/* MÉTODO */}
-      <section id="metodo" className="border-y border-border bg-ink-2/30 py-16 md:py-32">
+      <section id="metodo" className="border-y border-border bg-ink-2/30 py-12 md:py-32">
         <div className="container-lux">
           <div className="mx-auto max-w-2xl text-center">
             <span className="gold-pill">
@@ -381,7 +381,7 @@ function Index() {
       </section>
 
       {/* RESULTADOS */}
-      <section id="resultados" className="py-16 md:py-32">
+      <section id="resultados" className="py-12 md:py-32">
         <div className="container-lux">
           <div className="mx-auto max-w-2xl text-center">
             <span className="gold-pill">
@@ -407,7 +407,7 @@ function Index() {
       </section>
 
       {/* SÓCIA */}
-      <section className="border-y border-border bg-ink-2/30 py-16 md:py-32">
+      <section className="border-y border-border bg-ink-2/30 py-12 md:py-32">
         <div className="container-lux grid gap-10 md:grid-cols-12 md:gap-16">
           <div className="md:col-span-5">
             <div className="relative aspect-[4/5] w-full overflow-hidden rounded-xl">
@@ -459,7 +459,7 @@ function Index() {
       </section>
 
       {/* PRESENÇA GLOBAL */}
-      <section id="presenca" className="py-16 md:py-32">
+      <section id="presenca" className="py-12 md:py-32">
         <div className="container-lux">
           <div className="mx-auto max-w-2xl text-center">
             <span className="gold-pill">
@@ -514,7 +514,7 @@ function Index() {
       </section>
 
       {/* DEPOIMENTOS */}
-      <section id="depoimentos" className="border-t border-border bg-ink-2/30 py-16 md:py-32">
+      <section id="depoimentos" className="border-t border-border bg-ink-2/30 py-12 md:py-32">
         <div className="container-lux">
           <div className="mx-auto max-w-2xl text-center">
             <span className="gold-pill">
@@ -550,7 +550,7 @@ function Index() {
       {/* CONTATO */}
       <section
         id="contato"
-        className="relative overflow-hidden border-y border-border bg-ink-2/40 py-16 md:py-32"
+        className="relative overflow-hidden border-y border-border bg-ink-2/40 py-12 md:py-32"
       >
         <div className="container-lux grid gap-10 md:grid-cols-12">
           <div className="md:col-span-6">

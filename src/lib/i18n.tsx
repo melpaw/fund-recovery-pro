@@ -4,11 +4,11 @@ export type Lang = "pt" | "en" | "de" | "fr" | "es" | "it";
 
 export const LANGS: { code: Lang; label: string; flag: string }[] = [
   { code: "en", label: "EN", flag: "UK" },
-  { code: "de", label: "DE", flag: "🇩🇪" },
-  { code: "pt", label: "PT", flag: "🇧🇷" },
-  { code: "es", label: "ES", flag: "🇪🇸" },
-  { code: "fr", label: "FR", flag: "🇫🇷" },
-  { code: "it", label: "IT", flag: "🇮🇹" },
+  { code: "de", label: "DE", flag: "DE" },
+  { code: "pt", label: "PT", flag: "BR" },
+  { code: "es", label: "ES", flag: "ES" },
+  { code: "fr", label: "FR", flag: "FR" },
+  { code: "it", label: "IT", flag: "IT" },
 ];
 
 type Dict = {

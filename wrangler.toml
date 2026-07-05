@@ -1,18 +1,21 @@
 name = "fti-recovery"
+main = "./dist/server/server.js"
 compatibility_date = "2024-11-06"
 compatibility_flags = ["nodejs_compat"]
 
-# Cloudflare Pages configuration.
+# TanStack Start emits a Worker-compatible server bundle at
+# `dist/server/server.js` (exports `{ fetch }`) and static client assets at
+# `dist/client/`. We deploy as a Cloudflare Worker with the Assets binding:
+# static files are served directly by the edge, and unmatched requests fall
+# through to the Worker for SSR.
 #
-# Nitro auto-detects Cloudflare Pages (CF_PAGES=1 is injected by the Pages
-# build environment) and emits the Worker bundle inside `dist/`, alongside
-# the static client assets. Pages picks it up automatically — do NOT set
-# `main` here; that field is for `wrangler deploy` (Workers), not Pages,
-# and pointing it at a non-existent file breaks the deploy step.
-#
-# GitHub → Cloudflare Pages settings:
-#   Build command:            npm run build
-#   Build output directory:   dist
-#   Root directory:           /
-#   Environment variables:    NODE_VERSION = 20
-pages_build_output_dir = "dist"
+# CI/CD:
+#   Build command:  npm run build
+#   Deploy command: npx wrangler deploy
+[assets]
+directory = "./dist/client"
+binding = "ASSETS"
+not_found_handling = "none"
+
+[observability]
+enabled = true

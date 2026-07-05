@@ -384,14 +384,14 @@ function Index() {
             </h2>
           </div>
 
-          <div className="mt-6 grid gap-3 sm:mt-16 sm:gap-6 md:grid-cols-3">
+          <div className="mt-6 grid grid-cols-3 gap-2 sm:mt-16 sm:gap-6">
             {t.resultados.cases.map((c) => (
-              <div key={c.t} className="card-navy p-5 text-center sm:p-10">
-                <div className="font-display text-5xl text-gold md:text-6xl">{c.v}</div>
-                <div className="mt-3 text-[11px] uppercase tracking-[0.22em] text-parchment/60">
+              <div key={c.t} className="card-navy p-3 text-center sm:p-10">
+                <div className="font-display text-2xl text-gold sm:text-5xl md:text-6xl">{c.v}</div>
+                <div className="mt-1.5 text-[9px] uppercase tracking-[0.16em] text-parchment/60 sm:mt-3 sm:text-[11px] sm:tracking-[0.22em]">
                   {c.t}
                 </div>
-                <p className="mt-5 text-sm leading-relaxed text-parchment/70">{c.d}</p>
+                <p className="mt-2 hidden text-sm leading-relaxed text-parchment/70 sm:mt-5 sm:block">{c.d}</p>
               </div>
             ))}
           </div>

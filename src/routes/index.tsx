@@ -472,7 +472,7 @@ function Index() {
             <p className="mt-4 text-sm text-parchment/60 sm:mt-6 sm:text-base">{t.presenca.subtitle}</p>
           </div>
 
-          <div className="relative mt-16 overflow-hidden rounded-2xl border border-border bg-ink-2/40">
+          <div className="relative mt-8 overflow-hidden md:mt-16 rounded-2xl border border-border bg-ink-2/40">
             <img
               src={worldMap}
               alt={t.presenca.mapAlt}
@@ -490,12 +490,12 @@ function Index() {
             />
           </div>
 
-          <div className="mt-10 text-center sm:mt-12">
-            <h3 className="font-display text-xl uppercase tracking-[0.18em] text-gold sm:text-2xl">
+          <div className="mt-6 text-center sm:mt-12">
+            <h3 className="font-display text-lg uppercase tracking-[0.18em] text-gold sm:text-2xl">
               {t.presenca.officesLabel}
             </h3>
           </div>
-          <div className="mt-6 grid gap-4 sm:mt-8 sm:grid-cols-3">
+          <div className="mt-4 grid gap-3 sm:mt-8 sm:grid-cols-3">
             {t.presenca.offices.map((o) => (
               <div key={o.city} className="card-navy flex items-start gap-4 p-5">
                 <div className="flex h-10 w-10 flex-none items-center justify-center rounded-lg bg-gold/10 ring-1 ring-gold/30">
@@ -563,7 +563,7 @@ function Index() {
             </h2>
             <p className="mt-6 max-w-md text-parchment/70">{t.contato.subtitle}</p>
 
-            <div className="mt-10 space-y-6 text-sm">
+            <div className="mt-6 space-y-4 text-sm sm:mt-10 sm:space-y-6">
               <div className="flex items-start gap-4">
                 <div className="flex h-10 w-10 flex-none items-center justify-center rounded-lg bg-gold/10 ring-1 ring-gold/30">
                   <Mail className="h-4 w-4 text-gold" />
@@ -575,7 +575,7 @@ function Index() {
               </div>
             </div>
 
-            <div className="mt-10 flex items-center gap-3 rounded-lg border border-gold/30 bg-gold/5 p-4">
+            <div className="mt-6 flex items-center gap-3 rounded-lg sm:mt-10 border border-gold/30 bg-gold/5 p-4">
               <ShieldCheck className="h-5 w-5 flex-none text-gold" />
               <p className="text-xs leading-relaxed text-parchment/70">
                 <strong className="text-parchment">{t.contato.disclaimerStrong}</strong> {t.contato.disclaimerText}
@@ -657,9 +657,9 @@ function Index() {
       </section>
 
       {/* FOOTER */}
-      <footer className="bg-ink pt-10 pb-8 md:pt-16 md:pb-10 text-parchment/60">
+      <footer className="bg-ink pt-8 pb-6 md:pt-16 md:pb-10 text-parchment/60">
         <div className="container-lux">
-          <div className="grid gap-12 md:grid-cols-12">
+          <div className="grid gap-8 md:grid-cols-12">
             <div className="md:col-span-5">
               <div className="flex items-center gap-3 text-parchment">
                 <div className="flex h-10 w-10 items-center justify-center rounded-full border border-gold/50">
@@ -698,7 +698,7 @@ function Index() {
               <p className="mt-3 text-xs text-parchment/50">{t.footer.cities}</p>
             </div>
           </div>
-          <div className="mt-14 flex flex-col items-start justify-between gap-4 border-t border-border pt-8 text-xs md:flex-row md:items-center">
+          <div className="mt-8 flex flex-col items-start sm:mt-14 justify-between gap-4 border-t border-border pt-8 text-xs md:flex-row md:items-center">
             <span>© {new Date().getFullYear()} FTI Recovery. {t.footer.copyright}</span>
             <span className="text-parchment/40">{t.footer.regulated}</span>
           </div>

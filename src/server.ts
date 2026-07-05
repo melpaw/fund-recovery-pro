@@ -132,6 +132,10 @@ function isH3SwallowedErrorBody(body: string): boolean {
 
 export default {
   async fetch(request: Request, env: unknown, ctx: unknown) {
+    // Expose the Cloudflare Worker env (with the D1 `DB` binding) so that
+    // TanStack server routes — which don't get env in their handler context —
+    // can still reach it via globalThis.
+    (globalThis as unknown as { __CF_ENV__?: unknown }).__CF_ENV__ = env;
     try {
       const url = new URL(request.url);
       if (url.pathname === "/api/contact") {

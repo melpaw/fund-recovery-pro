@@ -249,13 +249,13 @@ function Index() {
             <span className="text-[11px] uppercase tracking-[0.28em] text-parchment/50">
               {t.awards.label}
             </span>
-            <div className="grid w-full grid-cols-1 items-start gap-8 md:max-w-4xl md:grid-cols-3">
+            <div className="grid w-full grid-cols-3 items-start gap-3 md:max-w-4xl md:gap-8">
               {t.awards.items.map((a) => (
-                <div key={a.y} className="flex flex-col items-center gap-2 text-center">
-                  <Award className="h-9 w-9 text-gold" strokeWidth={1.3} />
-                  <div className="font-display text-lg text-parchment">{a.y}</div>
-                  <div className="text-sm text-parchment/80">{a.t}</div>
-                  <div className="text-[10px] uppercase tracking-[0.2em] text-parchment/50">
+                <div key={a.y} className="flex flex-col items-center gap-1.5 text-center md:gap-2">
+                  <Award className="h-6 w-6 text-gold md:h-9 md:w-9" strokeWidth={1.3} />
+                  <div className="font-display text-sm text-parchment md:text-lg">{a.y}</div>
+                  <div className="text-[11px] text-parchment/80 md:text-sm">{a.t}</div>
+                  <div className="hidden text-[10px] uppercase tracking-[0.2em] text-parchment/50 md:block">
                     {a.s}
                   </div>
                 </div>
@@ -293,27 +293,18 @@ function Index() {
             <p className="mt-4 text-sm text-parchment/70 sm:mt-6 sm:text-base">{t.atuacao.subtitle}</p>
           </div>
 
-          <div className="mt-6 grid gap-3 sm:mt-16 sm:gap-6 md:grid-cols-3">
+          <div className="mt-6 grid grid-cols-3 gap-2 sm:mt-16 sm:gap-6">
             {t.atuacao.services.map((s, i) => {
               const Icon = SERVICE_ICONS[i];
               return (
-                <article key={s.title} className="card-navy group flex flex-col p-5 sm:p-8 transition-all hover:border-gold/40 hover:-translate-y-1">
-                  <div className="flex h-14 w-14 items-center justify-center rounded-lg bg-gold/10 ring-1 ring-gold/30">
-                    <Icon className="h-7 w-7 text-gold" strokeWidth={1.4} />
-                  </div>
-                  <div className="mt-6 text-[10px] uppercase tracking-[0.22em] text-gold">
-                    {s.tag}
-                  </div>
-                  <h3 className="mt-2 font-display text-xl leading-tight text-parchment sm:text-2xl">
-                    {s.title}
-                  </h3>
-                  <p className="mt-4 flex-1 text-sm leading-relaxed text-parchment/65">
-                    {s.text}
-                  </p>
-                  <a href="#contato" className="mt-8 inline-flex items-center gap-2 text-[11px] uppercase tracking-[0.22em] text-gold transition-transform group-hover:translate-x-1">
-                    {t.cta.saibaMais} <ArrowRight className="h-3.5 w-3.5" />
-                  </a>
-                </article>
+                <ExpandableCard
+                  key={s.title}
+                  Icon={Icon}
+                  tag={s.tag}
+                  title={s.title}
+                  text={s.text}
+                  moreLabel={t.cta.saibaMais}
+                />
               );
             })}
           </div>
@@ -332,16 +323,16 @@ function Index() {
             </h2>
           </div>
 
-          <div className="mt-6 grid gap-3 sm:mt-16 sm:gap-6 md:grid-cols-3">
+          <div className="mt-6 grid grid-cols-3 gap-2 sm:mt-16 sm:gap-6">
             {t.why.items.map((w, i) => {
               const Icon = WHY_ICONS[i];
               return (
-                <div key={w.title} className="card-navy p-5 text-center sm:p-8">
-                  <div className="mx-auto flex h-16 w-16 items-center justify-center rounded-full bg-gold/10 ring-1 ring-gold/30">
-                    <Icon className="h-8 w-8 text-gold" strokeWidth={1.3} />
+                <div key={w.title} className="card-navy p-3 text-center sm:p-8">
+                  <div className="mx-auto flex h-10 w-10 items-center justify-center rounded-full bg-gold/10 ring-1 ring-gold/30 sm:h-16 sm:w-16">
+                    <Icon className="h-5 w-5 text-gold sm:h-8 sm:w-8" strokeWidth={1.3} />
                   </div>
-                  <h3 className="mt-6 font-display text-xl text-parchment sm:text-2xl">{w.title}</h3>
-                  <p className="mt-3 text-sm leading-relaxed text-parchment/65">{w.text}</p>
+                  <h3 className="mt-2 font-display text-[13px] leading-tight text-parchment sm:mt-6 sm:text-2xl">{w.title}</h3>
+                  <p className="mt-1.5 hidden text-sm leading-relaxed text-parchment/65 sm:mt-3 sm:block">{w.text}</p>
                 </div>
               );
             })}
@@ -361,19 +352,19 @@ function Index() {
             </h2>
           </div>
 
-          <div className="mt-6 grid gap-3 sm:mt-16 sm:gap-6 md:grid-cols-2 lg:grid-cols-4">
+          <div className="mt-6 grid grid-cols-2 gap-2 sm:mt-16 sm:gap-6 lg:grid-cols-4">
             {t.metodo.items.map((m, i) => {
               const Icon = METHOD_ICONS[i];
               return (
-                <div key={m.t} className="card-navy relative p-5 sm:p-8">
-                  <div className="flex items-center gap-4">
-                    <div className="flex h-12 w-12 items-center justify-center rounded-full bg-gold text-ink font-display text-xl">
+                <div key={m.t} className="card-navy relative p-3 sm:p-8">
+                  <div className="flex items-center gap-2 sm:gap-4">
+                    <div className="flex h-8 w-8 items-center justify-center rounded-full bg-gold text-ink font-display text-sm sm:h-12 sm:w-12 sm:text-xl">
                       {i + 1}
                     </div>
-                    <Icon className="h-6 w-6 text-gold/70" strokeWidth={1.4} />
+                    <Icon className="h-4 w-4 text-gold/70 sm:h-6 sm:w-6" strokeWidth={1.4} />
                   </div>
-                  <h3 className="mt-6 font-display text-xl text-parchment sm:text-2xl">{m.t}</h3>
-                  <p className="mt-3 text-sm leading-relaxed text-parchment/65">{m.d}</p>
+                  <h3 className="mt-2 font-display text-[13px] leading-tight text-parchment sm:mt-6 sm:text-2xl">{m.t}</h3>
+                  <p className="mt-1.5 hidden text-sm leading-relaxed text-parchment/65 sm:mt-3 sm:block">{m.d}</p>
                 </div>
               );
             })}
@@ -393,14 +384,14 @@ function Index() {
             </h2>
           </div>
 
-          <div className="mt-6 grid gap-3 sm:mt-16 sm:gap-6 md:grid-cols-3">
+          <div className="mt-6 grid grid-cols-3 gap-2 sm:mt-16 sm:gap-6">
             {t.resultados.cases.map((c) => (
-              <div key={c.t} className="card-navy p-5 text-center sm:p-10">
-                <div className="font-display text-5xl text-gold md:text-6xl">{c.v}</div>
-                <div className="mt-3 text-[11px] uppercase tracking-[0.22em] text-parchment/60">
+              <div key={c.t} className="card-navy p-3 text-center sm:p-10">
+                <div className="font-display text-2xl text-gold sm:text-5xl md:text-6xl">{c.v}</div>
+                <div className="mt-1.5 text-[9px] uppercase tracking-[0.16em] text-parchment/60 sm:mt-3 sm:text-[11px] sm:tracking-[0.22em]">
                   {c.t}
                 </div>
-                <p className="mt-5 text-sm leading-relaxed text-parchment/70">{c.d}</p>
+                <p className="mt-2 hidden text-sm leading-relaxed text-parchment/70 sm:mt-5 sm:block">{c.d}</p>
               </div>
             ))}
           </div>
@@ -527,19 +518,19 @@ function Index() {
             <p className="mt-4 text-sm text-parchment/60 sm:mt-6 sm:text-base">{t.depoimentos.subtitle}</p>
           </div>
 
-          <div className="mt-6 grid gap-3 sm:mt-16 sm:gap-6 md:grid-cols-2 lg:grid-cols-3">
+          <div className="mt-6 grid grid-cols-2 gap-2 sm:mt-16 sm:gap-6 lg:grid-cols-3">
             {t.depoimentos.items.map((tt) => (
-              <figure key={tt.i + tt.city} className="card-navy flex flex-col p-5 sm:p-8">
-                <blockquote className="flex-1 text-sm leading-relaxed text-parchment/80">
+              <figure key={tt.i + tt.city} className="card-navy flex flex-col p-3 sm:p-8">
+                <blockquote className="flex-1 text-[12px] leading-relaxed text-parchment/80 sm:text-sm">
                   "{tt.q}"
                 </blockquote>
-                <figcaption className="mt-6 flex items-center gap-4 border-t border-border pt-6">
-                  <div className="flex h-11 w-11 items-center justify-center rounded-full bg-gold/15 font-display text-sm text-gold ring-1 ring-gold/30">
+                <figcaption className="mt-3 flex items-center gap-2 border-t border-border pt-3 sm:mt-6 sm:gap-4 sm:pt-6">
+                  <div className="flex h-8 w-8 items-center justify-center rounded-full bg-gold/15 font-display text-[11px] text-gold ring-1 ring-gold/30 sm:h-11 sm:w-11 sm:text-sm">
                     {tt.i.replace(/[^A-Z]/g, "")}
                   </div>
-                  <div>
-                    <div className="text-sm font-semibold text-parchment">{tt.i}</div>
-                    <div className="text-xs text-parchment/50">{tt.city}</div>
+                  <div className="min-w-0">
+                    <div className="truncate text-[12px] font-semibold text-parchment sm:text-sm">{tt.i}</div>
+                    <div className="truncate text-[10px] text-parchment/50 sm:text-xs">{tt.city}</div>
                   </div>
                 </figcaption>
               </figure>
@@ -626,15 +617,15 @@ function Index() {
             }}
           >
 
-            <div className="card-navy space-y-5 p-5 sm:p-8 md:p-10">
+            <div className="card-navy space-y-3 p-4 sm:space-y-5 sm:p-8 md:p-10">
               <Field label={t.contato.fNome} name="full_name" />
               <Field label={t.contato.fEmail} name="email" type="email" />
-              <div className="grid gap-5 sm:grid-cols-2">
-                <Field label="Phone" name="phone" type="tel" placeholder="+00 000 000 000" />
+              <div className="grid grid-cols-2 gap-3 sm:gap-5">
+                <Field label="Phone" name="phone" type="tel" placeholder="+00 000 000" />
                 <Field label="Country" name="country" placeholder="Country" />
               </div>
-              <div className="grid gap-5 sm:grid-cols-2">
-                <Field label="Platform" name="platform" placeholder="Broker / Exchange" />
+              <div className="grid grid-cols-2 gap-3 sm:gap-5">
+                <Field label="Platform" name="platform" placeholder="Broker" />
                 <Field label={t.contato.fValor} name="amount_lost" placeholder={t.contato.fValorPh} />
               </div>
               <div>
@@ -643,8 +634,8 @@ function Index() {
                 </label>
                 <textarea
                   name="message"
-                  rows={4}
-                  className="mt-2 w-full rounded-md border border-border bg-ink/40 px-3 py-2 text-parchment placeholder:text-parchment/30 focus:border-gold focus:outline-none"
+                  rows={3}
+                  className="mt-2 w-full rounded-md border border-border bg-ink/40 px-3 py-2 text-sm text-parchment placeholder:text-parchment/30 focus:border-gold focus:outline-none sm:text-base"
                   placeholder={t.contato.fDescPh}
                 />
               </div>
@@ -743,5 +734,54 @@ function Field({
         className="mt-2 w-full rounded-md border border-border bg-ink/40 px-3 py-2 text-parchment placeholder:text-parchment/30 focus:border-gold focus:outline-none"
       />
     </div>
+  );
+}
+
+function ExpandableCard({
+  Icon,
+  tag,
+  title,
+  text,
+  moreLabel,
+}: {
+  Icon: typeof Bitcoin;
+  tag: string;
+  title: string;
+  text: string;
+  moreLabel: string;
+}) {
+  const [open, setOpen] = useState(false);
+  return (
+    <article className="card-navy group flex flex-col p-3 transition-all hover:border-gold/40 hover:-translate-y-1 sm:p-8">
+      <div className="flex h-9 w-9 items-center justify-center rounded-lg bg-gold/10 ring-1 ring-gold/30 sm:h-14 sm:w-14">
+        <Icon className="h-4 w-4 text-gold sm:h-7 sm:w-7" strokeWidth={1.4} />
+      </div>
+      <div className="mt-2 text-[9px] uppercase tracking-[0.18em] text-gold sm:mt-6 sm:text-[10px] sm:tracking-[0.22em]">
+        {tag}
+      </div>
+      <h3 className="mt-1 font-display text-[13px] leading-tight text-parchment sm:mt-2 sm:text-2xl">
+        {title}
+      </h3>
+      <p
+        className={`mt-2 flex-1 text-[12px] leading-relaxed text-parchment/65 sm:mt-4 sm:text-sm sm:block ${
+          open ? "block" : "hidden"
+        }`}
+      >
+        {text}
+      </p>
+      <button
+        type="button"
+        onClick={() => setOpen((v) => !v)}
+        className="mt-3 inline-flex items-center gap-1 text-[10px] uppercase tracking-[0.18em] text-gold transition-transform group-hover:translate-x-1 sm:hidden"
+      >
+        {moreLabel} <ArrowRight className="h-3 w-3" />
+      </button>
+      <a
+        href="#contato"
+        className="mt-8 hidden items-center gap-2 text-[11px] uppercase tracking-[0.22em] text-gold transition-transform group-hover:translate-x-1 sm:inline-flex"
+      >
+        {moreLabel} <ArrowRight className="h-3.5 w-3.5" />
+      </a>
+    </article>
   );
 }

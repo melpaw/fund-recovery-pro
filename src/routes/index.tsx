@@ -103,36 +103,34 @@ function Index() {
     <div id="top" className="min-h-screen bg-background text-foreground">
       {/* NAV */}
       <header className="absolute inset-x-0 top-0 z-30">
-        <div className="container-lux flex items-center justify-between py-4 md:py-6">
-          <a href="#top" className="flex min-w-0 items-center gap-3 text-parchment">
-            <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full border border-gold/50 bg-ink-2/60">
-              <Scale className="h-5 w-5 text-gold" strokeWidth={1.5} />
+        <div className="container-lux flex items-center justify-between py-3 md:py-6">
+          <a href="#top" className="flex min-w-0 items-center gap-2 text-parchment sm:gap-3">
+            <div className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full border border-gold/50 bg-ink-2/60 sm:h-10 sm:w-10">
+              <Scale className="h-4 w-4 text-gold sm:h-5 sm:w-5" strokeWidth={1.5} />
             </div>
             <div className="min-w-0 leading-tight">
-              <div className="font-display text-lg tracking-[0.2em]">
-                FTI
-              </div>
-              <div className="truncate text-[9px] uppercase tracking-[0.28em] text-parchment/50">
+              <div className="font-display text-base tracking-[0.2em] sm:text-lg">FTI</div>
+              <div className="hidden truncate text-[9px] uppercase tracking-[0.28em] text-parchment/50 sm:block">
                 {t.brand.tagline}
               </div>
             </div>
           </a>
-          <nav className="hidden items-center gap-6 xl:flex">
+          <nav className="hidden items-center gap-4 lg:flex xl:gap-6">
             {NAV.slice(0, 6).map((n) => (
               <a
                 key={n.href}
                 href={n.href}
-                className="text-[11px] uppercase tracking-[0.22em] text-parchment/70 transition-colors hover:text-gold"
+                className="text-[10px] uppercase tracking-[0.2em] text-parchment/70 transition-colors hover:text-gold xl:text-[11px] xl:tracking-[0.22em]"
               >
                 {n.label}
               </a>
             ))}
           </nav>
-          <div className="flex shrink-0 items-center gap-2 sm:gap-3 xl:gap-5 xl:ml-8">
+          <div className="flex shrink-0 items-center gap-2 sm:gap-3 lg:ml-6">
             <LanguageSwitcher />
             <a
               href="#contato"
-              className="hidden xl:inline-flex items-center justify-center gap-2 rounded-md border border-gold bg-gold px-6 py-3 text-[11px] font-semibold uppercase tracking-[0.16em] text-ink shadow-gold transition-colors hover:bg-gold-soft"
+              className="hidden xl:inline-flex items-center justify-center gap-2 rounded-md border border-gold bg-gold px-5 py-2.5 text-[11px] font-semibold uppercase tracking-[0.16em] text-ink shadow-gold transition-colors hover:bg-gold-soft"
             >
               <Phone className="h-3.5 w-3.5" />
               <span>{t.cta.solicitar}</span>
@@ -140,7 +138,7 @@ function Index() {
             <button
               type="button"
               onClick={() => setMobileOpen(true)}
-              className="inline-flex h-10 w-10 items-center justify-center rounded-full border border-gold/40 bg-ink-2/60 text-gold xl:hidden"
+              className="inline-flex h-9 w-9 items-center justify-center rounded-full border border-gold/40 bg-ink-2/60 text-gold lg:hidden"
               aria-label="Open menu"
             >
               <Menu className="h-5 w-5" />

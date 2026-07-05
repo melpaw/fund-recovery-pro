@@ -3,11 +3,11 @@ import { createContext, useContext, useEffect, useMemo, useState, type ReactNode
 export type Lang = "pt" | "en" | "de" | "fr" | "es" | "it";
 
 export const LANGS: { code: Lang; label: string; flag: string }[] = [
-  { code: "pt", label: "PT", flag: "🇧🇷" },
   { code: "en", label: "EN", flag: "🇬🇧" },
   { code: "de", label: "DE", flag: "🇩🇪" },
-  { code: "fr", label: "FR", flag: "🇫🇷" },
+  { code: "pt", label: "PT", flag: "🇧🇷" },
   { code: "es", label: "ES", flag: "🇪🇸" },
+  { code: "fr", label: "FR", flag: "🇫🇷" },
   { code: "it", label: "IT", flag: "🇮🇹" },
 ];
 
@@ -644,11 +644,11 @@ const it: Dict = {
 export const DICTS: Record<Lang, Dict> = { pt, en, de, fr, es, it };
 
 const I18nCtx = createContext<{ lang: Lang; setLang: (l: Lang) => void; t: Dict }>({
-  lang: "pt", setLang: () => {}, t: pt,
+  lang: "en", setLang: () => {}, t: en,
 });
 
 export function I18nProvider({ children }: { children: ReactNode }) {
-  const [lang, setLangState] = useState<Lang>("pt");
+  const [lang, setLangState] = useState<Lang>("en");
   useEffect(() => {
     try {
       const stored = localStorage.getItem("fti-lang") as Lang | null;

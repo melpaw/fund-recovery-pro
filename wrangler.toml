@@ -2,9 +2,17 @@ name = "fti-recovery"
 compatibility_date = "2024-11-06"
 compatibility_flags = ["nodejs_compat"]
 
-# For Cloudflare Pages via GitHub:
-#   Build command:   npm run build
-#   Build output:    dist/client
-# Nitro auto-detects Cloudflare Pages (CF_PAGES=1) and writes the Worker
-# to dist/client/_worker.js during `npm run build`.
-main = "./dist/server/index.mjs"
+# Cloudflare Pages configuration.
+#
+# Nitro auto-detects Cloudflare Pages (CF_PAGES=1 is injected by the Pages
+# build environment) and emits the Worker bundle inside `dist/`, alongside
+# the static client assets. Pages picks it up automatically — do NOT set
+# `main` here; that field is for `wrangler deploy` (Workers), not Pages,
+# and pointing it at a non-existent file breaks the deploy step.
+#
+# GitHub → Cloudflare Pages settings:
+#   Build command:            npm run build
+#   Build output directory:   dist
+#   Root directory:           /
+#   Environment variables:    NODE_VERSION = 20
+pages_build_output_dir = "dist"

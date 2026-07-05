@@ -518,19 +518,19 @@ function Index() {
             <p className="mt-4 text-sm text-parchment/60 sm:mt-6 sm:text-base">{t.depoimentos.subtitle}</p>
           </div>
 
-          <div className="mt-6 grid gap-3 sm:mt-16 sm:gap-6 md:grid-cols-2 lg:grid-cols-3">
+          <div className="mt-6 grid grid-cols-2 gap-2 sm:mt-16 sm:gap-6 lg:grid-cols-3">
             {t.depoimentos.items.map((tt) => (
-              <figure key={tt.i + tt.city} className="card-navy flex flex-col p-5 sm:p-8">
-                <blockquote className="flex-1 text-sm leading-relaxed text-parchment/80">
+              <figure key={tt.i + tt.city} className="card-navy flex flex-col p-3 sm:p-8">
+                <blockquote className="flex-1 text-[12px] leading-relaxed text-parchment/80 sm:text-sm">
                   "{tt.q}"
                 </blockquote>
-                <figcaption className="mt-6 flex items-center gap-4 border-t border-border pt-6">
-                  <div className="flex h-11 w-11 items-center justify-center rounded-full bg-gold/15 font-display text-sm text-gold ring-1 ring-gold/30">
+                <figcaption className="mt-3 flex items-center gap-2 border-t border-border pt-3 sm:mt-6 sm:gap-4 sm:pt-6">
+                  <div className="flex h-8 w-8 items-center justify-center rounded-full bg-gold/15 font-display text-[11px] text-gold ring-1 ring-gold/30 sm:h-11 sm:w-11 sm:text-sm">
                     {tt.i.replace(/[^A-Z]/g, "")}
                   </div>
-                  <div>
-                    <div className="text-sm font-semibold text-parchment">{tt.i}</div>
-                    <div className="text-xs text-parchment/50">{tt.city}</div>
+                  <div className="min-w-0">
+                    <div className="truncate text-[12px] font-semibold text-parchment sm:text-sm">{tt.i}</div>
+                    <div className="truncate text-[10px] text-parchment/50 sm:text-xs">{tt.city}</div>
                   </div>
                 </figcaption>
               </figure>

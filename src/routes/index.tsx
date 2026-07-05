@@ -270,7 +270,7 @@ function Index() {
       </section>
 
       {/* ESCRITÓRIO */}
-      <section id="escritorio" className="py-28 md:py-36">
+      <section id="escritorio" className="py-16 md:py-32">
         <div className="container-lux text-center">
           <span className="gold-pill">
             <Trophy className="h-3.5 w-3.5" /> {t.escritorio.pill}
@@ -285,7 +285,7 @@ function Index() {
       </section>
 
       {/* ATUAÇÃO */}
-      <section id="atuacao" className="border-y border-border bg-ink-2/30 py-28 md:py-36">
+      <section id="atuacao" className="border-y border-border bg-ink-2/30 py-16 md:py-32">
         <div className="container-lux">
           <div className="mx-auto max-w-2xl text-center">
             <span className="gold-pill">
@@ -301,7 +301,7 @@ function Index() {
             {t.atuacao.services.map((s, i) => {
               const Icon = SERVICE_ICONS[i];
               return (
-                <article key={s.title} className="card-navy group flex flex-col p-8 transition-all hover:border-gold/40 hover:-translate-y-1">
+                <article key={s.title} className="card-navy group flex flex-col p-6 sm:p-8 transition-all hover:border-gold/40 hover:-translate-y-1">
                   <div className="flex h-14 w-14 items-center justify-center rounded-lg bg-gold/10 ring-1 ring-gold/30">
                     <Icon className="h-7 w-7 text-gold" strokeWidth={1.4} />
                   </div>
@@ -325,7 +325,7 @@ function Index() {
       </section>
 
       {/* WHY US */}
-      <section className="py-28 md:py-36">
+      <section className="py-16 md:py-32">
         <div className="container-lux">
           <div className="mx-auto max-w-2xl text-center">
             <span className="gold-pill">
@@ -340,7 +340,7 @@ function Index() {
             {t.why.items.map((w, i) => {
               const Icon = WHY_ICONS[i];
               return (
-                <div key={w.title} className="card-navy p-8 text-center">
+                <div key={w.title} className="card-navy p-6 text-center sm:p-8">
                   <div className="mx-auto flex h-16 w-16 items-center justify-center rounded-full bg-gold/10 ring-1 ring-gold/30">
                     <Icon className="h-8 w-8 text-gold" strokeWidth={1.3} />
                   </div>
@@ -354,7 +354,7 @@ function Index() {
       </section>
 
       {/* MÉTODO */}
-      <section id="metodo" className="border-y border-border bg-ink-2/30 py-28 md:py-36">
+      <section id="metodo" className="border-y border-border bg-ink-2/30 py-16 md:py-32">
         <div className="container-lux">
           <div className="mx-auto max-w-2xl text-center">
             <span className="gold-pill">
@@ -369,7 +369,7 @@ function Index() {
             {t.metodo.items.map((m, i) => {
               const Icon = METHOD_ICONS[i];
               return (
-                <div key={m.t} className="card-navy relative p-8">
+                <div key={m.t} className="card-navy relative p-6 sm:p-8">
                   <div className="flex items-center gap-4">
                     <div className="flex h-12 w-12 items-center justify-center rounded-full bg-gold text-ink font-display text-xl">
                       {i + 1}
@@ -386,7 +386,7 @@ function Index() {
       </section>
 
       {/* RESULTADOS */}
-      <section id="resultados" className="py-28 md:py-36">
+      <section id="resultados" className="py-16 md:py-32">
         <div className="container-lux">
           <div className="mx-auto max-w-2xl text-center">
             <span className="gold-pill">
@@ -399,7 +399,7 @@ function Index() {
 
           <div className="mt-16 grid gap-6 md:grid-cols-3">
             {t.resultados.cases.map((c) => (
-              <div key={c.t} className="card-navy p-10 text-center">
+              <div key={c.t} className="card-navy p-6 text-center sm:p-10">
                 <div className="font-display text-5xl text-gold md:text-6xl">{c.v}</div>
                 <div className="mt-3 text-[11px] uppercase tracking-[0.22em] text-parchment/60">
                   {c.t}
@@ -412,8 +412,8 @@ function Index() {
       </section>
 
       {/* SÓCIA */}
-      <section className="border-y border-border bg-ink-2/30 py-28 md:py-36">
-        <div className="container-lux grid gap-14 md:grid-cols-12 md:gap-16">
+      <section className="border-y border-border bg-ink-2/30 py-16 md:py-32">
+        <div className="container-lux grid gap-10 md:grid-cols-12 md:gap-16">
           <div className="md:col-span-5">
             <div className="relative aspect-[4/5] w-full overflow-hidden rounded-xl">
               <img
@@ -464,7 +464,7 @@ function Index() {
       </section>
 
       {/* PRESENÇA GLOBAL */}
-      <section id="presenca" className="py-28 md:py-36">
+      <section id="presenca" className="py-16 md:py-32">
         <div className="container-lux">
           <div className="mx-auto max-w-2xl text-center">
             <span className="gold-pill">
@@ -514,7 +514,7 @@ function Index() {
       </section>
 
       {/* DEPOIMENTOS */}
-      <section id="depoimentos" className="border-t border-border bg-ink-2/30 py-28 md:py-36">
+      <section id="depoimentos" className="border-t border-border bg-ink-2/30 py-16 md:py-32">
         <div className="container-lux">
           <div className="mx-auto max-w-2xl text-center">
             <span className="gold-pill">
@@ -528,7 +528,7 @@ function Index() {
 
           <div className="mt-16 grid gap-6 md:grid-cols-2 lg:grid-cols-3">
             {t.depoimentos.items.map((tt) => (
-              <figure key={tt.i + tt.city} className="card-navy flex flex-col p-8">
+              <figure key={tt.i + tt.city} className="card-navy flex flex-col p-6 sm:p-8">
                 <blockquote className="flex-1 text-sm leading-relaxed text-parchment/80">
                   "{tt.q}"
                 </blockquote>
@@ -550,9 +550,9 @@ function Index() {
       {/* CONTATO */}
       <section
         id="contato"
-        className="relative overflow-hidden border-y border-border bg-ink-2/40 py-28 md:py-36"
+        className="relative overflow-hidden border-y border-border bg-ink-2/40 py-16 md:py-32"
       >
-        <div className="container-lux grid gap-16 md:grid-cols-12">
+        <div className="container-lux grid gap-10 md:grid-cols-12">
           <div className="md:col-span-6">
             <span className="gold-pill">
               <Phone className="h-3.5 w-3.5" /> {t.contato.pill}
@@ -589,7 +589,7 @@ function Index() {
               alert(t.contato.success);
             }}
           >
-            <div className="card-navy space-y-6 p-8 md:p-10">
+            <div className="card-navy space-y-5 p-6 sm:p-8 md:p-10">
               <Field label={t.contato.fNome} name="nome" />
               <Field label={t.contato.fEmail} name="email" type="email" />
               <Field label={t.contato.fValor} name="valor" placeholder={t.contato.fValorPh} />

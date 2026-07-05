@@ -80,6 +80,7 @@ function LanguageSwitcher() {
 
 function Index() {
   const { t } = useI18n();
+  const [mobileOpen, setMobileOpen] = useState(false);
 
   const NAV = [
     { label: t.nav.inicio, href: "#top" },
@@ -92,20 +93,27 @@ function Index() {
     { label: t.nav.contato, href: "#contato" },
   ];
 
+  useEffect(() => {
+    document.body.style.overflow = mobileOpen ? "hidden" : "";
+    return () => {
+      document.body.style.overflow = "";
+    };
+  }, [mobileOpen]);
+
   return (
     <div id="top" className="min-h-screen bg-background text-foreground">
       {/* NAV */}
       <header className="absolute inset-x-0 top-0 z-30">
-        <div className="container-lux flex items-center justify-between py-6">
-          <a href="#top" className="flex items-center gap-3 text-parchment">
-            <div className="flex h-10 w-10 items-center justify-center rounded-full border border-gold/50 bg-ink-2/60">
+        <div className="container-lux flex items-center justify-between py-4 md:py-6">
+          <a href="#top" className="flex min-w-0 items-center gap-3 text-parchment">
+            <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full border border-gold/50 bg-ink-2/60">
               <Scale className="h-5 w-5 text-gold" strokeWidth={1.5} />
             </div>
-            <div className="leading-tight">
+            <div className="min-w-0 leading-tight">
               <div className="font-display text-lg tracking-[0.2em]">
                 FT<span className="text-gold">I</span>
               </div>
-              <div className="text-[9px] uppercase tracking-[0.28em] text-parchment/50">
+              <div className="truncate text-[9px] uppercase tracking-[0.28em] text-parchment/50">
                 {t.brand.tagline}
               </div>
             </div>
@@ -121,7 +129,7 @@ function Index() {
               </a>
             ))}
           </nav>
-          <div className="flex items-center gap-4 lg:gap-5 lg:ml-8">
+          <div className="flex shrink-0 items-center gap-2 sm:gap-3 lg:gap-5 lg:ml-8">
             <LanguageSwitcher />
             <a
               href="#contato"
@@ -130,9 +138,60 @@ function Index() {
               <Phone className="h-3.5 w-3.5" />
               <span>{t.cta.solicitar}</span>
             </a>
+            <button
+              type="button"
+              onClick={() => setMobileOpen(true)}
+              className="inline-flex h-10 w-10 items-center justify-center rounded-full border border-gold/40 bg-ink-2/60 text-gold lg:hidden"
+              aria-label="Open menu"
+            >
+              <Menu className="h-5 w-5" />
+            </button>
           </div>
         </div>
       </header>
+
+      {/* MOBILE MENU */}
+      {mobileOpen && (
+        <div className="fixed inset-0 z-50 flex flex-col bg-ink/98 backdrop-blur lg:hidden">
+          <div className="container-lux flex items-center justify-between py-4">
+            <div className="flex items-center gap-3 text-parchment">
+              <div className="flex h-10 w-10 items-center justify-center rounded-full border border-gold/50 bg-ink-2/60">
+                <Scale className="h-5 w-5 text-gold" strokeWidth={1.5} />
+              </div>
+              <span className="font-display text-lg tracking-[0.2em]">
+                FT<span className="text-gold">I</span>
+              </span>
+            </div>
+            <button
+              type="button"
+              onClick={() => setMobileOpen(false)}
+              className="inline-flex h-10 w-10 items-center justify-center rounded-full border border-gold/40 bg-ink-2/60 text-gold"
+              aria-label="Close menu"
+            >
+              <X className="h-5 w-5" />
+            </button>
+          </div>
+          <nav className="container-lux mt-4 flex flex-1 flex-col gap-1 overflow-y-auto pb-8">
+            {NAV.map((n) => (
+              <a
+                key={n.href}
+                href={n.href}
+                onClick={() => setMobileOpen(false)}
+                className="border-b border-border/60 py-4 text-sm uppercase tracking-[0.22em] text-parchment/80 transition-colors hover:text-gold"
+              >
+                {n.label}
+              </a>
+            ))}
+            <a
+              href="#contato"
+              onClick={() => setMobileOpen(false)}
+              className="mt-8 inline-flex items-center justify-center gap-2 rounded-md bg-gold px-6 py-4 text-xs font-semibold uppercase tracking-[0.16em] text-ink shadow-gold"
+            >
+              <Phone className="h-4 w-4" /> {t.cta.solicitar}
+            </a>
+          </nav>
+        </div>
+      )}
 
       {/* HERO */}
       <section className="relative min-h-[100svh] overflow-hidden bg-ink">
@@ -150,24 +209,24 @@ function Index() {
               "radial-gradient(ellipse at center, oklch(0.19 0.04 258 / 0.4) 0%, oklch(0.19 0.04 258 / 0.85) 55%, var(--ink) 100%)",
           }}
         />
-        <div className="container-lux relative flex min-h-[100svh] flex-col items-center justify-center py-40 text-center text-parchment">
+        <div className="container-lux relative flex min-h-[100svh] flex-col items-center justify-center py-28 text-center text-parchment md:py-40">
           <span className="gold-pill">
             <ShieldCheck className="h-3.5 w-3.5" /> {t.hero.badge}
           </span>
-          <h1 className="mt-8 font-display text-5xl leading-[1.03] tracking-tight md:text-7xl lg:text-[5.5rem]">
+          <h1 className="mt-6 font-display text-[2.25rem] leading-[1.05] tracking-tight sm:text-5xl md:mt-8 md:text-7xl lg:text-[5.5rem]">
             {t.hero.titleA} <span className="italic text-gold">{t.hero.titleAccent}</span>
           </h1>
-          <p className="mt-8 max-w-2xl text-base leading-relaxed text-parchment/70 md:text-lg">
+          <p className="mt-6 max-w-2xl text-sm leading-relaxed text-parchment/70 sm:text-base md:mt-8 md:text-lg">
             {t.hero.subtitle}
           </p>
 
-          <div className="mt-14 grid w-full max-w-4xl gap-4 sm:grid-cols-3">
+          <div className="mt-10 grid w-full max-w-4xl gap-3 sm:mt-14 sm:grid-cols-3 sm:gap-4">
             {t.hero.badges.map((b) => (
-              <div key={b.t} className="card-navy flex items-center gap-4 p-5 text-left">
+              <div key={b.t} className="card-navy flex items-center gap-3 p-4 text-left sm:gap-4 sm:p-5">
                 <div className="flex h-9 w-9 flex-none items-center justify-center rounded-full bg-[color:var(--success)]">
                   <Check className="h-4 w-4 text-ink" strokeWidth={3} />
                 </div>
-                <div>
+                <div className="min-w-0">
                   <div className="text-sm font-semibold text-parchment">{b.t}</div>
                   <div className="text-xs text-parchment/60">{b.s}</div>
                 </div>
@@ -175,16 +234,17 @@ function Index() {
             ))}
           </div>
 
-          <div className="mt-12 flex flex-wrap items-center justify-center gap-4">
-            <a href="#contato" className="btn-gold">
+          <div className="mt-10 flex w-full flex-col items-stretch justify-center gap-3 sm:mt-12 sm:w-auto sm:flex-row sm:flex-wrap sm:items-center sm:gap-4">
+            <a href="#contato" className="btn-gold justify-center">
               <Phone className="h-4 w-4" /> {t.cta.solicitar}
             </a>
-            <a href="#resultados" className="btn-outline-gold">
+            <a href="#resultados" className="btn-outline-gold justify-center">
               <FileText className="h-4 w-4" /> {t.cta.casos}
             </a>
           </div>
         </div>
       </section>
+
 
       {/* AWARDS BAR */}
       <section className="border-y border-border bg-ink-2/40 py-10">

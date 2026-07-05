@@ -275,7 +275,7 @@ function Index() {
           <span className="gold-pill">
             <Trophy className="h-3.5 w-3.5" /> {t.escritorio.pill}
           </span>
-          <h2 className="mx-auto mt-6 max-w-4xl font-display text-4xl leading-tight text-parchment md:text-6xl">
+          <h2 className="mx-auto mt-6 max-w-4xl font-display text-3xl leading-tight text-parchment sm:text-4xl md:text-6xl">
             {t.escritorio.titleA} <span className="italic text-gold">{t.escritorio.titleAccent}</span> {t.escritorio.titleB}
           </h2>
           <p className="mx-auto mt-8 max-w-3xl text-lg leading-relaxed text-parchment/70">
@@ -291,13 +291,13 @@ function Index() {
             <span className="gold-pill">
               <Scale className="h-3.5 w-3.5" /> {t.atuacao.pill}
             </span>
-            <h2 className="mt-6 font-display text-4xl leading-tight text-parchment md:text-5xl">
+            <h2 className="mt-6 font-display text-3xl leading-tight text-parchment sm:text-4xl md:text-5xl">
               {t.atuacao.titleA} <span className="italic text-gold">{t.atuacao.titleAccent}</span>
             </h2>
             <p className="mt-6 text-parchment/70">{t.atuacao.subtitle}</p>
           </div>
 
-          <div className="mt-16 grid gap-6 md:grid-cols-3">
+          <div className="mt-10 grid gap-5 sm:mt-16 sm:gap-6 md:grid-cols-3">
             {t.atuacao.services.map((s, i) => {
               const Icon = SERVICE_ICONS[i];
               return (
@@ -331,12 +331,12 @@ function Index() {
             <span className="gold-pill">
               <ShieldCheck className="h-3.5 w-3.5" /> {t.why.pill}
             </span>
-            <h2 className="mt-6 font-display text-4xl leading-tight text-parchment md:text-5xl">
+            <h2 className="mt-6 font-display text-3xl leading-tight text-parchment sm:text-4xl md:text-5xl">
               {t.why.titleA} <span className="italic text-gold">{t.why.titleAccent}</span> {t.why.titleB}
             </h2>
           </div>
 
-          <div className="mt-16 grid gap-6 md:grid-cols-3">
+          <div className="mt-10 grid gap-5 sm:mt-16 sm:gap-6 md:grid-cols-3">
             {t.why.items.map((w, i) => {
               const Icon = WHY_ICONS[i];
               return (
@@ -360,12 +360,12 @@ function Index() {
             <span className="gold-pill">
               <ClipboardList className="h-3.5 w-3.5" /> {t.metodo.pill}
             </span>
-            <h2 className="mt-6 font-display text-4xl leading-tight text-parchment md:text-5xl">
+            <h2 className="mt-6 font-display text-3xl leading-tight text-parchment sm:text-4xl md:text-5xl">
               {t.metodo.titleA} <span className="italic text-gold">{t.metodo.titleAccent}</span> {t.metodo.titleB}
             </h2>
           </div>
 
-          <div className="mt-16 grid gap-6 md:grid-cols-2 lg:grid-cols-4">
+          <div className="mt-10 grid gap-5 sm:mt-16 sm:gap-6 md:grid-cols-2 lg:grid-cols-4">
             {t.metodo.items.map((m, i) => {
               const Icon = METHOD_ICONS[i];
               return (
@@ -392,12 +392,12 @@ function Index() {
             <span className="gold-pill">
               <Trophy className="h-3.5 w-3.5" /> {t.resultados.pill}
             </span>
-            <h2 className="mt-6 font-display text-4xl leading-tight text-parchment md:text-5xl">
+            <h2 className="mt-6 font-display text-3xl leading-tight text-parchment sm:text-4xl md:text-5xl">
               {t.resultados.titleA} <span className="italic text-gold">{t.resultados.titleAccent}</span>
             </h2>
           </div>
 
-          <div className="mt-16 grid gap-6 md:grid-cols-3">
+          <div className="mt-10 grid gap-5 sm:mt-16 sm:gap-6 md:grid-cols-3">
             {t.resultados.cases.map((c) => (
               <div key={c.t} className="card-navy p-6 text-center sm:p-10">
                 <div className="font-display text-5xl text-gold md:text-6xl">{c.v}</div>
@@ -470,7 +470,7 @@ function Index() {
             <span className="gold-pill">
               <Globe className="h-3.5 w-3.5" /> {t.presenca.pill}
             </span>
-            <h2 className="mt-6 font-display text-4xl leading-tight text-parchment md:text-5xl">
+            <h2 className="mt-6 font-display text-3xl leading-tight text-parchment sm:text-4xl md:text-5xl">
               {t.presenca.titleA} <span className="italic text-gold">{t.presenca.titleAccent}</span>
             </h2>
             <p className="mt-6 text-parchment/60">{t.presenca.subtitle}</p>
@@ -494,7 +494,7 @@ function Index() {
             />
           </div>
 
-          <div className="mt-12 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+          <div className="mt-10 grid gap-4 sm:mt-12 sm:grid-cols-2 lg:grid-cols-3">
             {t.presenca.offices.map((o) => (
               <div key={o.city} className="card-navy flex items-start gap-4 p-5">
                 <div className="flex h-10 w-10 flex-none items-center justify-center rounded-lg bg-gold/10 ring-1 ring-gold/30">
@@ -520,13 +520,13 @@ function Index() {
             <span className="gold-pill">
               <MessageCircle className="h-3.5 w-3.5" /> {t.depoimentos.pill}
             </span>
-            <h2 className="mt-6 font-display text-4xl leading-tight text-parchment md:text-5xl">
+            <h2 className="mt-6 font-display text-3xl leading-tight text-parchment sm:text-4xl md:text-5xl">
               <span className="italic text-gold">{t.depoimentos.title}</span>
             </h2>
             <p className="mt-6 text-parchment/60">{t.depoimentos.subtitle}</p>
           </div>
 
-          <div className="mt-16 grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+          <div className="mt-10 grid gap-5 sm:mt-16 sm:gap-6 md:grid-cols-2 lg:grid-cols-3">
             {t.depoimentos.items.map((tt) => (
               <figure key={tt.i + tt.city} className="card-navy flex flex-col p-6 sm:p-8">
                 <blockquote className="flex-1 text-sm leading-relaxed text-parchment/80">
@@ -557,7 +557,7 @@ function Index() {
             <span className="gold-pill">
               <Phone className="h-3.5 w-3.5" /> {t.contato.pill}
             </span>
-            <h2 className="mt-6 font-display text-4xl leading-tight text-parchment md:text-6xl">
+            <h2 className="mt-6 font-display text-3xl leading-tight text-parchment sm:text-4xl md:text-6xl">
               {t.contato.titleA} <span className="italic text-gold">{t.contato.titleAccent}</span>
             </h2>
             <p className="mt-6 max-w-md text-parchment/70">{t.contato.subtitle}</p>

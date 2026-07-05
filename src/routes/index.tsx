@@ -574,7 +574,7 @@ function Index() {
                 </div>
                 <div>
                   <div className="text-[11px] uppercase tracking-[0.22em] text-parchment/50">{t.contato.emailLabel}</div>
-                  <div className="text-parchment">suport@ftiagent.com</div>
+                  <div className="text-parchment">support@ftiagent.com</div>
                 </div>
               </div>
             </div>
@@ -651,7 +651,7 @@ function Index() {
                 {t.footer.contatoLabel}
               </div>
               <ul className="mt-5 space-y-3 text-sm">
-                <li>suport@ftiagent.com</li>
+                <li>support@ftiagent.com</li>
               </ul>
               <div className="mt-6 text-[11px] uppercase tracking-[0.22em] text-parchment/40">
                 {t.footer.presencaLabel}

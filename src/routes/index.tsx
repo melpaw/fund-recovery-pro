@@ -215,15 +215,15 @@ function Index() {
             {t.hero.subtitle}
           </p>
 
-          <div className="mt-5 grid w-full max-w-4xl gap-2 sm:mt-14 sm:grid-cols-3 sm:gap-4">
+          <div className="mt-5 grid w-full max-w-4xl grid-cols-3 gap-2 sm:mt-14 sm:gap-4">
             {t.hero.badges.map((b) => (
-              <div key={b.t} className="card-navy flex items-center gap-3 p-3 text-left sm:gap-4 sm:p-5">
-                <div className="flex h-8 w-8 flex-none items-center justify-center rounded-full bg-[color:var(--success)] sm:h-9 sm:w-9">
-                  <Check className="h-4 w-4 text-ink" strokeWidth={3} />
+              <div key={b.t} className="card-navy flex flex-col items-center gap-2 p-2.5 text-center sm:flex-row sm:items-center sm:gap-4 sm:p-5 sm:text-left">
+                <div className="flex h-7 w-7 flex-none items-center justify-center rounded-full bg-[color:var(--success)] sm:h-9 sm:w-9">
+                  <Check className="h-3.5 w-3.5 text-ink sm:h-4 sm:w-4" strokeWidth={3} />
                 </div>
                 <div className="min-w-0">
-                  <div className="text-[13px] font-semibold text-parchment sm:text-sm">{b.t}</div>
-                  <div className="text-[11px] text-parchment/60 sm:text-xs">{b.s}</div>
+                  <div className="text-[11px] font-semibold leading-tight text-parchment sm:text-sm">{b.t}</div>
+                  <div className="hidden text-[11px] text-parchment/60 sm:block sm:text-xs">{b.s}</div>
                 </div>
               </div>
             ))}
@@ -352,19 +352,19 @@ function Index() {
             </h2>
           </div>
 
-          <div className="mt-6 grid grid-cols-2 gap-2 sm:mt-16 sm:gap-6 lg:grid-cols-4">
+          <div className="mt-6 grid grid-cols-2 gap-2.5 sm:mt-16 sm:gap-6 lg:grid-cols-4">
             {t.metodo.items.map((m, i) => {
               const Icon = METHOD_ICONS[i];
               return (
-                <div key={m.t} className="card-navy relative p-3 sm:p-8">
-                  <div className="flex items-center gap-2 sm:gap-4">
-                    <div className="flex h-8 w-8 items-center justify-center rounded-full bg-gold text-ink font-display text-sm sm:h-12 sm:w-12 sm:text-xl">
+                <div key={m.t} className="card-navy relative p-3.5 sm:p-8">
+                  <div className="flex items-center gap-2.5 sm:gap-4">
+                    <div className="flex h-9 w-9 items-center justify-center rounded-full bg-gold text-ink font-display text-base sm:h-12 sm:w-12 sm:text-xl">
                       {i + 1}
                     </div>
-                    <Icon className="h-4 w-4 text-gold/70 sm:h-6 sm:w-6" strokeWidth={1.4} />
+                    <Icon className="h-5 w-5 text-gold/70 sm:h-6 sm:w-6" strokeWidth={1.4} />
                   </div>
-                  <h3 className="mt-2 font-display text-[13px] leading-tight text-parchment sm:mt-6 sm:text-2xl">{m.t}</h3>
-                  <p className="mt-1.5 hidden text-sm leading-relaxed text-parchment/65 sm:mt-3 sm:block">{m.d}</p>
+                  <h3 className="mt-3 font-display text-sm leading-tight text-parchment sm:mt-6 sm:text-2xl">{m.t}</h3>
+                  <p className="mt-1.5 text-[11px] leading-relaxed text-parchment/65 sm:mt-3 sm:text-sm">{m.d}</p>
                 </div>
               );
             })}
@@ -648,25 +648,25 @@ function Index() {
       </section>
 
       {/* FOOTER */}
-      <footer className="bg-ink pt-8 pb-6 md:pt-16 md:pb-10 text-parchment/60">
+      <footer className="bg-ink pt-6 pb-5 md:pt-16 md:pb-10 text-parchment/60">
         <div className="container-lux">
-          <div className="grid gap-8 md:grid-cols-12">
+          <div className="grid gap-5 md:grid-cols-12 md:gap-8">
             <div className="md:col-span-5">
               <div className="flex items-center gap-3 text-parchment">
-                <div className="flex h-10 w-10 items-center justify-center rounded-full border border-gold/50">
-                  <Scale className="h-5 w-5 text-gold" strokeWidth={1.5} />
+                <div className="flex h-9 w-9 items-center justify-center rounded-full border border-gold/50 md:h-10 md:w-10">
+                  <Scale className="h-4 w-4 text-gold md:h-5 md:w-5" strokeWidth={1.5} />
                 </div>
-                <span className="font-display text-lg tracking-[0.2em]">
+                <span className="font-display text-base tracking-[0.2em] md:text-lg">
                   FTI
                 </span>
               </div>
-              <p className="mt-5 max-w-xs text-sm">{t.footer.about}</p>
+              <p className="mt-3 max-w-xs text-xs md:mt-5 md:text-sm">{t.footer.about}</p>
             </div>
             <div className="md:col-span-3">
               <div className="text-[11px] uppercase tracking-[0.22em] text-parchment/40">
                 {t.footer.navLabel}
               </div>
-              <ul className="mt-5 space-y-3 text-sm">
+              <ul className="mt-3 flex flex-wrap gap-x-4 gap-y-2 text-xs md:mt-5 md:block md:space-y-3 md:text-sm">
                 {NAV.slice(1).map((n) => (
                   <li key={n.href}>
                     <a href={n.href} className="hover:text-gold">
@@ -680,16 +680,16 @@ function Index() {
               <div className="text-[11px] uppercase tracking-[0.22em] text-parchment/40">
                 {t.footer.contatoLabel}
               </div>
-              <ul className="mt-5 space-y-3 text-sm">
+              <ul className="mt-3 text-xs md:mt-5 md:space-y-3 md:text-sm">
                 <li>support@ftiagent.com</li>
               </ul>
-              <div className="mt-6 text-[11px] uppercase tracking-[0.22em] text-parchment/40">
+              <div className="mt-4 text-[11px] uppercase tracking-[0.22em] text-parchment/40 md:mt-6">
                 {t.footer.presencaLabel}
               </div>
-              <p className="mt-3 text-xs text-parchment/50">{t.footer.cities}</p>
+              <p className="mt-2 text-[11px] text-parchment/50 md:mt-3 md:text-xs">{t.footer.cities}</p>
             </div>
           </div>
-          <div className="mt-8 flex flex-col items-start sm:mt-14 justify-between gap-4 border-t border-border pt-8 text-xs md:flex-row md:items-center">
+          <div className="mt-6 flex flex-col items-start justify-between gap-4 border-t border-border pt-5 text-xs sm:mt-14 sm:pt-8 md:flex-row md:items-center">
             <span>© {new Date().getFullYear()} FTI Recovery. {t.footer.copyright}</span>
             <span className="text-parchment/40">{t.footer.regulated}</span>
           </div>

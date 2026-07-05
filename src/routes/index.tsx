@@ -249,13 +249,13 @@ function Index() {
             <span className="text-[11px] uppercase tracking-[0.28em] text-parchment/50">
               {t.awards.label}
             </span>
-            <div className="grid w-full grid-cols-1 items-start gap-8 md:max-w-4xl md:grid-cols-3">
+            <div className="grid w-full grid-cols-3 items-start gap-3 md:max-w-4xl md:gap-8">
               {t.awards.items.map((a) => (
-                <div key={a.y} className="flex flex-col items-center gap-2 text-center">
-                  <Award className="h-9 w-9 text-gold" strokeWidth={1.3} />
-                  <div className="font-display text-lg text-parchment">{a.y}</div>
-                  <div className="text-sm text-parchment/80">{a.t}</div>
-                  <div className="text-[10px] uppercase tracking-[0.2em] text-parchment/50">
+                <div key={a.y} className="flex flex-col items-center gap-1.5 text-center md:gap-2">
+                  <Award className="h-6 w-6 text-gold md:h-9 md:w-9" strokeWidth={1.3} />
+                  <div className="font-display text-sm text-parchment md:text-lg">{a.y}</div>
+                  <div className="text-[11px] text-parchment/80 md:text-sm">{a.t}</div>
+                  <div className="hidden text-[10px] uppercase tracking-[0.2em] text-parchment/50 md:block">
                     {a.s}
                   </div>
                 </div>

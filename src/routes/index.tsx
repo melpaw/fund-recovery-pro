@@ -46,12 +46,11 @@ function LanguageSwitcher() {
         type="button"
         onClick={() => setOpen((v) => !v)}
         onBlur={() => setTimeout(() => setOpen(false), 150)}
-        className="inline-flex items-center gap-1.5 rounded-full border border-gold/40 bg-ink-2/60 px-2.5 py-1.5 text-[11px] uppercase tracking-[0.18em] text-parchment/80 transition-colors hover:text-gold sm:gap-2 sm:px-3"
+        className="inline-flex items-center gap-1.5 rounded-full border border-gold/40 bg-ink-2/60 px-3 py-1.5 text-[11px] font-semibold uppercase tracking-[0.18em] text-parchment/80 transition-colors hover:text-gold"
         aria-label="Select language"
       >
         <Languages className="h-3.5 w-3.5 text-gold" />
-        <span>{current.flag}</span>
-        <span className="hidden sm:inline">{current.label}</span>
+        <span>{current.flag} {current.label}</span>
       </button>
       {open && (
         <div className="absolute right-0 mt-2 w-40 overflow-hidden rounded-lg border border-border bg-ink-2 shadow-lg z-50">
@@ -64,12 +63,12 @@ function LanguageSwitcher() {
                 setLang(l.code as Lang);
                 setOpen(false);
               }}
-              className={`flex w-full items-center gap-3 px-3 py-2 text-left text-xs transition-colors hover:bg-gold/10 ${
+              className={`flex w-full items-center gap-3 px-3 py-2 text-left text-xs uppercase tracking-[0.18em] transition-colors hover:bg-gold/10 ${
                 l.code === lang ? "text-gold" : "text-parchment/80"
               }`}
             >
-              <span className="text-base">{l.flag}</span>
-              <span className="uppercase tracking-[0.18em]">{l.label}</span>
+              <span className="font-semibold">{l.flag}</span>
+              <span>{l.label}</span>
             </button>
           ))}
         </div>
@@ -104,36 +103,34 @@ function Index() {
     <div id="top" className="min-h-screen bg-background text-foreground">
       {/* NAV */}
       <header className="absolute inset-x-0 top-0 z-30">
-        <div className="container-lux flex items-center justify-between py-4 md:py-6">
-          <a href="#top" className="flex min-w-0 items-center gap-3 text-parchment">
-            <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full border border-gold/50 bg-ink-2/60">
-              <Scale className="h-5 w-5 text-gold" strokeWidth={1.5} />
+        <div className="container-lux flex items-center justify-between py-3 md:py-6">
+          <a href="#top" className="flex min-w-0 items-center gap-2 text-parchment sm:gap-3">
+            <div className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full border border-gold/50 bg-ink-2/60 sm:h-10 sm:w-10">
+              <Scale className="h-4 w-4 text-gold sm:h-5 sm:w-5" strokeWidth={1.5} />
             </div>
             <div className="min-w-0 leading-tight">
-              <div className="font-display text-lg tracking-[0.2em]">
-                FTI
-              </div>
-              <div className="truncate text-[9px] uppercase tracking-[0.28em] text-parchment/50">
+              <div className="font-display text-base tracking-[0.2em] sm:text-lg">FTI</div>
+              <div className="hidden truncate text-[9px] uppercase tracking-[0.28em] text-parchment/50 sm:block">
                 {t.brand.tagline}
               </div>
             </div>
           </a>
-          <nav className="hidden items-center gap-6 xl:flex">
+          <nav className="hidden items-center gap-4 lg:flex xl:gap-6">
             {NAV.slice(0, 6).map((n) => (
               <a
                 key={n.href}
                 href={n.href}
-                className="text-[11px] uppercase tracking-[0.22em] text-parchment/70 transition-colors hover:text-gold"
+                className="text-[10px] uppercase tracking-[0.2em] text-parchment/70 transition-colors hover:text-gold xl:text-[11px] xl:tracking-[0.22em]"
               >
                 {n.label}
               </a>
             ))}
           </nav>
-          <div className="flex shrink-0 items-center gap-2 sm:gap-3 xl:gap-5 xl:ml-8">
+          <div className="flex shrink-0 items-center gap-2 sm:gap-3 lg:ml-6">
             <LanguageSwitcher />
             <a
               href="#contato"
-              className="hidden xl:inline-flex items-center justify-center gap-2 rounded-md border border-gold bg-gold px-6 py-3 text-[11px] font-semibold uppercase tracking-[0.16em] text-ink shadow-gold transition-colors hover:bg-gold-soft"
+              className="hidden xl:inline-flex items-center justify-center gap-2 rounded-md border border-gold bg-gold px-5 py-2.5 text-[11px] font-semibold uppercase tracking-[0.16em] text-ink shadow-gold transition-colors hover:bg-gold-soft"
             >
               <Phone className="h-3.5 w-3.5" />
               <span>{t.cta.solicitar}</span>
@@ -141,7 +138,7 @@ function Index() {
             <button
               type="button"
               onClick={() => setMobileOpen(true)}
-              className="inline-flex h-10 w-10 items-center justify-center rounded-full border border-gold/40 bg-ink-2/60 text-gold xl:hidden"
+              className="inline-flex h-9 w-9 items-center justify-center rounded-full border border-gold/40 bg-ink-2/60 text-gold lg:hidden"
               aria-label="Open menu"
             >
               <Menu className="h-5 w-5" />
@@ -152,7 +149,7 @@ function Index() {
 
       {/* MOBILE MENU */}
       {mobileOpen && (
-        <div className="fixed inset-0 z-50 flex flex-col bg-ink/98 backdrop-blur xl:hidden">
+        <div className="fixed inset-0 z-50 flex flex-col bg-ink/98 backdrop-blur lg:hidden">
           <div className="container-lux flex items-center justify-between py-4">
             <div className="flex items-center gap-3 text-parchment">
               <div className="flex h-10 w-10 items-center justify-center rounded-full border border-gold/50 bg-ink-2/60">
@@ -207,7 +204,7 @@ function Index() {
               "radial-gradient(ellipse at center, oklch(0.19 0.04 258 / 0.4) 0%, oklch(0.19 0.04 258 / 0.85) 55%, var(--ink) 100%)",
           }}
         />
-        <div className="container-lux relative flex min-h-[100svh] flex-col items-center justify-center py-28 text-center text-parchment md:py-40">
+        <div className="container-lux relative flex min-h-[100svh] flex-col items-center justify-center py-16 text-center text-parchment md:py-40">
           <span className="gold-pill">
             <ShieldCheck className="h-3.5 w-3.5" /> {t.hero.badge}
           </span>
@@ -218,7 +215,7 @@ function Index() {
             {t.hero.subtitle}
           </p>
 
-          <div className="mt-10 grid w-full max-w-4xl gap-3 sm:mt-14 sm:grid-cols-3 sm:gap-4">
+          <div className="mt-6 grid w-full max-w-4xl gap-3 sm:mt-14 sm:grid-cols-3 sm:gap-4">
             {t.hero.badges.map((b) => (
               <div key={b.t} className="card-navy flex items-center gap-3 p-4 text-left sm:gap-4 sm:p-5">
                 <div className="flex h-9 w-9 flex-none items-center justify-center rounded-full bg-[color:var(--success)]">
@@ -245,7 +242,7 @@ function Index() {
 
 
       {/* AWARDS BAR */}
-      <section className="border-y border-border bg-ink-2/40 py-10">
+      <section className="border-y border-border bg-ink-2/40 py-8">
         <div className="container-lux">
           <div className="flex flex-col items-center justify-center gap-6 text-center">
             <span className="text-[11px] uppercase tracking-[0.28em] text-parchment/50">
@@ -268,7 +265,7 @@ function Index() {
       </section>
 
       {/* ESCRITÓRIO */}
-      <section id="escritorio" className="py-16 md:py-32">
+      <section id="escritorio" className="py-12 md:py-32">
         <div className="container-lux text-center">
           <span className="gold-pill">
             <Trophy className="h-3.5 w-3.5" /> {t.escritorio.pill}
@@ -283,7 +280,7 @@ function Index() {
       </section>
 
       {/* ATUAÇÃO */}
-      <section id="atuacao" className="border-y border-border bg-ink-2/30 py-16 md:py-32">
+      <section id="atuacao" className="border-y border-border bg-ink-2/30 py-12 md:py-32">
         <div className="container-lux">
           <div className="mx-auto max-w-2xl text-center">
             <span className="gold-pill">
@@ -295,7 +292,7 @@ function Index() {
             <p className="mt-6 text-parchment/70">{t.atuacao.subtitle}</p>
           </div>
 
-          <div className="mt-10 grid gap-5 sm:mt-16 sm:gap-6 md:grid-cols-3">
+          <div className="mt-8 grid gap-4 sm:mt-16 sm:gap-6 md:grid-cols-3">
             {t.atuacao.services.map((s, i) => {
               const Icon = SERVICE_ICONS[i];
               return (
@@ -323,7 +320,7 @@ function Index() {
       </section>
 
       {/* WHY US */}
-      <section className="py-16 md:py-32">
+      <section className="py-12 md:py-32">
         <div className="container-lux">
           <div className="mx-auto max-w-2xl text-center">
             <span className="gold-pill">
@@ -334,7 +331,7 @@ function Index() {
             </h2>
           </div>
 
-          <div className="mt-10 grid gap-5 sm:mt-16 sm:gap-6 md:grid-cols-3">
+          <div className="mt-8 grid gap-4 sm:mt-16 sm:gap-6 md:grid-cols-3">
             {t.why.items.map((w, i) => {
               const Icon = WHY_ICONS[i];
               return (
@@ -352,7 +349,7 @@ function Index() {
       </section>
 
       {/* MÉTODO */}
-      <section id="metodo" className="border-y border-border bg-ink-2/30 py-16 md:py-32">
+      <section id="metodo" className="border-y border-border bg-ink-2/30 py-12 md:py-32">
         <div className="container-lux">
           <div className="mx-auto max-w-2xl text-center">
             <span className="gold-pill">
@@ -363,7 +360,7 @@ function Index() {
             </h2>
           </div>
 
-          <div className="mt-10 grid gap-5 sm:mt-16 sm:gap-6 md:grid-cols-2 lg:grid-cols-4">
+          <div className="mt-8 grid gap-4 sm:mt-16 sm:gap-6 md:grid-cols-2 lg:grid-cols-4">
             {t.metodo.items.map((m, i) => {
               const Icon = METHOD_ICONS[i];
               return (
@@ -384,7 +381,7 @@ function Index() {
       </section>
 
       {/* RESULTADOS */}
-      <section id="resultados" className="py-16 md:py-32">
+      <section id="resultados" className="py-12 md:py-32">
         <div className="container-lux">
           <div className="mx-auto max-w-2xl text-center">
             <span className="gold-pill">
@@ -395,7 +392,7 @@ function Index() {
             </h2>
           </div>
 
-          <div className="mt-10 grid gap-5 sm:mt-16 sm:gap-6 md:grid-cols-3">
+          <div className="mt-8 grid gap-4 sm:mt-16 sm:gap-6 md:grid-cols-3">
             {t.resultados.cases.map((c) => (
               <div key={c.t} className="card-navy p-6 text-center sm:p-10">
                 <div className="font-display text-5xl text-gold md:text-6xl">{c.v}</div>
@@ -410,7 +407,7 @@ function Index() {
       </section>
 
       {/* SÓCIA */}
-      <section className="border-y border-border bg-ink-2/30 py-16 md:py-32">
+      <section className="border-y border-border bg-ink-2/30 py-12 md:py-32">
         <div className="container-lux grid gap-10 md:grid-cols-12 md:gap-16">
           <div className="md:col-span-5">
             <div className="relative aspect-[4/5] w-full overflow-hidden rounded-xl">
@@ -462,7 +459,7 @@ function Index() {
       </section>
 
       {/* PRESENÇA GLOBAL */}
-      <section id="presenca" className="py-16 md:py-32">
+      <section id="presenca" className="py-12 md:py-32">
         <div className="container-lux">
           <div className="mx-auto max-w-2xl text-center">
             <span className="gold-pill">
@@ -517,7 +514,7 @@ function Index() {
       </section>
 
       {/* DEPOIMENTOS */}
-      <section id="depoimentos" className="border-t border-border bg-ink-2/30 py-16 md:py-32">
+      <section id="depoimentos" className="border-t border-border bg-ink-2/30 py-12 md:py-32">
         <div className="container-lux">
           <div className="mx-auto max-w-2xl text-center">
             <span className="gold-pill">
@@ -529,7 +526,7 @@ function Index() {
             <p className="mt-6 text-parchment/60">{t.depoimentos.subtitle}</p>
           </div>
 
-          <div className="mt-10 grid gap-5 sm:mt-16 sm:gap-6 md:grid-cols-2 lg:grid-cols-3">
+          <div className="mt-8 grid gap-4 sm:mt-16 sm:gap-6 md:grid-cols-2 lg:grid-cols-3">
             {t.depoimentos.items.map((tt) => (
               <figure key={tt.i + tt.city} className="card-navy flex flex-col p-6 sm:p-8">
                 <blockquote className="flex-1 text-sm leading-relaxed text-parchment/80">
@@ -553,7 +550,7 @@ function Index() {
       {/* CONTATO */}
       <section
         id="contato"
-        className="relative overflow-hidden border-y border-border bg-ink-2/40 py-16 md:py-32"
+        className="relative overflow-hidden border-y border-border bg-ink-2/40 py-12 md:py-32"
       >
         <div className="container-lux grid gap-10 md:grid-cols-12">
           <div className="md:col-span-6">
@@ -587,21 +584,50 @@ function Index() {
 
           <form
             className="md:col-span-6"
-            onSubmit={(e) => {
+            onSubmit={async (e) => {
               e.preventDefault();
-              alert(t.contato.success);
+              const form = e.currentTarget;
+              const fd = new FormData(form);
+              const payload = {
+                full_name: String(fd.get("full_name") ?? ""),
+                email: String(fd.get("email") ?? ""),
+                phone: String(fd.get("phone") ?? ""),
+                country: String(fd.get("country") ?? ""),
+                platform: String(fd.get("platform") ?? ""),
+                amount_lost: String(fd.get("amount_lost") ?? ""),
+                message: String(fd.get("message") ?? ""),
+              };
+              try {
+                const res = await fetch("/api/contact", {
+                  method: "POST",
+                  headers: { "Content-Type": "application/json" },
+                  body: JSON.stringify(payload),
+                });
+                if (!res.ok) throw new Error(await res.text());
+                alert(t.contato.success);
+                form.reset();
+              } catch (err) {
+                alert("Error: " + (err instanceof Error ? err.message : String(err)));
+              }
             }}
           >
             <div className="card-navy space-y-5 p-6 sm:p-8 md:p-10">
-              <Field label={t.contato.fNome} name="nome" />
+              <Field label={t.contato.fNome} name="full_name" />
               <Field label={t.contato.fEmail} name="email" type="email" />
-              <Field label={t.contato.fValor} name="valor" placeholder={t.contato.fValorPh} />
+              <div className="grid gap-5 sm:grid-cols-2">
+                <Field label="Phone" name="phone" type="tel" placeholder="+00 000 000 000" />
+                <Field label="Country" name="country" placeholder="Country" />
+              </div>
+              <div className="grid gap-5 sm:grid-cols-2">
+                <Field label="Platform" name="platform" placeholder="Broker / Exchange" />
+                <Field label={t.contato.fValor} name="amount_lost" placeholder={t.contato.fValorPh} />
+              </div>
               <div>
                 <label className="text-[11px] uppercase tracking-[0.22em] text-parchment/60">
                   {t.contato.fDesc}
                 </label>
                 <textarea
-                  name="mensagem"
+                  name="message"
                   rows={4}
                   className="mt-2 w-full rounded-md border border-border bg-ink/40 px-3 py-2 text-parchment placeholder:text-parchment/30 focus:border-gold focus:outline-none"
                   placeholder={t.contato.fDescPh}
@@ -616,7 +642,7 @@ function Index() {
       </section>
 
       {/* FOOTER */}
-      <footer className="bg-ink pt-16 pb-10 text-parchment/60">
+      <footer className="bg-ink pt-10 pb-8 md:pt-16 md:pb-10 text-parchment/60">
         <div className="container-lux">
           <div className="grid gap-12 md:grid-cols-12">
             <div className="md:col-span-5">

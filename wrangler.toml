@@ -26,5 +26,16 @@ directory = "./dist/client"
 binding = "ASSETS"
 not_found_handling = "none"
 
+# Cloudflare D1 binding used by /api/contact.
+# Create the database once with:
+#   npx wrangler d1 create fti-contacts
+# Then paste the returned database_id below and run the migration:
+#   npx wrangler d1 execute fti-contacts --file=./migrations/0001_contacts.sql
+[[d1_databases]]
+binding = "DB"
+database_name = "fti-contacts"
+database_id = "REPLACE_WITH_YOUR_D1_DATABASE_ID"
+migrations_dir = "migrations"
+
 [observability]
 enabled = true

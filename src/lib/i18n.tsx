@@ -644,11 +644,11 @@ const it: Dict = {
 export const DICTS: Record<Lang, Dict> = { pt, en, de, fr, es, it };
 
 const I18nCtx = createContext<{ lang: Lang; setLang: (l: Lang) => void; t: Dict }>({
-  lang: "pt", setLang: () => {}, t: pt,
+  lang: "en", setLang: () => {}, t: en,
 });
 
 export function I18nProvider({ children }: { children: ReactNode }) {
-  const [lang, setLangState] = useState<Lang>("pt");
+  const [lang, setLangState] = useState<Lang>("en");
   useEffect(() => {
     try {
       const stored = localStorage.getItem("fti-lang") as Lang | null;

@@ -293,27 +293,18 @@ function Index() {
             <p className="mt-4 text-sm text-parchment/70 sm:mt-6 sm:text-base">{t.atuacao.subtitle}</p>
           </div>
 
-          <div className="mt-6 grid gap-3 sm:mt-16 sm:gap-6 md:grid-cols-3">
+          <div className="mt-6 grid grid-cols-3 gap-2 sm:mt-16 sm:gap-6">
             {t.atuacao.services.map((s, i) => {
               const Icon = SERVICE_ICONS[i];
               return (
-                <article key={s.title} className="card-navy group flex flex-col p-5 sm:p-8 transition-all hover:border-gold/40 hover:-translate-y-1">
-                  <div className="flex h-14 w-14 items-center justify-center rounded-lg bg-gold/10 ring-1 ring-gold/30">
-                    <Icon className="h-7 w-7 text-gold" strokeWidth={1.4} />
-                  </div>
-                  <div className="mt-6 text-[10px] uppercase tracking-[0.22em] text-gold">
-                    {s.tag}
-                  </div>
-                  <h3 className="mt-2 font-display text-xl leading-tight text-parchment sm:text-2xl">
-                    {s.title}
-                  </h3>
-                  <p className="mt-4 flex-1 text-sm leading-relaxed text-parchment/65">
-                    {s.text}
-                  </p>
-                  <a href="#contato" className="mt-8 inline-flex items-center gap-2 text-[11px] uppercase tracking-[0.22em] text-gold transition-transform group-hover:translate-x-1">
-                    {t.cta.saibaMais} <ArrowRight className="h-3.5 w-3.5" />
-                  </a>
-                </article>
+                <ExpandableCard
+                  key={s.title}
+                  Icon={Icon}
+                  tag={s.tag}
+                  title={s.title}
+                  text={s.text}
+                  moreLabel={t.cta.saibaMais}
+                />
               );
             })}
           </div>

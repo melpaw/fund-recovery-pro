@@ -617,15 +617,15 @@ function Index() {
             }}
           >
 
-            <div className="card-navy space-y-5 p-5 sm:p-8 md:p-10">
+            <div className="card-navy space-y-3 p-4 sm:space-y-5 sm:p-8 md:p-10">
               <Field label={t.contato.fNome} name="full_name" />
               <Field label={t.contato.fEmail} name="email" type="email" />
-              <div className="grid gap-5 sm:grid-cols-2">
-                <Field label="Phone" name="phone" type="tel" placeholder="+00 000 000 000" />
+              <div className="grid grid-cols-2 gap-3 sm:gap-5">
+                <Field label="Phone" name="phone" type="tel" placeholder="+00 000 000" />
                 <Field label="Country" name="country" placeholder="Country" />
               </div>
-              <div className="grid gap-5 sm:grid-cols-2">
-                <Field label="Platform" name="platform" placeholder="Broker / Exchange" />
+              <div className="grid grid-cols-2 gap-3 sm:gap-5">
+                <Field label="Platform" name="platform" placeholder="Broker" />
                 <Field label={t.contato.fValor} name="amount_lost" placeholder={t.contato.fValorPh} />
               </div>
               <div>
@@ -634,8 +634,8 @@ function Index() {
                 </label>
                 <textarea
                   name="message"
-                  rows={4}
-                  className="mt-2 w-full rounded-md border border-border bg-ink/40 px-3 py-2 text-parchment placeholder:text-parchment/30 focus:border-gold focus:outline-none"
+                  rows={3}
+                  className="mt-2 w-full rounded-md border border-border bg-ink/40 px-3 py-2 text-sm text-parchment placeholder:text-parchment/30 focus:border-gold focus:outline-none sm:text-base"
                   placeholder={t.contato.fDescPh}
                 />
               </div>

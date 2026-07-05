@@ -46,12 +46,11 @@ function LanguageSwitcher() {
         type="button"
         onClick={() => setOpen((v) => !v)}
         onBlur={() => setTimeout(() => setOpen(false), 150)}
-        className="inline-flex items-center gap-1.5 rounded-full border border-gold/40 bg-ink-2/60 px-2.5 py-1.5 text-[11px] uppercase tracking-[0.18em] text-parchment/80 transition-colors hover:text-gold sm:gap-2 sm:px-3"
+        className="inline-flex items-center gap-1.5 rounded-full border border-gold/40 bg-ink-2/60 px-3 py-1.5 text-[11px] font-semibold uppercase tracking-[0.18em] text-parchment/80 transition-colors hover:text-gold"
         aria-label="Select language"
       >
         <Languages className="h-3.5 w-3.5 text-gold" />
-        <span>{current.flag}</span>
-        <span className="hidden sm:inline">{current.label}</span>
+        <span>{current.flag} {current.label}</span>
       </button>
       {open && (
         <div className="absolute right-0 mt-2 w-40 overflow-hidden rounded-lg border border-border bg-ink-2 shadow-lg z-50">
@@ -64,12 +63,12 @@ function LanguageSwitcher() {
                 setLang(l.code as Lang);
                 setOpen(false);
               }}
-              className={`flex w-full items-center gap-3 px-3 py-2 text-left text-xs transition-colors hover:bg-gold/10 ${
+              className={`flex w-full items-center gap-3 px-3 py-2 text-left text-xs uppercase tracking-[0.18em] transition-colors hover:bg-gold/10 ${
                 l.code === lang ? "text-gold" : "text-parchment/80"
               }`}
             >
-              <span className="text-base">{l.flag}</span>
-              <span className="uppercase tracking-[0.18em]">{l.label}</span>
+              <span className="font-semibold">{l.flag}</span>
+              <span>{l.label}</span>
             </button>
           ))}
         </div>

@@ -130,7 +130,7 @@ function Index() {
             <LanguageSwitcher />
             <a
               href="#contato"
-              className="hidden xl:inline-flex items-center justify-center gap-2 rounded-md border border-gold bg-gold px-5 py-2.5 text-[11px] font-semibold uppercase tracking-[0.16em] text-ink shadow-gold transition-colors hover:bg-gold-soft"
+              className="hidden sm:inline-flex items-center justify-center gap-2 rounded-md border border-gold bg-gold px-3 py-2 text-[10px] font-semibold uppercase tracking-[0.14em] text-ink shadow-gold transition-colors hover:bg-gold-soft md:px-5 md:py-2.5 md:text-[11px] md:tracking-[0.16em]"
             >
               <Phone className="h-3.5 w-3.5" />
               <span>{t.cta.solicitar}</span>

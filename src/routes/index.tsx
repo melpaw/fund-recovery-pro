@@ -1,5 +1,5 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import {
   ArrowRight,
   ShieldCheck,
@@ -20,6 +20,8 @@ import {
   Bitcoin,
   Globe,
   Languages,
+  Menu,
+  X,
 } from "lucide-react";
 import heroJustice from "@/assets/hero-justice.jpg";
 import attorney from "@/assets/attorney.jpg";

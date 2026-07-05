@@ -3,11 +3,11 @@ import { createContext, useContext, useEffect, useMemo, useState, type ReactNode
 export type Lang = "pt" | "en" | "de" | "fr" | "es" | "it";
 
 export const LANGS: { code: Lang; label: string; flag: string }[] = [
-  { code: "pt", label: "PT", flag: "🇧🇷" },
   { code: "en", label: "EN", flag: "🇬🇧" },
   { code: "de", label: "DE", flag: "🇩🇪" },
-  { code: "fr", label: "FR", flag: "🇫🇷" },
+  { code: "pt", label: "PT", flag: "🇧🇷" },
   { code: "es", label: "ES", flag: "🇪🇸" },
+  { code: "fr", label: "FR", flag: "🇫🇷" },
   { code: "it", label: "IT", flag: "🇮🇹" },
 ];
 

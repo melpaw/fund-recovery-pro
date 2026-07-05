@@ -584,21 +584,50 @@ function Index() {
 
           <form
             className="md:col-span-6"
-            onSubmit={(e) => {
+            onSubmit={async (e) => {
               e.preventDefault();
-              alert(t.contato.success);
+              const form = e.currentTarget;
+              const fd = new FormData(form);
+              const payload = {
+                full_name: String(fd.get("full_name") ?? ""),
+                email: String(fd.get("email") ?? ""),
+                phone: String(fd.get("phone") ?? ""),
+                country: String(fd.get("country") ?? ""),
+                platform: String(fd.get("platform") ?? ""),
+                amount_lost: String(fd.get("amount_lost") ?? ""),
+                message: String(fd.get("message") ?? ""),
+              };
+              try {
+                const res = await fetch("/api/contact", {
+                  method: "POST",
+                  headers: { "Content-Type": "application/json" },
+                  body: JSON.stringify(payload),
+                });
+                if (!res.ok) throw new Error(await res.text());
+                alert(t.contato.success);
+                form.reset();
+              } catch (err) {
+                alert("Error: " + (err instanceof Error ? err.message : String(err)));
+              }
             }}
           >
             <div className="card-navy space-y-5 p-6 sm:p-8 md:p-10">
-              <Field label={t.contato.fNome} name="nome" />
+              <Field label={t.contato.fNome} name="full_name" />
               <Field label={t.contato.fEmail} name="email" type="email" />
-              <Field label={t.contato.fValor} name="valor" placeholder={t.contato.fValorPh} />
+              <div className="grid gap-5 sm:grid-cols-2">
+                <Field label="Phone" name="phone" type="tel" placeholder="+00 000 000 000" />
+                <Field label="Country" name="country" placeholder="Country" />
+              </div>
+              <div className="grid gap-5 sm:grid-cols-2">
+                <Field label="Platform" name="platform" placeholder="Broker / Exchange" />
+                <Field label={t.contato.fValor} name="amount_lost" placeholder={t.contato.fValorPh} />
+              </div>
               <div>
                 <label className="text-[11px] uppercase tracking-[0.22em] text-parchment/60">
                   {t.contato.fDesc}
                 </label>
                 <textarea
-                  name="mensagem"
+                  name="message"
                   rows={4}
                   className="mt-2 w-full rounded-md border border-border bg-ink/40 px-3 py-2 text-parchment placeholder:text-parchment/30 focus:border-gold focus:outline-none"
                   placeholder={t.contato.fDescPh}

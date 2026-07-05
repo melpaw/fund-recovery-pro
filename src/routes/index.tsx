@@ -323,16 +323,16 @@ function Index() {
             </h2>
           </div>
 
-          <div className="mt-6 grid gap-3 sm:mt-16 sm:gap-6 md:grid-cols-3">
+          <div className="mt-6 grid grid-cols-3 gap-2 sm:mt-16 sm:gap-6">
             {t.why.items.map((w, i) => {
               const Icon = WHY_ICONS[i];
               return (
-                <div key={w.title} className="card-navy p-5 text-center sm:p-8">
-                  <div className="mx-auto flex h-16 w-16 items-center justify-center rounded-full bg-gold/10 ring-1 ring-gold/30">
-                    <Icon className="h-8 w-8 text-gold" strokeWidth={1.3} />
+                <div key={w.title} className="card-navy p-3 text-center sm:p-8">
+                  <div className="mx-auto flex h-10 w-10 items-center justify-center rounded-full bg-gold/10 ring-1 ring-gold/30 sm:h-16 sm:w-16">
+                    <Icon className="h-5 w-5 text-gold sm:h-8 sm:w-8" strokeWidth={1.3} />
                   </div>
-                  <h3 className="mt-6 font-display text-xl text-parchment sm:text-2xl">{w.title}</h3>
-                  <p className="mt-3 text-sm leading-relaxed text-parchment/65">{w.text}</p>
+                  <h3 className="mt-2 font-display text-[13px] leading-tight text-parchment sm:mt-6 sm:text-2xl">{w.title}</h3>
+                  <p className="mt-1.5 hidden text-sm leading-relaxed text-parchment/65 sm:mt-3 sm:block">{w.text}</p>
                 </div>
               );
             })}

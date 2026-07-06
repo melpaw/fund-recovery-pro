@@ -24,7 +24,7 @@ import {
   X,
 } from "lucide-react";
 import heroJustice from "@/assets/hero-justice.jpg";
-import attorney from "@/assets/attorney.jpg";
+
 import worldMap from "@/assets/world-map.jpg";
 import { useI18n, LANGS, type Lang } from "@/lib/i18n";
 

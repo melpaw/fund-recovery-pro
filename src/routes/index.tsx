@@ -24,7 +24,7 @@ import {
   X,
 } from "lucide-react";
 import heroJustice from "@/assets/hero-justice.jpg";
-import attorney from "@/assets/attorney.jpg";
+
 import worldMap from "@/assets/world-map.jpg";
 import { useI18n, LANGS, type Lang } from "@/lib/i18n";
 
@@ -398,57 +398,6 @@ function Index() {
         </div>
       </section>
 
-      {/* SÓCIA */}
-      <section className="border-y border-border bg-ink-2/30 py-8 md:py-32">
-        <div className="container-lux grid gap-10 md:grid-cols-12 md:gap-16">
-          <div className="md:col-span-5">
-            <div className="relative aspect-[4/5] w-full overflow-hidden rounded-xl">
-              <img
-                src={attorney}
-                alt={t.socia.name}
-                width={1024}
-                height={1280}
-                loading="lazy"
-                className="h-full w-full object-cover"
-              />
-              <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-ink to-transparent p-6">
-                <div className="font-display text-xl text-parchment sm:text-2xl">{t.socia.name}</div>
-                <div className="text-[11px] uppercase tracking-[0.22em] text-gold">
-                  {t.socia.role}
-                </div>
-              </div>
-            </div>
-          </div>
-          <div className="md:col-span-7 md:pt-6">
-            <span className="gold-pill">
-              <Scale className="h-3.5 w-3.5" /> {t.socia.pill}
-            </span>
-            <blockquote className="mt-8 font-display text-3xl leading-[1.25] text-parchment md:text-4xl">
-              {t.socia.quote}
-            </blockquote>
-            <div className="mt-10 grid gap-6 sm:grid-cols-3">
-              <div>
-                <div className="font-display text-3xl text-gold">LL.M.</div>
-                <div className="text-xs uppercase tracking-[0.18em] text-parchment/60">
-                  {t.socia.llLabel}
-                </div>
-              </div>
-              <div>
-                <div className="font-display text-3xl text-gold">{t.socia.yearsValue}</div>
-                <div className="text-xs uppercase tracking-[0.18em] text-parchment/60">
-                  {t.socia.yearsLabel}
-                </div>
-              </div>
-              <div>
-                <div className="font-display text-3xl text-gold">Chambers</div>
-                <div className="text-xs uppercase tracking-[0.18em] text-parchment/60">
-                  {t.socia.chambersLabel}
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
 
       {/* PRESENÇA GLOBAL */}
       <section id="presenca" className="py-8 md:py-32">
